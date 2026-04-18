@@ -1,22 +1,23 @@
-#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+
+x#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
 #+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
 #+title: Taller de Configuracion de Entorno WSL
 #+date: 2026-04-08
-#+author: COLOQUE SU NOMBRE, COLOQUE SEGUNDO NOMBRE
-#+email: lenin.falconi@epn.edu.ec
-#+language: Espanol
-#+select_tags: export
-#+exclude_tags: noexport
-#+creator: Emacs 27.1 (Org mode 9.7.5)
-#+cite_export:
+#+author:Leonardo Rodriguez, Jóse Jacome, 
+#+email: leonardo.rodriguez01@epn.edu.ec, 
+ #+language: Espanol
+ #+select_tags: export
+ #+exclude_tags: noexport
+ #+creator: Emacs 27.1 (Org mode 9.7.5)
+ #+cite_export:
 
-#+latex_class: article
-#+latex_class_options:
-#+latex_header:
-#+latex_header_extra:
+ #+latex_class: article
+ #+latex_class_options:
+ #+latex_header:
+ #+latex_header_extra:
 #+description:
 #+keywords:
 #+subtitle:
@@ -75,18 +76,22 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+end_src
   
    #+RESULTS:
-
-
+   -Leonardo Rodriguez
+  [[[[ file:~/imagenes/MambaEvidencia.jpeg]]]]
+   
 2. Verificacion de Python
    1. Active el entorno ~iccd332~ para abrir Emacs con ~mamba activate iccd332~.
    2. Ejecute ~python --version~ en la consola y desde Emacs.
 
-   #+begin_src shell :exports both :results verbatim
+   #+begin_src shell :exports both :results verbatimfg
+
     python --version
    #+end_src
 
    #+RESULTS:
-   : Python 3.9.23
+   -Leonardo Rodriguez
+  [[ [[file:~/imagenes/PythonEvidencia.jpeg]]]]
+   
 
 3. Verificacion de Emacs
    Ejecute ~emacs --version~ en la consola y desde Emacs.
@@ -96,8 +101,8 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+end_src
 
    #+RESULTS:
-
-
+   -Leonardo Rodriguez
+  [[ [[file:~/imagenes/EmacsEvidencia.jpeg]]]]
 4. Verificacion de LaTeX
    Ejecute ~latex --version~ en la consola y desde Emacs.
 
@@ -106,7 +111,8 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+end_src
 
    #+RESULTS:
-
+   -Leonardo Rodriguez
+  [[ [[file:~/imagenes/LatexEvidencia.jpeg]]]]
 
 5. Registro de problemas y solucion aplicada
 
@@ -115,6 +121,11 @@ Complete la siguiente tabla si tuvo errores durante la configuracion:
 #+ATTR_LATEX: :environment tabularx :width \textwidth :align lXX
 | *Herramienta* | *Problema observado* | *Solucion aplicada* |
 |---------------+----------------------+---------------------|
+|               |                      |                     |
+|               |                      |                     |
+|               |                      |                     |
+|               |                      |                     |
+|               |                      |                     |
 |               |                      |                     |
 |               |                      |                     |
 |               |                      |                     |
@@ -135,13 +146,17 @@ tabla. Dentro de la región de la tabla puede dar C-c C-c para alinear
 automáticamente la tabla al contenido del texto que escriba. Para
 generar una nueva fila escriba presione la tecla TAB
 
-<Estudiante A>
+<Leonardo Rodriguez>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
-| *Comando*         | *Descripción*               | *Comando* | *Descripción*                     |
-|-------------------+-----------------------------+-----------+-----------------------------------|
-| ~C-c C-e # latex~ | Insertar template de  latex | ~C-x C-s~ | Guardar los cambios en el archivo |
-|                   |                             |           |                                   |
-|                   |                             |           |                                   |
+| *Comando* | *Descripción*                                                                   | *Comando* | *Descripción*                       |
+|-----------+---------------------------------------------------------------------------------+-----------+-------------------------------------|
+| - C-SPC   | - Seleccionar todo lo que necesites ya sea copiar o eliminar                    | - C-w     | - Cortar lo que tengas seleccionado |
+|-----------+---------------------------------------------------------------------------------+-----------+-------------------------------------|
+| - C-/     | - Comando para deshacer todo lo que hayas escrito como un control z tradicional | - C-k     | - Eliminar toda una linea           |
+|-----------+---------------------------------------------------------------------------------+-----------+-------------------------------------|
+| - C-s     | - Busqueda de pala hacia adelante                                               | - C-r     | - Busqueda de palabras hacia atras  |
+|-----------+---------------------------------------------------------------------------------+-----------+-------------------------------------|
+
 
 <Estudiante B>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
@@ -172,17 +187,23 @@ sobre la manipulación de Emacs. Es hora de poner en práctica sus
 conocimientos. Realice unas 3 visitas al juego  [[https://chat.qwen.ai/s/deploy/t_23ff57ef-b59a-4bd7-9b79-54679b33686d][Emacs-Trainer]] y apunte
 en la siguiente tabla su puntaje.
 
-Estudiante A: 
+Estudiante A:Leonardo Rodriguez
 |-----------+---------|
 | iteración | Puntaje |
 |-----------+---------|
-|         1 |         |
-|         2 |         |
-|         3 |         |
+|         1 |   128   |
+|         2 |   140   |
+|         3 |   135   |
 |-----------+---------|
 
 #+begin_src org
-[[./estudianteA-game.png]]
+-Intento 1
+[[file:~/imagenes/Intento1.jpeg]]
+-Intento2
+[[file:~/imagenes/Intento2.jpeg]]
+-Intento3
+[[file:~/imagenes/Intento3.jpeg]]
+
 #+end_src
 
 [[./EmacsTrainerResult.png]]
@@ -246,13 +267,21 @@ Para consultar lo que hace un comando ejecute:
 8. Pegue el texto en <Pegar lo que dice el...> con ~C-y~
 
 **Comandos Fáciles**
-1. **Estudiante A:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+1. **Leonardo Rodriguez:** <C-x C-f>. <Edit file FILENAME.
+Switch to a buffer visiting file FILENAME, creating one if none
+already exists.
+Interactively, the default if you just type RET is the current directory,
+but the visited file name is available through the minibuffer history:
+type M-n to pull it into the minibuffer.
+>
 2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
 3. 
 4. 
 
 **Comandos Difíciles**
-1. **Estudiante A:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+1. **Leonardo Rodriguez:** <C-s>. <It is bound to C-s.
+It can also be invoked from the menu: Edit → Incremental Search →
+Forward String...>
 2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
 3.
 
@@ -260,26 +289,26 @@ Para consultar lo que hace un comando ejecute:
 Complete la información de los integrantes de grupo e indique el líder
 de grupo.
 
-|-----------------+-------------------------+-------------|
-| Nombre          | email                   | Rol         |
-|-----------------+-------------------------+-------------|
-| Alan Turing     | a.turing@enigma.com     | líder       |
-| Albert Einstein | a.einstein@relativo.com | colaborador |
-|                 |                         |             |
-|-----------------+-------------------------+-------------|
+|--------------------+---------------------------------+-------------|
+| Nombre             | email                           | Rol         |
+|--------------------+---------------------------------+-------------|
+| Leonardo Rodriguez | leonardo.rodriguez01@epn.edu.ec | Líder       |
+|                    |                                 | Colaborador |
+|                    |                                 | Colaborador |
+|--------------------+---------------------------------+-------------|
 
 * Verificación de Entregables [33%]:
 Ejecute ~C-c C-c~ sobre los ítems de tarea según se hayan cumplido o
 no. Si un ítem no pudo realizarse apunte en la siguiente sección las
 razones al respecto.
 - [X] Verificación de configuración de entorno WSL y paquetes del curso. 
-- [ ] Tutorial de Comandos Emacs realizado.
-- [ ] Captura de Imágenes y puntajes de Emacs Trainer App.
-- [ ] Usando Emacs para tener ayuda sobre Emacs
-- [ ] Verifique que estén los nombres de los integrantes del equipo e
+- [X] Tutorial de Comandos Emacs realizado.
+- [X] Captura de Imágenes y puntajes de Emacs Trainer App.
+- [X] Usando Emacs para tener ayuda sobre Emacs
+- [X] Verifique que estén los nombres de los integrantes del equipo e
   identificado el líder.
-- [ ] Revisión de ortografía con ~ispell~ en el buffer
-- [ ] Generación de Archivo PDF ~M-x org-latex-export-to-pdf~
+- [X] Revisión de ortografía con ~ispell~ en el buffer
+- [X] Generación de Archivo PDF ~M-x org-latex-export-to-pdf~
 ** Problemas con la Tarea:
 - Tarea $X_1$ no pudo completarse debido a
 - Tarea $X_2$ no pudo completarse debido a
