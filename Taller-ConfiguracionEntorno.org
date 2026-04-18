@@ -1,5 +1,4 @@
-
-x#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
+#+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
@@ -77,7 +76,7 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
   
    #+RESULTS:
    -Leonardo Rodriguez
-  [[[[ file:~/imagenes/MambaEvidencia.jpeg]]]]
+  [[[[file:~/imagenes/MambaEvidencia.jpeg]]]]
    
 2. Verificacion de Python
    1. Active el entorno ~iccd332~ para abrir Emacs con ~mamba activate iccd332~.
@@ -90,7 +89,7 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 
    #+RESULTS:
    -Leonardo Rodriguez
-  [[ [[file:~/imagenes/PythonEvidencia.jpeg]]]]
+  [[[[file:~/imagenes/PythonEvidencia.jpeg]]]]
    
 
 3. Verificacion de Emacs
@@ -102,7 +101,7 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 
    #+RESULTS:
    -Leonardo Rodriguez
-  [[ [[file:~/imagenes/EmacsEvidencia.jpeg]]]]
+  [[[[file:~/imagenes/EmacsEvidencia.jpeg]]]]
 4. Verificacion de LaTeX
    Ejecute ~latex --version~ en la consola y desde Emacs.
 
@@ -112,7 +111,7 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 
    #+RESULTS:
    -Leonardo Rodriguez
-  [[ [[file:~/imagenes/LatexEvidencia.jpeg]]]]
+  [[[[file:~/imagenes/LatexEvidencia.jpeg]]]]
 
 5. Registro de problemas y solucion aplicada
 
