@@ -1,12 +1,4 @@
 
-
-
-
-
-
-
-
-
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
@@ -15,11 +7,12 @@
 #+title: Taller de Configuracion de Entorno WSL
 #+date: 2026-04-08
 #+author:Leonardo Rodriguez, Jóse Jacome,Samuel Churaco, 
-#+email: leonardo.rodriguez01@epn.edu.ec, 
+#+email: leonardo.rodriguez01@epn.edu.ec,jose.jacome04@epn.edu.ec,samuel.churaco@epn.edu.ec
  #+language: Espanol
  #+select_tags: export
  #+exclude_tags: noexport
  #+creator: Emacs 27.1 (Org mode 9.7.5)
+ 
  #+cite_export:
 
  #+latex_class: article
@@ -112,6 +105,8 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
   #+end_example
   -Samuel Churaco
   [[[[file:Imgess/infoMamba.png]]]]
+   -José Jácome
+   [[[[file:~/images/mambaEvidenciaJJ.jpg]]]]
    
 2. Verificacion de Python
    1. Active el entorno ~iccd332~ para abrir Emacs con ~mamba activate iccd332~.
@@ -128,6 +123,11 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
   -Samuel Churaco
   [[[[file:Imgess/infoMamba.png]]]]   
 
+    -José Jácome
+    [[[[file:~/images/pythonEviddenciaJJ.jpeg]]]]
+   
+
+
 3. Verificacion de Emacs
    Ejecute ~emacs --version~ en la consola y desde Emacs.
 
@@ -140,6 +140,9 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
   [[[[file:~/imagenes/EmacsEvidencia.jpeg]]]]
   -Samuel Churaco
   [[[[file:Imgess/Emacsinf.png]]]]
+   -José Jácome
+  [[[[file:~/images/emacsEvidenciaJJ.jpg]]]]
+  
 4. Verificacion de LaTeX
    Ejecute ~latex --version~ en la consola y desde Emacs.
 
@@ -152,6 +155,9 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
   [[[[file:~/imagenes/LatexEvidencia.jpeg]]]]
    -Samuel Churaco
    [[[[file:Imgess/Latexinf.png]]]]
+   -José Jácome
+  [[[[file:~/images/latexEvidenciaJJ.jpeg]]]]
+
 5. Registro de problemas y solucion aplicada
 
 Complete la siguiente tabla si tuvo errores durante la configuracion:
@@ -203,28 +209,28 @@ generar una nueva fila escriba presione la tecla TAB
 | - C-h - 0 | Saltar entre ventadnas | C-x C-s   | Guarda cambios                        |
 | - C-/  /  | Deshacer               | -C-g      | Elimina la intencion de algun comando |
 | - C-d     | Elimina al otrollado   | C-v       | saltos de parrafo                     |
-<Estudiante C>
-#+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
-| *Comando*         | *Descripción*               | *Comando* | *Descripción*                     |
-|-------------------+-----------------------------+-----------+-----------------------------------|
-| ~C-c C-e # latex~ | Insertar template de  latex | ~C-x C-s~ | Guardar los cambios en el archivo |
-|                   |                             |           |                                   |
-|                   |                             |           |                                   |
 
-<Estudiante D>
+<jose jacome>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
-| *Comando*         | *Descripción*               | *Comando* | *Descripción*                     |
-|-------------------+-----------------------------+-----------+-----------------------------------|
-| ~C-c C-e # latex~ | Insertar template de  latex | ~C-x C-s~ | Guardar los cambios en el archivo |
-|                   |                             |           |                                   |
-|                   |                             |           |                                   |
+
+
+| *Comando* | *Descripción*                                                          | *Comando* | *Descripción*                                                                |
+|-----------+------------------------------------------------------------------------+-----------+------------------------------------------------------------------------------|
+| - C-n     | - Baja toda una línea en la misma dirección, es como si bajara en NEXT | - C-M-v   | - Mueve todo un texto de una ventana a otra sin cambiar la ventana ya activa |
+|-----------+------------------------------------------------------------------------+-----------+------------------------------------------------------------------------------|
+| - C-x C-b | - Muestra todos los buffers activos, como los procesos de emacs        | - C-x f   | - Cambia el tamaño del margen                                                |
+|-----------+------------------------------------------------------------------------+-----------+------------------------------------------------------------------------------|
+| - C-x u   | - Deshace las acciones hechas                                          | - C-g     | - Cancela un comando                                                         |
+|-----------+------------------------------------------------------------------------+-----------+------------------------------------------------------------------------------|
+
+
 ** Comandos Emacs Juego
 En la anterior sección usted revisó los comandos de mayor interés
 sobre la manipulación de Emacs. Es hora de poner en práctica sus
 conocimientos. Realice unas 3 visitas al juego  [[https://chat.qwen.ai/s/deploy/t_23ff57ef-b59a-4bd7-9b79-54679b33686d][Emacs-Trainer]] y apunte
 en la siguiente tabla su puntaje.
 
-Estudiante A:Leonardo Rodriguez
+Leonardo Rodriguez:
 |-----------+---------|
 | iteración | Puntaje |
 |-----------+---------|
@@ -233,7 +239,6 @@ Estudiante A:Leonardo Rodriguez
 |         3 |   135   |
 |-----------+---------|
 
-#+begin_src org
 -Intento 1
 [[file:~/imagenes/Intento1.jpeg]]
 -Intento2
@@ -241,10 +246,9 @@ Estudiante A:Leonardo Rodriguez
 -Intento3
 [[file:~/imagenes/Intento3.jpeg]]
 
-#+end_src
 
-[[./EmacsTrainerResult.png]]
 
+<<<<<<< HEAD
 SamuelChuraco 
 |-----------+---------|
 | iteración | Puntaje |
@@ -259,6 +263,24 @@ SamuelChuraco
 
 [[file:Imgess/prueba.png]]
 #+end_src
+José Jácome
+|-----------+---------|
+| iteración | Puntaje |
+|-----------+---------|
+|         1 |  111    |
+|         2 |  126    |
+|         3 |  130    |
+|-----------+---------|
+
+
+-Intento 1
+[[file:~/images/IntentoJuego1.jpeg]]
+-Intento2
+[[file:~/images/IntentoJuego2.jpeg]]
+-Intento3
+[[file:~/images/IntentoJuego3.jpeg]]
+
+>>>>>>> 35bf52903e7929a7230b0b9bbbfcacc4abf1864c
 
 Estudiante C: 
 |-----------+---------|
@@ -311,7 +333,7 @@ Switch to a buffer visiting file FILENAME, creating one if none
 already exists.
 Interactively, the default if you just type RET is the current directory,
 but the visited file name is available through the minibuffer history:
-type M-n to pull it into the minibuffer.
+type M-n to pull it into the minibuffer.>
 >
 2. **Samuel Churaco**<C-x - o >. <
 Select another window in cyclic ordering of windows.
@@ -322,8 +344,13 @@ skip -COUNT windows backwards.  COUNT zero means do not skip any
 window, so select the selected window.  In an interactive call,
 COUNT is the numeric prefix argument.  Return nil.
  >
-3. 
-4. 
+3. **José Jácome:** <C-x u>. <C-x u runs the command undo (found in global-map), which is an
+interactive native-compiled Lisp function in ‘simple.el’.
+It is bound to C-_, <undo>, C-/ and C-x u.
+It can also be invoked from the menu: Edit → Undo
+(undo &optional ARG)
+Undo some previous changes.
+Repeat this command to undo more changes>
 
 **Comandos Difíciles**
 1. **Leonardo Rodriguez:** <C-s>. <It is bound to C-s.
@@ -336,7 +363,9 @@ the listing of the directory files and their attributes.
 Interactively, a prefix argument will cause the command to prompt
 for SWITCHES.
 >
-3.
+3. **José Jácome:** <C-M-v>. <C-M-v runs the command scroll-other-window (found in global-map),
+which is an interactive native-compiled Lisp function in ‘window.el’.
+It is bound to M-<next>, C-M-v and ESC <next> .>
 
 * Equipo de Trabajo
 Complete la información de los integrantes de grupo e indique el líder
@@ -347,7 +376,8 @@ de grupo.
 |--------------------+---------------------------------+-------------|
 | Leonardo Rodriguez | leonardo.rodriguez01@epn.edu.ec | Líder       |
 | Samuelchuraco      | samuelchuraco@epn.edu.ec        | Colaborador |
-|                    |                                 | Colaborador |
+| José Jácome        | jose.jacome04@epn.edu.ec        | Colaborador |
+|                    |                                 |             |
 |--------------------+---------------------------------+-------------|
 
 * Verificación de Entregables [100%]:
