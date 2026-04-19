@@ -4,13 +4,14 @@
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
 #+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
 #+title: Taller de Configuracion de Entorno WSL
-#+date: 2026-04-08
+#+date: 2026-04-081
 #+author:Leonardo Rodriguez, Jóse Jacome, 
 #+email: leonardo.rodriguez01@epn.edu.ec, 
- #+language: Espanol
+ #+language: Espanolx
  #+select_tags: export
  #+exclude_tags: noexport
  #+creator: Emacs 27.1 (Org mode 9.7.5)
+ 
  #+cite_export:
 
  #+latex_class: article
@@ -186,7 +187,7 @@ sobre la manipulación de Emacs. Es hora de poner en práctica sus
 conocimientos. Realice unas 3 visitas al juego  [[https://chat.qwen.ai/s/deploy/t_23ff57ef-b59a-4bd7-9b79-54679b33686d][Emacs-Trainer]] y apunte
 en la siguiente tabla su puntaje.
 
-Estudiante A:Leonardo Rodriguez
+Leonardo Rodriguez:
 |-----------+---------|
 | iteración | Puntaje |
 |-----------+---------|
@@ -195,7 +196,6 @@ Estudiante A:Leonardo Rodriguez
 |         3 |   135   |
 |-----------+---------|
 
-#+begin_src org
 -Intento 1
 [[file:~/imagenes/Intento1.jpeg]]
 -Intento2
@@ -203,9 +203,7 @@ Estudiante A:Leonardo Rodriguez
 -Intento3
 [[file:~/imagenes/Intento3.jpeg]]
 
-#+end_src
 
-[[./EmacsTrainerResult.png]]
 
 Estudiante B: 
 |-----------+---------|
