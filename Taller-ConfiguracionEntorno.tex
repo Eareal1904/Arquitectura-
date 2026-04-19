@@ -1,4 +1,4 @@
-% Created 2026-04-17 Fri 23:33
+% Created 2026-04-19 Sun 05:17
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -20,11 +20,11 @@
 \setlength\headheight{43.0pt}
 \usepackage{tabularx}
 \usepackage{longtable}
-\author{Leonardo Rodriguez, Jóse Jacome,}
+\author{Leonardo Rodriguez, Jóse Jácome,}
 \date{2026-04-08}
 \title{Taller de Configuracion de Entorno WSL}
 \hypersetup{
- pdfauthor={Leonardo Rodriguez, Jóse Jacome,},
+ pdfauthor={Leonardo Rodriguez, Jóse Jácome,},
  pdftitle={Taller de Configuracion de Entorno WSL},
  pdfkeywords={},
  pdfsubject={},
@@ -39,7 +39,7 @@ ARQUITECTURA DE COMPUTADORES}
 \thispagestyle{fancy}
 
 \section{Objetivos}
-\label{sec:orgcb2f8af}
+\label{sec:org550eb52}
 
 \begin{itemize}
 \item Configurar y validar el entorno de trabajo para la asignatura de Arquitectura de Computadores en Linux o WSL.
@@ -48,7 +48,7 @@ ARQUITECTURA DE COMPUTADORES}
 \end{itemize}
 
 \section{Instrucciones}
-\label{sec:org145843c}
+\label{sec:orgefc13c4}
 
 \begin{enumerate}
 \item Realice todas las actividades en Linux o en WSL.
@@ -68,9 +68,9 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 [[./images/image1.jpg]]
 \end{verbatim}
 \section{Actividades}
-\label{sec:org7a1f6a4}
+\label{sec:orge84d93e}
 \subsection{Configuración de WSL con Ubuntu, \LaTeX, Python e Emacs}
-\label{sec:org25dd6ab}
+\label{sec:orgdec4872}
 
 \begin{enumerate}
 \item Verificacion de entorno mamba/anaconda
@@ -90,25 +90,30 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 	     mamba version : 2.5.0
 	      curl version : libcurl/8.19.0 OpenSSL/3.6.1 zlib/1.3.2 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.68.1 mit-krb5/1.22.2
 	libarchive version : libarchive 3.8.6 zlib/1.3.2 liblzma/5.8.2 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 liblzo2/2.10 openssl/3.5.5 libb2/bundled
-	  envs directories : /home/eareal/miniforge3/envs
-	     package cache : /home/eareal/miniforge3/pkgs
-			     /home/eareal/.mamba/pkgs
+	  envs directories : /home/josejacome_epn/.local/share/mamba/envs
+	     package cache : /home/josejacome_epn/.local/share/mamba/pkgs
+			     /home/josejacome_epn/.mamba/pkgs
 	       environment : iccd332 (active)
-	      env location : /home/eareal/miniforge3/envs/iccd332
-	 user config files : /home/eareal/.mambarc
-    populated config files : /home/eareal/miniforge3/.condarc
+	      env location : /home/josejacome_epn/.local/share/mamba/envs/iccd332
+	 user config files : /home/josejacome_epn/.mambarc
+    populated config files : 
 	  virtual packages : __unix=0=0
 			     __linux=6.6.87=0
 			     __glibc=2.39=0
 			     __archspec=1=x86_64_v3
+			     __cuda=13.2=0
 		  channels : https://conda.anaconda.org/conda-forge/linux-64
 			     https://conda.anaconda.org/conda-forge/noarch
-	  base environment : /home/eareal/miniforge3
+	  base environment : /home/josejacome_epn/.local/share/mamba
 		  platform : linux-64
 \end{verbatim}
  -Leonardo Rodriguez
 [[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/eareal/imagenes/MambaEvidencia.jpeg}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/imagenes/MambaEvidencia.jpeg}
+\end{center}]]
+ -José Jácome
+ [[\begin{center}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/images/mambaEvidenciaJJ.jpg}
 \end{center}]]
 
 \item Verificacion de Python
@@ -128,7 +133,11 @@ Python 3.11.15
 
  -Leonardo Rodriguez
 [[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/eareal/imagenes/PythonEvidencia.jpeg}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/imagenes/PythonEvidencia.jpeg}
+\end{center}]]
+  -José Jácome
+[[\begin{center}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/images/pythonEviddenciaJJ.jpeg}
 \end{center}]]
 \end{enumerate}
 
@@ -152,8 +161,13 @@ For more information about these matters, see the file named COPYING.
 
  -Leonardo Rodriguez
 [[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/eareal/imagenes/EmacsEvidencia.jpeg}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/imagenes/EmacsEvidencia.jpeg}
 \end{center}]]
+ -José Jácome
+[[\begin{center}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/images/emacsEvidenciaJJ.jpg}
+\end{center}]]
+
 \item Verificacion de \LaTeX{}
 Ejecute \texttt{latex -{}-{}version} en la consola y desde Emacs.
 
@@ -177,7 +191,11 @@ Ejecute \texttt{latex -{}-{}version} en la consola y desde Emacs.
 \end{verbatim}
  -Leonardo Rodriguez
 [[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/eareal/imagenes/LatexEvidencia.jpeg}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/imagenes/LatexEvidencia.jpeg}
+\end{center}]]
+ -José Jácome
+[[\begin{center}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/images/latexEvidenciaJJ.jpeg}
 \end{center}]]
 
 \item Registro de problemas y solucion aplicada
@@ -201,7 +219,7 @@ Complete la siguiente tabla si tuvo errores durante la configuracion:
 \end{center}
 
 \subsection{Comandos Emacs Tutorial}
-\label{sec:org21e24ad}
+\label{sec:orgaa2b9b2}
 Seguir el tutorial integrado en Emacs al respecto de la navegación y
 operaciones más frecuentes. El tutorial puede ser accedido en Español
 utilizando el comando:
@@ -258,9 +276,12 @@ generar una nueva fila escriba presione la tecla TAB
 \endfoot
 \endlastfoot
 \hline
-\texttt{C-c C-e \# latex} & Insertar template de  latex & \texttt{C-x C-s} & Guardar los cambios en el archivo\\[0pt]
- &  &  & \\[0pt]
- &  &  & \\[0pt]
+- C-n & - Baja toda una línea en la misma dirección, es como si bajara en NEXT & - C-M-v & - Mueve todo un texto de una ventana a otra sin cambiar la ventana ya activa\\[0pt]
+\hline
+- C-x C-b & - Muestra todos los buffers activos, como los procesos de emacs & - C-x f & - Cambia el tamaño del margen\\[0pt]
+\hline
+- C-x u & - Deshace las acciones hechas & - C-g & - Cancela un comando\\[0pt]
+\hline
 \end{longtable}
 
 <Estudiante C>
@@ -305,7 +326,7 @@ generar una nueva fila escriba presione la tecla TAB
  &  &  & \\[0pt]
 \end{longtable}
 \subsection{Comandos Emacs Juego}
-\label{sec:orgda893ea}
+\label{sec:org55af0ff}
 En la anterior sección usted revisó los comandos de mayor interés
 sobre la manipulación de Emacs. Es hora de poner en práctica sus
 conocimientos. Realice unas 3 visitas al juego  \href{https://chat.qwen.ai/s/deploy/t\_23ff57ef-b59a-4bd7-9b79-54679b33686d}{Emacs-Trainer} y apunte
@@ -338,22 +359,33 @@ iteración & Puntaje\\[0pt]
 \includegraphics[width=.9\linewidth]{./EmacsTrainerResult.png}
 \end{center}
 
-Estudiante B: 
+Estudiante B:José Jácome
 \begin{center}
-\begin{tabular}{rl}
+\begin{tabular}{rr}
 \hline
 iteración & Puntaje\\[0pt]
 \hline
-1 & \\[0pt]
-2 & \\[0pt]
-3 & \\[0pt]
+1 & 111\\[0pt]
+2 & 126\\[0pt]
+3 & 130\\[0pt]
 \hline
 \end{tabular}
 \end{center}
 
-\begin{verbatim}
-[[./estudianteB-game.png]]
-\end{verbatim}
+
+-Intento 1
+\begin{center}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/images/IntentoJuego1.jpeg}
+\end{center}
+-Intento2
+\begin{center}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/images/IntentoJuego2.jpeg}
+\end{center}
+-Intento3
+\begin{center}
+\includegraphics[width=.9\linewidth]{/home/josejacome_epn/images/IntentoJuego3.jpeg}
+\end{center}
+
 
 Estudiante C: 
 \begin{center}
@@ -389,7 +421,7 @@ iteración & Puntaje\\[0pt]
 [[./estudianteD-game.png]]
 \end{verbatim}
 \subsection{Usando Emacs para tener Ayuda sobre Emacs}
-\label{sec:org16ce6d2}
+\label{sec:orgb5eb975}
 ¿Qué comandos le resultan más fáciles de usar y cuáles le son más
 extraños? Identifique 4 comandos que le sean fáciles y 4 que le
 resulten complicados. Revise qué dice la ayuda de Emacs sobre cada
@@ -419,10 +451,18 @@ Switch to a buffer visiting file FILENAME, creating one if none
 already exists.
 Interactively, the default if you just type RET is the current directory,
 but the visited file name is available through the minibuffer history:
-type M-n to pull it into the minibuffer.
+type M-n to pull it into the minibuffer.>
 >
 \begin{enumerate}
-\item \textbf{\textbf{Estudiante B:}} <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+\item \textbf{\textbf{José Jácome:}} <C-x u>. <C-x u runs the command undo (found in global-map), which is an
+\end{enumerate}
+interactive native-compiled Lisp function in ‘simple.el’.
+It is bound to C-\_, <undo>, C-/ and C-x u.
+It can also be invoked from the menu: Edit → Undo
+(undo \&optional ARG)
+Undo some previous changes.
+Repeat this command to undo more changes>
+\begin{enumerate}
 \item 
 
 \item 
@@ -435,12 +475,16 @@ type M-n to pull it into the minibuffer.
 It can also be invoked from the menu: Edit → Incremental Search →
 Forward String\ldots{}>
 \begin{enumerate}
-\item \textbf{\textbf{Estudiante B:}} <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+\item \textbf{\textbf{José Jácome:}} <C-M-v>. <C-M-v runs the command scroll-other-window (found in global-map),
+\end{enumerate}
+which is an interactive native-compiled Lisp function in ‘window.el’.
+It is bound to M-<next>, C-M-v and ESC <next> .>
+\begin{enumerate}
 \item 
 \end{enumerate}
 
 \section{Equipo de Trabajo}
-\label{sec:org221a821}
+\label{sec:org7455c66}
 Complete la información de los integrantes de grupo e indique el líder
 de grupo.
 
@@ -450,14 +494,14 @@ de grupo.
 Nombre & email & Rol\\[0pt]
 \hline
 Leonardo Rodriguez & leonardo.rodriguez01@epn.edu.ec & Líder\\[0pt]
- &  & Colaborador\\[0pt]
+José Jácome & jose.jacome04@epn.edu.ec & Colaborador\\[0pt]
  &  & Colaborador\\[0pt]
 \hline
 \end{tabular}
 \end{center}
 
 \section{Verificación de Entregables [33\%]:}
-\label{sec:org005c49e}
+\label{sec:org079c09c}
 Ejecute \texttt{C-c C-c} sobre los ítems de tarea según se hayan cumplido o
 no. Si un ítem no pudo realizarse apunte en la siguiente sección las
 razones al respecto.
@@ -472,7 +516,7 @@ identificado el líder.
 \item[{$\boxtimes$}] Generación de Archivo PDF \texttt{M-x org-latex-export-to-pdf}
 \end{itemize}
 \subsection{Problemas con la Tarea:}
-\label{sec:orgbfb56ed}
+\label{sec:orged48493}
 \begin{itemize}
 \item Tarea \(X_1\) no pudo completarse debido a
 \item Tarea \(X_2\) no pudo completarse debido a
