@@ -1,4 +1,4 @@
-% Created 2026-04-17 Fri 23:33
+% Created 2026-04-18 Sat 23:26
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -20,11 +20,11 @@
 \setlength\headheight{43.0pt}
 \usepackage{tabularx}
 \usepackage{longtable}
-\author{Leonardo Rodriguez, Jóse Jacome,}
+\author{Leonardo Rodriguez, Jóse Jacome,Samuel Churaco,}
 \date{2026-04-08}
 \title{Taller de Configuracion de Entorno WSL}
 \hypersetup{
- pdfauthor={Leonardo Rodriguez, Jóse Jacome,},
+ pdfauthor={Leonardo Rodriguez, Jóse Jacome,Samuel Churaco,},
  pdftitle={Taller de Configuracion de Entorno WSL},
  pdfkeywords={},
  pdfsubject={},
@@ -34,12 +34,12 @@
 
 \maketitle
 \fancyhead[C]{\includegraphics[scale=0.05]{../images/logoEPN.jpg}\\
-ESCUELA POLITECNICA NACIONAL\\FACULTAD DE INGENIERIA DE SISTEMAS\\
+orESCUELA POLITECNICA NACIONAL\\FACULTAD DE INGENIERIA DE SISTEMAS\\
 ARQUITECTURA DE COMPUTADORES}
 \thispagestyle{fancy}
 
 \section{Objetivos}
-\label{sec:orgcb2f8af}
+\label{sec:org452601c}
 
 \begin{itemize}
 \item Configurar y validar el entorno de trabajo para la asignatura de Arquitectura de Computadores en Linux o WSL.
@@ -48,7 +48,7 @@ ARQUITECTURA DE COMPUTADORES}
 \end{itemize}
 
 \section{Instrucciones}
-\label{sec:org145843c}
+\label{sec:org0091bea}
 
 \begin{enumerate}
 \item Realice todas las actividades en Linux o en WSL.
@@ -68,9 +68,9 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 [[./images/image1.jpg]]
 \end{verbatim}
 \section{Actividades}
-\label{sec:org7a1f6a4}
+\label{sec:org7b2d875}
 \subsection{Configuración de WSL con Ubuntu, \LaTeX, Python e Emacs}
-\label{sec:org25dd6ab}
+\label{sec:orgc0248d7}
 
 \begin{enumerate}
 \item Verificacion de entorno mamba/anaconda
@@ -90,25 +90,31 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 	     mamba version : 2.5.0
 	      curl version : libcurl/8.19.0 OpenSSL/3.6.1 zlib/1.3.2 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.68.1 mit-krb5/1.22.2
 	libarchive version : libarchive 3.8.6 zlib/1.3.2 liblzma/5.8.2 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 liblzo2/2.10 openssl/3.5.5 libb2/bundled
-	  envs directories : /home/eareal/miniforge3/envs
-	     package cache : /home/eareal/miniforge3/pkgs
-			     /home/eareal/.mamba/pkgs
+	  envs directories : /home/samuchura-epn/miniforge3/envs
+	     package cache : /home/samuchura-epn/miniforge3/pkgs
+			     /home/samuchura-epn/.mamba/pkgs
 	       environment : iccd332 (active)
-	      env location : /home/eareal/miniforge3/envs/iccd332
-	 user config files : /home/eareal/.mambarc
-    populated config files : /home/eareal/miniforge3/.condarc
+	      env location : /home/samuchura-epn/miniforge3/envs/iccd332
+	 user config files : /home/samuchura-epn/.mambarc
+    populated config files : /home/samuchura-epn/miniforge3/.condarc
 	  virtual packages : __unix=0=0
 			     __linux=6.6.87=0
 			     __glibc=2.39=0
 			     __archspec=1=x86_64_v3
 		  channels : https://conda.anaconda.org/conda-forge/linux-64
 			     https://conda.anaconda.org/conda-forge/noarch
-	  base environment : /home/eareal/miniforge3
+	  base environment : /home/samuchura-epn/miniforge3
 		  platform : linux-64
 \end{verbatim}
  -Leonardo Rodriguez
 [[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/eareal/imagenes/MambaEvidencia.jpeg}
+\includegraphics[width=.9\linewidth]{/home/samuchura-epn/imagenes/MambaEvidencia.jpeg}
+\end{center}]]
+
+\#+end\textsubscript{example}
+-Samuel Churaco
+[[\begin{center}
+\includegraphics[width=.9\linewidth]{Imgess/infoMamba.png}
 \end{center}]]
 
 \item Verificacion de Python
@@ -123,17 +129,18 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 \end{verbatim}
 
 \begin{verbatim}
-Python 3.11.15
+Python 3.14.4
 \end{verbatim}
 
  -Leonardo Rodriguez
 [[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/eareal/imagenes/PythonEvidencia.jpeg}
+\includegraphics[width=.9\linewidth]{/home/samuchura-epn/imagenes/PythonEvidencia.jpeg}
 \end{center}]]
-\end{enumerate}
+-Samuel Churaco
+[[\begin{center}
+\includegraphics[width=.9\linewidth]{Imgess/infoMamba.png}
+\end{center}]]
 
-
-\begin{enumerate}
 \item Verificacion de Emacs
 Ejecute \texttt{emacs -{}-{}version} en la consola y desde Emacs.
 
@@ -152,7 +159,11 @@ For more information about these matters, see the file named COPYING.
 
  -Leonardo Rodriguez
 [[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/eareal/imagenes/EmacsEvidencia.jpeg}
+\includegraphics[width=.9\linewidth]{/home/samuchura-epn/imagenes/EmacsEvidencia.jpeg}
+\end{center}]]
+-Samuel Churaco
+[[\begin{center}
+\includegraphics[width=.9\linewidth]{Imgess/Emacsinf.png}
 \end{center}]]
 \item Verificacion de \LaTeX{}
 Ejecute \texttt{latex -{}-{}version} en la consola y desde Emacs.
@@ -177,9 +188,12 @@ Ejecute \texttt{latex -{}-{}version} en la consola y desde Emacs.
 \end{verbatim}
  -Leonardo Rodriguez
 [[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/eareal/imagenes/LatexEvidencia.jpeg}
+\includegraphics[width=.9\linewidth]{/home/samuchura-epn/imagenes/LatexEvidencia.jpeg}
 \end{center}]]
-
+ -Samuel Churaco
+ [[\begin{center}
+\includegraphics[width=.9\linewidth]{Imgess/Latexinf.png}
+\end{center}]]
 \item Registro de problemas y solucion aplicada
 \end{enumerate}
 
@@ -201,7 +215,7 @@ Complete la siguiente tabla si tuvo errores durante la configuracion:
 \end{center}
 
 \subsection{Comandos Emacs Tutorial}
-\label{sec:org21e24ad}
+\label{sec:org4eb1288}
 Seguir el tutorial integrado en Emacs al respecto de la navegación y
 operaciones más frecuentes. El tutorial puede ser accedido en Español
 utilizando el comando:
@@ -242,7 +256,7 @@ generar una nueva fila escriba presione la tecla TAB
 \end{longtable}
 
 
-<Estudiante B>
+<Samuel Churaco>
 \begin{longtable}{|p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|}
 \textbf{Comando} & \textbf{Descripción} & \textbf{Comando} & \textbf{Descripción}\\[0pt]
 \hline
@@ -258,11 +272,10 @@ generar una nueva fila escriba presione la tecla TAB
 \endfoot
 \endlastfoot
 \hline
-\texttt{C-c C-e \# latex} & Insertar template de  latex & \texttt{C-x C-s} & Guardar los cambios en el archivo\\[0pt]
- &  &  & \\[0pt]
- &  &  & \\[0pt]
+- C-h - 0 & Saltar entre ventadnas & C-x C-s & Guarda cambios\\[0pt]
+- C-/  / & Deshacer & -C-g & Elimina la intencion de algun comando\\[0pt]
+- C-d & Elimina al otrollado & C-v & saltos de parrafo\\[0pt]
 \end{longtable}
-
 <Estudiante C>
 \begin{longtable}{|p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|}
 \textbf{Comando} & \textbf{Descripción} & \textbf{Comando} & \textbf{Descripción}\\[0pt]
@@ -305,7 +318,7 @@ generar una nueva fila escriba presione la tecla TAB
  &  &  & \\[0pt]
 \end{longtable}
 \subsection{Comandos Emacs Juego}
-\label{sec:orgda893ea}
+\label{sec:orgae3172c}
 En la anterior sección usted revisó los comandos de mayor interés
 sobre la manipulación de Emacs. Es hora de poner en práctica sus
 conocimientos. Realice unas 3 visitas al juego  \href{https://chat.qwen.ai/s/deploy/t\_23ff57ef-b59a-4bd7-9b79-54679b33686d}{Emacs-Trainer} y apunte
@@ -338,21 +351,23 @@ iteración & Puntaje\\[0pt]
 \includegraphics[width=.9\linewidth]{./EmacsTrainerResult.png}
 \end{center}
 
-Estudiante B: 
+SamuelChuraco 
 \begin{center}
-\begin{tabular}{rl}
+\begin{tabular}{rr}
 \hline
 iteración & Puntaje\\[0pt]
 \hline
-1 & \\[0pt]
-2 & \\[0pt]
-3 & \\[0pt]
+1 & 66\\[0pt]
+2 & 102\\[0pt]
+3 & 120\\[0pt]
+ & \\[0pt]
 \hline
 \end{tabular}
 \end{center}
 
 \begin{verbatim}
-[[./estudianteB-game.png]]
+
+[[file:Imgess/prueba.png]]
 \end{verbatim}
 
 Estudiante C: 
@@ -389,7 +404,7 @@ iteración & Puntaje\\[0pt]
 [[./estudianteD-game.png]]
 \end{verbatim}
 \subsection{Usando Emacs para tener Ayuda sobre Emacs}
-\label{sec:org16ce6d2}
+\label{sec:org5ac9a52}
 ¿Qué comandos le resultan más fáciles de usar y cuáles le son más
 extraños? Identifique 4 comandos que le sean fáciles y 4 que le
 resulten complicados. Revise qué dice la ayuda de Emacs sobre cada
@@ -422,7 +437,17 @@ but the visited file name is available through the minibuffer history:
 type M-n to pull it into the minibuffer.
 >
 \begin{enumerate}
-\item \textbf{\textbf{Estudiante B:}} <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+\item **Samuel Churaco**<C-x - o >. <
+\end{enumerate}
+Select another window in cyclic ordering of windows.
+COUNT specifies the number of windows to skip, starting with the
+selected window, before making the selection.  If COUNT is
+positive, skip COUNT windows forwards.  If COUNT is negative,
+skip -COUNT windows backwards.  COUNT zero means do not skip any
+window, so select the selected window.  In an interactive call,
+COUNT is the numeric prefix argument.  Return nil.
+ >
+\begin{enumerate}
 \item 
 
 \item 
@@ -435,12 +460,20 @@ type M-n to pull it into the minibuffer.
 It can also be invoked from the menu: Edit → Incremental Search →
 Forward String\ldots{}>
 \begin{enumerate}
-\item \textbf{\textbf{Estudiante B:}} <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+\item \textbf{\textbf{Samuel Churaco:}} <C-x -d>. <"Edit" directory DIRNAME--delete, rename, print, etc. some files in it.
+\end{enumerate}
+Optional second argument SWITCHES specifies the options to be used
+when invoking ‘insert-directory-program’, usually ‘ls’, which produces
+the listing of the directory files and their attributes.
+Interactively, a prefix argument will cause the command to prompt
+for SWITCHES.
+>
+\begin{enumerate}
 \item 
 \end{enumerate}
 
 \section{Equipo de Trabajo}
-\label{sec:org221a821}
+\label{sec:org295fbfd}
 Complete la información de los integrantes de grupo e indique el líder
 de grupo.
 
@@ -450,14 +483,14 @@ de grupo.
 Nombre & email & Rol\\[0pt]
 \hline
 Leonardo Rodriguez & leonardo.rodriguez01@epn.edu.ec & Líder\\[0pt]
- &  & Colaborador\\[0pt]
+Samuelchuraco & samuelchuraco@epn.edu.ec & Colaborador\\[0pt]
  &  & Colaborador\\[0pt]
 \hline
 \end{tabular}
 \end{center}
 
-\section{Verificación de Entregables [33\%]:}
-\label{sec:org005c49e}
+\section{Verificación de Entregables [100\%]:}
+\label{sec:orga28f83c}
 Ejecute \texttt{C-c C-c} sobre los ítems de tarea según se hayan cumplido o
 no. Si un ítem no pudo realizarse apunte en la siguiente sección las
 razones al respecto.
@@ -472,7 +505,7 @@ identificado el líder.
 \item[{$\boxtimes$}] Generación de Archivo PDF \texttt{M-x org-latex-export-to-pdf}
 \end{itemize}
 \subsection{Problemas con la Tarea:}
-\label{sec:orgbfb56ed}
+\label{sec:orgd267ab2}
 \begin{itemize}
 \item Tarea \(X_1\) no pudo completarse debido a
 \item Tarea \(X_2\) no pudo completarse debido a

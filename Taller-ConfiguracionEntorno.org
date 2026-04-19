@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 #+options: ':nil *:t -:t ::t <:t H:3 \n:nil ^:t arch:headline
 #+options: author:t broken-links:nil c:nil creator:nil
 #+options: d:(not "LOGBOOK") date:t e:t email:nil expand-links:t f:t
@@ -5,7 +14,7 @@
 #+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
 #+title: Taller de Configuracion de Entorno WSL
 #+date: 2026-04-08
-#+author:Leonardo Rodriguez, Jóse Jacome, 
+#+author:Leonardo Rodriguez, Jóse Jacome,Samuel Churaco, 
 #+email: leonardo.rodriguez01@epn.edu.ec, 
  #+language: Espanol
  #+select_tags: export
@@ -34,7 +43,7 @@
 
 #+begin_export latex
 \fancyhead[C]{\includegraphics[scale=0.05]{../images/logoEPN.jpg}\\
-ESCUELA POLITECNICA NACIONAL\\FACULTAD DE INGENIERIA DE SISTEMAS\\
+orESCUELA POLITECNICA NACIONAL\\FACULTAD DE INGENIERIA DE SISTEMAS\\
 ARQUITECTURA DE COMPUTADORES}
 \thispagestyle{fancy}
 #+end_export
@@ -75,8 +84,34 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+end_src
   
    #+RESULTS:
+   #+begin_example
+
+	  libmamba version : 2.5.0
+	     mamba version : 2.5.0
+	      curl version : libcurl/8.19.0 OpenSSL/3.6.1 zlib/1.3.2 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.68.1 mit-krb5/1.22.2
+	libarchive version : libarchive 3.8.6 zlib/1.3.2 liblzma/5.8.2 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 liblzo2/2.10 openssl/3.5.5 libb2/bundled
+	  envs directories : /home/samuchura-epn/miniforge3/envs
+	     package cache : /home/samuchura-epn/miniforge3/pkgs
+			     /home/samuchura-epn/.mamba/pkgs
+	       environment : iccd332 (active)
+	      env location : /home/samuchura-epn/miniforge3/envs/iccd332
+	 user config files : /home/samuchura-epn/.mambarc
+    populated config files : /home/samuchura-epn/miniforge3/.condarc
+	  virtual packages : __unix=0=0
+			     __linux=6.6.87=0
+			     __glibc=2.39=0
+			     __archspec=1=x86_64_v3
+		  channels : https://conda.anaconda.org/conda-forge/linux-64
+			     https://conda.anaconda.org/conda-forge/noarch
+	  base environment : /home/samuchura-epn/miniforge3
+		  platform : linux-64
+   #+end_example
    -Leonardo Rodriguez
   [[[[file:~/imagenes/MambaEvidencia.jpeg]]]]
+
+  #+end_example
+  -Samuel Churaco
+  [[[[file:Imgess/infoMamba.png]]]]
    
 2. Verificacion de Python
    1. Active el entorno ~iccd332~ para abrir Emacs con ~mamba activate iccd332~.
@@ -90,7 +125,8 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+RESULTS:
    -Leonardo Rodriguez
   [[[[file:~/imagenes/PythonEvidencia.jpeg]]]]
-   
+  -Samuel Churaco
+  [[[[file:Imgess/infoMamba.png]]]]   
 
 3. Verificacion de Emacs
    Ejecute ~emacs --version~ en la consola y desde Emacs.
@@ -102,6 +138,8 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+RESULTS:
    -Leonardo Rodriguez
   [[[[file:~/imagenes/EmacsEvidencia.jpeg]]]]
+  -Samuel Churaco
+  [[[[file:Imgess/Emacsinf.png]]]]
 4. Verificacion de LaTeX
    Ejecute ~latex --version~ en la consola y desde Emacs.
 
@@ -112,7 +150,8 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
    #+RESULTS:
    -Leonardo Rodriguez
   [[[[file:~/imagenes/LatexEvidencia.jpeg]]]]
-
+   -Samuel Churaco
+   [[[[file:Imgess/Latexinf.png]]]]
 5. Registro de problemas y solucion aplicada
 
 Complete la siguiente tabla si tuvo errores durante la configuracion:
@@ -157,14 +196,13 @@ generar una nueva fila escriba presione la tecla TAB
 |-----------+---------------------------------------------------------------------------------+-----------+-------------------------------------|
 
 
-<Estudiante B>
+<Samuel Churaco>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
-| *Comando*         | *Descripción*               | *Comando* | *Descripción*                     |
-|-------------------+-----------------------------+-----------+-----------------------------------|
-| ~C-c C-e # latex~ | Insertar template de  latex | ~C-x C-s~ | Guardar los cambios en el archivo |
-|                   |                             |           |                                   |
-|                   |                             |           |                                   |
-
+| *Comando* | *Descripción*          | *Comando* | *Descripción*                         |
+|-----------+------------------------+-----------+---------------------------------------|
+| - C-h - 0 | Saltar entre ventadnas | C-x C-s   | Guarda cambios                        |
+| - C-/  /  | Deshacer               | -C-g      | Elimina la intencion de algun comando |
+| - C-d     | Elimina al otrollado   | C-v       | saltos de parrafo                     |
 <Estudiante C>
 #+ATTR_LATEX: :environment longtable :align |p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|
 | *Comando*         | *Descripción*               | *Comando* | *Descripción*                     |
@@ -207,17 +245,19 @@ Estudiante A:Leonardo Rodriguez
 
 [[./EmacsTrainerResult.png]]
 
-Estudiante B: 
+SamuelChuraco 
 |-----------+---------|
 | iteración | Puntaje |
 |-----------+---------|
-|         1 |         |
-|         2 |         |
-|         3 |         |
+|         1 |      66 |
+|         2 |     102 |
+|         3 |     120 |
+|           |         |
 |-----------+---------|
 
 #+begin_src org
-[[./estudianteB-game.png]]
+
+[[file:Imgess/prueba.png]]
 #+end_src
 
 Estudiante C: 
@@ -273,7 +313,15 @@ Interactively, the default if you just type RET is the current directory,
 but the visited file name is available through the minibuffer history:
 type M-n to pull it into the minibuffer.
 >
-2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+2. **Samuel Churaco**<C-x - o >. <
+Select another window in cyclic ordering of windows.
+COUNT specifies the number of windows to skip, starting with the
+selected window, before making the selection.  If COUNT is
+positive, skip COUNT windows forwards.  If COUNT is negative,
+skip -COUNT windows backwards.  COUNT zero means do not skip any
+window, so select the selected window.  In an interactive call,
+COUNT is the numeric prefix argument.  Return nil.
+ >
 3. 
 4. 
 
@@ -281,7 +329,13 @@ type M-n to pull it into the minibuffer.
 1. **Leonardo Rodriguez:** <C-s>. <It is bound to C-s.
 It can also be invoked from the menu: Edit → Incremental Search →
 Forward String...>
-2. **Estudiante B:** <Poner el comando>. <Pegar lo que dice el primer párrafo de la ayuda>
+2. **Samuel Churaco:** <C-x -d>. <"Edit" directory DIRNAME--delete, rename, print, etc. some files in it.
+Optional second argument SWITCHES specifies the options to be used
+when invoking ‘insert-directory-program’, usually ‘ls’, which produces
+the listing of the directory files and their attributes.
+Interactively, a prefix argument will cause the command to prompt
+for SWITCHES.
+>
 3.
 
 * Equipo de Trabajo
@@ -292,11 +346,11 @@ de grupo.
 | Nombre             | email                           | Rol         |
 |--------------------+---------------------------------+-------------|
 | Leonardo Rodriguez | leonardo.rodriguez01@epn.edu.ec | Líder       |
-|                    |                                 | Colaborador |
+| Samuelchuraco      | samuelchuraco@epn.edu.ec        | Colaborador |
 |                    |                                 | Colaborador |
 |--------------------+---------------------------------+-------------|
 
-* Verificación de Entregables [33%]:
+* Verificación de Entregables [100%]:
 Ejecute ~C-c C-c~ sobre los ítems de tarea según se hayan cumplido o
 no. Si un ítem no pudo realizarse apunte en la siguiente sección las
 razones al respecto.
