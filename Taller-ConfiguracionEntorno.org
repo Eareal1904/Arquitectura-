@@ -5,7 +5,7 @@
 #+options: inline:t num:t p:nil pri:nil prop:nil stat:t tags:t
 #+options: tasks:t tex:t timestamp:t title:t toc:nil todo:t |:t
 #+title: Taller de Configuracion de Entorno WSL
-#+date: 2026-04-08
+#+date: 2026-04-08     Grupo: 9
 #+author:Leonardo Rodriguez, Jóse Jacome,Samuel Churaco, 
 #+email: leonardo.rodriguez01@epn.edu.ec,jose.jacome04@epn.edu.ec,samuel.churaco@epn.edu.ec
  #+language: Espanol
