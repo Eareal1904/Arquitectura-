@@ -1,4 +1,4 @@
-% Created 2026-04-18 Sat 23:26
+% Created 2026-04-23 Thu 23:45
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -21,7 +21,7 @@
 \usepackage{tabularx}
 \usepackage{longtable}
 \author{Leonardo Rodriguez, Jóse Jacome,Samuel Churaco,}
-\date{2026-04-08}
+\date{2026-04-08 Grupo 9}
 \title{Taller de Configuracion de Entorno WSL}
 \hypersetup{
  pdfauthor={Leonardo Rodriguez, Jóse Jacome,Samuel Churaco,},
@@ -39,7 +39,7 @@ ARQUITECTURA DE COMPUTADORES}
 \thispagestyle{fancy}
 
 \section{Objetivos}
-\label{sec:org452601c}
+\label{sec:orge959553}
 
 \begin{itemize}
 \item Configurar y validar el entorno de trabajo para la asignatura de Arquitectura de Computadores en Linux o WSL.
@@ -48,7 +48,7 @@ ARQUITECTURA DE COMPUTADORES}
 \end{itemize}
 
 \section{Instrucciones}
-\label{sec:org0091bea}
+\label{sec:orgf0dbb9a}
 
 \begin{enumerate}
 \item Realice todas las actividades en Linux o en WSL.
@@ -68,20 +68,16 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 [[./images/image1.jpg]]
 \end{verbatim}
 \section{Actividades}
-\label{sec:org7b2d875}
+\label{sec:org8276738}
 \subsection{Configuración de WSL con Ubuntu, \LaTeX, Python e Emacs}
-\label{sec:orgc0248d7}
+\label{sec:org5398d07}
 
 \begin{enumerate}
 \item Verificacion de entorno mamba/anaconda
-\begin{enumerate}
-\item Active WSL (si aplica) y su entorno de trabajo.
-\item Ejecute \texttt{mamba info} con \texttt{C-c C-c} dentro del bloque de código.
-\item Si el comando falla, active un entorno con \texttt{mamba activate iccd332} e intente de nuevo.
-\end{enumerate}
 
+-Leonardo Rodriguez
 \begin{verbatim}
-     mamba info
+   mamba info
 \end{verbatim}
 
 \begin{verbatim}
@@ -90,60 +86,136 @@ busque el archivo o escriba:Puede insertar una imagen con la sintaxis:
 	     mamba version : 2.5.0
 	      curl version : libcurl/8.19.0 OpenSSL/3.6.1 zlib/1.3.2 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.68.1 mit-krb5/1.22.2
 	libarchive version : libarchive 3.8.6 zlib/1.3.2 liblzma/5.8.2 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 liblzo2/2.10 openssl/3.5.5 libb2/bundled
-	  envs directories : /home/samuchura-epn/miniforge3/envs
-	     package cache : /home/samuchura-epn/miniforge3/pkgs
-			     /home/samuchura-epn/.mamba/pkgs
+	  envs directories : /home/josejacome_epn/.local/share/mamba/envs
+	     package cache : /home/josejacome_epn/.local/share/mamba/pkgs
+			     /home/josejacome_epn/.mamba/pkgs
 	       environment : iccd332 (active)
-	      env location : /home/samuchura-epn/miniforge3/envs/iccd332
-	 user config files : /home/samuchura-epn/.mambarc
-    populated config files : /home/samuchura-epn/miniforge3/.condarc
+	      env location : /home/josejacome_epn/.local/share/mamba/envs/iccd332
+	 user config files : /home/josejacome_epn/.mambarc
+    populated config files : 
 	  virtual packages : __unix=0=0
 			     __linux=6.6.87=0
 			     __glibc=2.39=0
 			     __archspec=1=x86_64_v3
+			     __cuda=13.2=0
 		  channels : https://conda.anaconda.org/conda-forge/linux-64
 			     https://conda.anaconda.org/conda-forge/noarch
-	  base environment : /home/samuchura-epn/miniforge3
+	  base environment : /home/josejacome_epn/.local/share/mamba
 		  platform : linux-64
 \end{verbatim}
- -Leonardo Rodriguez
-[[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/samuchura-epn/imagenes/MambaEvidencia.jpeg}
-\end{center}]]
 
-\#+end\textsubscript{example}
+-José Jácome
+\begin{verbatim}
+   mamba info
+\end{verbatim}
+
+\begin{verbatim}
+
+	  libmamba version : 2.5.0
+	     mamba version : 2.5.0
+	      curl version : libcurl/8.19.0 OpenSSL/3.6.1 zlib/1.3.2 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.68.1 mit-krb5/1.22.2
+	libarchive version : libarchive 3.8.6 zlib/1.3.2 liblzma/5.8.2 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 liblzo2/2.10 openssl/3.5.5 libb2/bundled
+	  envs directories : /home/josejacome_epn/.local/share/mamba/envs
+	     package cache : /home/josejacome_epn/.local/share/mamba/pkgs
+			     /home/josejacome_epn/.mamba/pkgs
+	       environment : iccd332 (active)
+	      env location : /home/josejacome_epn/.local/share/mamba/envs/iccd332
+	 user config files : /home/josejacome_epn/.mambarc
+    populated config files : 
+	  virtual packages : __unix=0=0
+			     __linux=6.6.87=0
+			     __glibc=2.39=0
+			     __archspec=1=x86_64_v3
+			     __cuda=13.2=0
+		  channels : https://conda.anaconda.org/conda-forge/linux-64
+			     https://conda.anaconda.org/conda-forge/noarch
+	  base environment : /home/josejacome_epn/.local/share/mamba
+		  platform : linux-64
+\end{verbatim}
+
 -Samuel Churaco
-[[\begin{center}
-\includegraphics[width=.9\linewidth]{Imgess/infoMamba.png}
-\end{center}]]
+\begin{verbatim}
+   mamba info
+\end{verbatim}
+
+\begin{verbatim}
+
+	  libmamba version : 2.5.0
+	     mamba version : 2.5.0
+	      curl version : libcurl/8.19.0 OpenSSL/3.6.1 zlib/1.3.2 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.68.1 mit-krb5/1.22.2
+	libarchive version : libarchive 3.8.6 zlib/1.3.2 liblzma/5.8.2 bz2lib/1.0.8 liblz4/1.10.0 libzstd/1.5.7 liblzo2/2.10 openssl/3.5.5 libb2/bundled
+	  envs directories : /home/josejacome_epn/.local/share/mamba/envs
+	     package cache : /home/josejacome_epn/.local/share/mamba/pkgs
+			     /home/josejacome_epn/.mamba/pkgs
+	       environment : iccd332 (active)
+	      env location : /home/josejacome_epn/.local/share/mamba/envs/iccd332
+	 user config files : /home/josejacome_epn/.mambarc
+    populated config files : 
+	  virtual packages : __unix=0=0
+			     __linux=6.6.87=0
+			     __glibc=2.39=0
+			     __archspec=1=x86_64_v3
+			     __cuda=13.2=0
+		  channels : https://conda.anaconda.org/conda-forge/linux-64
+			     https://conda.anaconda.org/conda-forge/noarch
+	  base environment : /home/josejacome_epn/.local/share/mamba
+		  platform : linux-64
+\end{verbatim}
 
 \item Verificacion de Python
-\begin{enumerate}
-\item Active el entorno \texttt{iccd332} para abrir Emacs con \texttt{mamba activate iccd332}.
-\item Ejecute \texttt{python -{}-{}version} en la consola y desde Emacs.
-\end{enumerate}
 
+\begin{itemize}
+\item Leonardo Rodriguez
+\end{itemize}
 \begin{verbatim}
-
-    python --version
+   python --version
 \end{verbatim}
 
 \begin{verbatim}
-Python 3.14.4
+Python 3.11.15
 \end{verbatim}
 
- -Leonardo Rodriguez
-[[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/samuchura-epn/imagenes/PythonEvidencia.jpeg}
-\end{center}]]
+
+-José Jácome
+\begin{verbatim}
+   python --version
+\end{verbatim}
+
+\begin{verbatim}
+Python 3.11.15
+\end{verbatim}
+
+
 -Samuel Churaco
-[[\begin{center}
-\includegraphics[width=.9\linewidth]{Imgess/infoMamba.png}
-\end{center}]]
+\begin{verbatim}
+   python --version
+\end{verbatim}
+
+\begin{verbatim}
+Python 3.11.15
+\end{verbatim}
 
 \item Verificacion de Emacs
-Ejecute \texttt{emacs -{}-{}version} en la consola y desde Emacs.
 
+-Leonardo Rodriguez
+\begin{verbatim}
+   emacs --version
+\end{verbatim}
+
+\begin{verbatim}
+GNU Emacs 29.3
+Copyright (C) 2024 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+\end{verbatim}
+\end{enumerate}
+
+
+\begin{itemize}
+\item José Jácome
+\end{itemize}
 \begin{verbatim}
    emacs --version
 \end{verbatim}
@@ -157,17 +229,27 @@ under the terms of the GNU General Public License.
 For more information about these matters, see the file named COPYING.
 \end{verbatim}
 
- -Leonardo Rodriguez
-[[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/samuchura-epn/imagenes/EmacsEvidencia.jpeg}
-\end{center}]]
--Samuel Churaco
-[[\begin{center}
-\includegraphics[width=.9\linewidth]{Imgess/Emacsinf.png}
-\end{center}]]
-\item Verificacion de \LaTeX{}
-Ejecute \texttt{latex -{}-{}version} en la consola y desde Emacs.
 
+-Samuel Churaco
+\begin{verbatim}
+   emacs --version
+\end{verbatim}
+
+\begin{verbatim}
+GNU Emacs 29.3
+Copyright (C) 2024 Free Software Foundation, Inc.
+GNU Emacs comes with ABSOLUTELY NO WARRANTY.
+You may redistribute copies of GNU Emacs
+under the terms of the GNU General Public License.
+For more information about these matters, see the file named COPYING.
+\end{verbatim}
+
+
+
+\begin{enumerate}
+\item Verificacion de \LaTeX{}
+
+-Leonardo Rodriguez
 \begin{verbatim}
    latex --version
 \end{verbatim}
@@ -186,50 +268,51 @@ Ejecute \texttt{latex -{}-{}version} en la consola y desde Emacs.
    Compiled with zlib 1.3; using zlib 1.3
    Compiled with xpdf version 4.04
 \end{verbatim}
- -Leonardo Rodriguez
-[[\begin{center}
-\includegraphics[width=.9\linewidth]{/home/samuchura-epn/imagenes/LatexEvidencia.jpeg}
-\end{center}]]
- -Samuel Churaco
- [[\begin{center}
-\includegraphics[width=.9\linewidth]{Imgess/Latexinf.png}
-\end{center}]]
-\item Registro de problemas y solucion aplicada
-\end{enumerate}
 
-Complete la siguiente tabla si tuvo errores durante la configuracion:
-
-\begin{center}
-\begin{tabularx}{\textwidth}{lXX}
-\textbf{Herramienta} & \textbf{Problema observado} & \textbf{Solucion aplicada}\\[0pt]
-\hline
- &  & \\[0pt]
- &  & \\[0pt]
- &  & \\[0pt]
- &  & \\[0pt]
- &  & \\[0pt]
- &  & \\[0pt]
- &  & \\[0pt]
- &  & \\[0pt]
-\end{tabularx}
-\end{center}
-
-\subsection{Comandos Emacs Tutorial}
-\label{sec:org4eb1288}
-Seguir el tutorial integrado en Emacs al respecto de la navegación y
-operaciones más frecuentes. El tutorial puede ser accedido en Español
-utilizando el comando:
-
+-José Jácome
 \begin{verbatim}
-M-x help-with-tutorial-spec-language
+   latex --version
 \end{verbatim}
 
-Realice los ejercicios del tutorial (al menos un 80\% del texto) y
-complete la siguiente tabla con los comandos que considere de mayor
-interés. Verifique que en la parte superior se active el menú de
-tabla. Dentro de la región de la tabla puede dar C-c C-c para alinear
-automáticamente la tabla al contenido del texto que escriba. Para
-generar una nueva fila escriba presione la tecla TAB
+\begin{verbatim}
+   pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)
+   kpathsea version 6.3.5
+   Copyright 2023 Han The Thanh (pdfTeX) et al.
+   There is NO warranty.  Redistribution of this software is
+   covered by the terms of both the pdfTeX copyright and
+   the Lesser GNU General Public License.
+   For more information about these matters, see the file
+   named COPYING and the pdfTeX source.
+   Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.
+   Compiled with libpng 1.6.43; using libpng 1.6.43
+   Compiled with zlib 1.3; using zlib 1.3
+   Compiled with xpdf version 4.04
+\end{verbatim}
+
+-Samuel Churaco
+\begin{verbatim}
+   latex --version
+\end{verbatim}
+
+\begin{verbatim}
+   pdfTeX 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian)
+   kpathsea version 6.3.5
+   Copyright 2023 Han The Thanh (pdfTeX) et al.
+   There is NO warranty.  Redistribution of this software is
+   covered by the terms of both the pdfTeX copyright and
+   the Lesser GNU General Public License.
+   For more information about these matters, see the file
+   named COPYING and the pdfTeX source.
+   Primary author of pdfTeX: Han The Thanh (pdfTeX) et al.
+   Compiled with libpng 1.6.43; using libpng 1.6.43
+   Compiled with zlib 1.3; using zlib 1.3
+   Compiled with xpdf version 4.04
+\end{verbatim}
+\end{enumerate}
+
+
+\subsection{Comandos Emacs Tutorial}
+\label{sec:org7d733f0}
 
 <Leonardo Rodriguez>
 \begin{longtable}{|p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|}
@@ -255,6 +338,29 @@ generar una nueva fila escriba presione la tecla TAB
 \hline
 \end{longtable}
 
+<José Jácome>
+\begin{longtable}{|p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|}
+\textbf{Comando} & \textbf{Descripción} & \textbf{Comando} & \textbf{Descripción}\\[0pt]
+\hline
+\endfirsthead
+\multicolumn{4}{l}{Continued from previous page} \\[0pt]
+\hline
+
+\textbf{Comando} & \textbf{Descripción} & \textbf{Comando} & \textbf{Descripción} \\[0pt]
+
+\hline
+\endhead
+\hline\multicolumn{4}{r}{Continued on next page} \\
+\endfoot
+\endlastfoot
+\hline
+- C-n & - Baja toda una línea en la misma dirección, es como si bajara en NEXT & - C-M-v & - Mueve todo un texto de una ventana a otra sin cambiar la ventana ya activa\\[0pt]
+\hline
+- C-x C-b & - Muestra todos los buffers activos, como los procesos de emacs & - C-x f & - Cambia el tamaño del margen\\[0pt]
+\hline
+- C-x u & - Deshace las acciones hechas & - C-g & - Cancela un comando\\[0pt]
+\hline
+\end{longtable}
 
 <Samuel Churaco>
 \begin{longtable}{|p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|}
@@ -272,59 +378,24 @@ generar una nueva fila escriba presione la tecla TAB
 \endfoot
 \endlastfoot
 \hline
-- C-h - 0 & Saltar entre ventadnas & C-x C-s & Guarda cambios\\[0pt]
-- C-/  / & Deshacer & -C-g & Elimina la intencion de algun comando\\[0pt]
-- C-d & Elimina al otrollado & C-v & saltos de parrafo\\[0pt]
-\end{longtable}
-<Estudiante C>
-\begin{longtable}{|p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|}
-\textbf{Comando} & \textbf{Descripción} & \textbf{Comando} & \textbf{Descripción}\\[0pt]
+- C-h o & - Se puede saltar de ventanas sin el uso del mouse & - C-y & - Pega algo que se copio anteriormente\\[0pt]
 \hline
-\endfirsthead
-\multicolumn{4}{l}{Continued from previous page} \\[0pt]
+- M-w & - Nos permite copiar algo seleccionado & - C-x 1 & - Nos quedamos con una sola ventana\\[0pt]
 \hline
-
-\textbf{Comando} & \textbf{Descripción} & \textbf{Comando} & \textbf{Descripción} \\[0pt]
-
-\hline
-\endhead
-\hline\multicolumn{4}{r}{Continued on next page} \\
-\endfoot
-\endlastfoot
-\hline
-\texttt{C-c C-e \# latex} & Insertar template de  latex & \texttt{C-x C-s} & Guardar los cambios en el archivo\\[0pt]
+- C-d & - Borra caracteres al inverzo & - C-w & - Corta algo seleccionado\\[0pt]
  &  &  & \\[0pt]
- &  &  & \\[0pt]
+\hline
 \end{longtable}
 
-<Estudiante D>
-\begin{longtable}{|p{0.2\linewidth}|p{0.3\linewidth}|p{0.2\linewidth}|p{0.3\linewidth}|}
-\textbf{Comando} & \textbf{Descripción} & \textbf{Comando} & \textbf{Descripción}\\[0pt]
-\hline
-\endfirsthead
-\multicolumn{4}{l}{Continued from previous page} \\[0pt]
-\hline
 
-\textbf{Comando} & \textbf{Descripción} & \textbf{Comando} & \textbf{Descripción} \\[0pt]
-
-\hline
-\endhead
-\hline\multicolumn{4}{r}{Continued on next page} \\
-\endfoot
-\endlastfoot
-\hline
-\texttt{C-c C-e \# latex} & Insertar template de  latex & \texttt{C-x C-s} & Guardar los cambios en el archivo\\[0pt]
- &  &  & \\[0pt]
- &  &  & \\[0pt]
-\end{longtable}
 \subsection{Comandos Emacs Juego}
-\label{sec:orgae3172c}
+\label{sec:orgb2ea20c}
 En la anterior sección usted revisó los comandos de mayor interés
 sobre la manipulación de Emacs. Es hora de poner en práctica sus
 conocimientos. Realice unas 3 visitas al juego  \href{https://chat.qwen.ai/s/deploy/t\_23ff57ef-b59a-4bd7-9b79-54679b33686d}{Emacs-Trainer} y apunte
 en la siguiente tabla su puntaje.
 
-Estudiante A:Leonardo Rodriguez
+Leonardo Rodriguez:
 \begin{center}
 \begin{tabular}{rr}
 \hline
@@ -337,74 +408,75 @@ iteración & Puntaje\\[0pt]
 \end{tabular}
 \end{center}
 
-\begin{verbatim}
 -Intento 1
-[[file:~/imagenes/Intento1.jpeg]]
--Intento2
-[[file:~/imagenes/Intento2.jpeg]]
--Intento3
-[[file:~/imagenes/Intento3.jpeg]]
-
-\end{verbatim}
-
 \begin{center}
-\includegraphics[width=.9\linewidth]{./EmacsTrainerResult.png}
+\includegraphics[width=.9\linewidth]{Fotos/Intento1.jpeg}
+\end{center} 
+-Intento2
+\begin{center}
+\includegraphics[width=.9\linewidth]{Fotos/Intento2.jpeg}
+\end{center}
+-Intento3
+\begin{center}
+\includegraphics[width=.9\linewidth]{Fotos/Intento3.jpeg}
 \end{center}
 
-SamuelChuraco 
+
+José Jácome:
 \begin{center}
 \begin{tabular}{rr}
 \hline
 iteración & Puntaje\\[0pt]
 \hline
-1 & 66\\[0pt]
-2 & 102\\[0pt]
-3 & 120\\[0pt]
- & \\[0pt]
+1 & 111\\[0pt]
+2 & 126\\[0pt]
+3 & 130\\[0pt]
 \hline
 \end{tabular}
 \end{center}
 
-\begin{verbatim}
 
-[[file:Imgess/prueba.png]]
-\end{verbatim}
-
-Estudiante C: 
+-Intento 1
 \begin{center}
-\begin{tabular}{rl}
+\includegraphics[width=.9\linewidth]{Fotos/IntentoJuego1JJ.jpeg}
+\end{center}
+-Intento2
+\begin{center}
+\includegraphics[width=.9\linewidth]{Fotos/IntentoJuego2JJ.jpeg}
+\end{center}
+-Intento3
+\begin{center}
+\includegraphics[width=.9\linewidth]{Fotos/IntentoJuego3JJ.jpeg}
+\end{center}
+
+Samuel Churaco: 
+\begin{center}
+\begin{tabular}{rr}
 \hline
 iteración & Puntaje\\[0pt]
 \hline
-1 & \\[0pt]
-2 & \\[0pt]
-3 & \\[0pt]
+1 & 110\\[0pt]
+2 & 120\\[0pt]
+3 & 140\\[0pt]
 \hline
 \end{tabular}
 \end{center}
 
-\begin{verbatim}
-[[./estudianteC-game.png]]
-\end{verbatim}
-
-Estudiante D: 
-\begin{center}
-\begin{tabular}{rl}
-\hline
-iteración & Puntaje\\[0pt]
-\hline
-1 & \\[0pt]
-2 & \\[0pt]
-3 & \\[0pt]
-\hline
-\end{tabular}
+-Intento 1
+  \begin{center}
+\includegraphics[width=.9\linewidth]{Fotos/IntentS1.png}
+\end{center}
+-intento 2
+  \begin{center}
+\includegraphics[width=.9\linewidth]{Fotos/IntentS2.png}
+\end{center}
+-Intento 3
+  \begin{center}
+\includegraphics[width=.9\linewidth]{Fotos/IntentS3.png}
 \end{center}
 
-\begin{verbatim}
-[[./estudianteD-game.png]]
-\end{verbatim}
 \subsection{Usando Emacs para tener Ayuda sobre Emacs}
-\label{sec:org5ac9a52}
+\label{sec:org1be95ea}
 ¿Qué comandos le resultan más fáciles de usar y cuáles le son más
 extraños? Identifique 4 comandos que le sean fáciles y 4 que le
 resulten complicados. Revise qué dice la ayuda de Emacs sobre cada
@@ -434,7 +506,7 @@ Switch to a buffer visiting file FILENAME, creating one if none
 already exists.
 Interactively, the default if you just type RET is the current directory,
 but the visited file name is available through the minibuffer history:
-type M-n to pull it into the minibuffer.
+type M-n to pull it into the minibuffer.>
 >
 \begin{enumerate}
 \item **Samuel Churaco**<C-x - o >. <
@@ -448,11 +520,23 @@ window, so select the selected window.  In an interactive call,
 COUNT is the numeric prefix argument.  Return nil.
  >
 \begin{enumerate}
-\item 
+\item \textbf{\textbf{José Jácome:}} <C-x u>. <C-x u runs the command undo (found in global-map), which is an
+\end{enumerate}
+interactive native-compiled Lisp function in ‘simple.el’.
+It is bound to C-\_, <undo>, C-/ and C-x u.
+It can also be invoked from the menu: Edit → Undo
+(undo \&optional ARG)
+Undo some previous changes.
+Repeat this command to undo more changes>
 
-\item 
+\begin{enumerate}
+\item <C-x C-s> <It can also be invoked from the menu: File → Save
 \end{enumerate}
 
+(save-buffer \&optional ARG)
+
+Save current buffer in visited file if modified.
+Variations are described below.>
 \textbf{\textbf{Comandos Difíciles}}
 \begin{enumerate}
 \item \textbf{\textbf{Leonardo Rodriguez:}} <C-s>. <It is bound to C-s.
@@ -469,11 +553,18 @@ Interactively, a prefix argument will cause the command to prompt
 for SWITCHES.
 >
 \begin{enumerate}
-\item 
+\item \textbf{\textbf{José Jácome:}} <C-M-v>. <C-M-v runs the command scroll-other-window (found in global-map),
 \end{enumerate}
-
+which is an interactive native-compiled Lisp function in ‘window.el’.
+It is bound to M-<next>, C-M-v and ESC <next> .>
+\begin{enumerate}
+\item <C-x b> <Set the mark where point is, and activate it; or jump to the mark.
+\end{enumerate}
+Setting the mark also alters the region, which is the text
+between point and mark; this is the closest equivalent in
+Emacs to what some editors call the "selection".>
 \section{Equipo de Trabajo}
-\label{sec:org295fbfd}
+\label{sec:org4fc780e}
 Complete la información de los integrantes de grupo e indique el líder
 de grupo.
 
@@ -482,15 +573,15 @@ de grupo.
 \hline
 Nombre & email & Rol\\[0pt]
 \hline
-Leonardo Rodriguez & leonardo.rodriguez01@epn.edu.ec & Líder\\[0pt]
-Samuelchuraco & samuelchuraco@epn.edu.ec & Colaborador\\[0pt]
- &  & Colaborador\\[0pt]
+Samuel Churaco & samuel.churaco@epn.edu.ec & Líder\\[0pt]
+José Jácome & jose.jacome04@epn.edu.ec & Colaborador\\[0pt]
+Leonardo Rodriguez & leonardo.rodriguez01@epn.edu.ec & Colaborador\\[0pt]
 \hline
 \end{tabular}
 \end{center}
 
 \section{Verificación de Entregables [100\%]:}
-\label{sec:orga28f83c}
+\label{sec:orga497dd9}
 Ejecute \texttt{C-c C-c} sobre los ítems de tarea según se hayan cumplido o
 no. Si un ítem no pudo realizarse apunte en la siguiente sección las
 razones al respecto.
@@ -505,7 +596,7 @@ identificado el líder.
 \item[{$\boxtimes$}] Generación de Archivo PDF \texttt{M-x org-latex-export-to-pdf}
 \end{itemize}
 \subsection{Problemas con la Tarea:}
-\label{sec:orgd267ab2}
+\label{sec:org9bea53e}
 \begin{itemize}
 \item Tarea \(X_1\) no pudo completarse debido a
 \item Tarea \(X_2\) no pudo completarse debido a
