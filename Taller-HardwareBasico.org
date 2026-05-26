@@ -1,7 +1,7 @@
 
 #+TITLE: Taller - Conceptos Básicos de Hardware y Ensamblaje de Computadores
 #+SUBTITLE: ICCD332 Arquitectura de Computadores
-#+AUTHOR: -Leonardo Shande Rodriguez Chaci
+#+AUTHOR: -Leonardo Shande Rodriguez Chaci,Samuel Alexander Churaco Guajan
           -
 #+DATE: [26/05/2026]
 #+OPTIONS: toc:nil num:t
@@ -83,19 +83,24 @@ archivo usando ~C-c C-l~ o usando ~[[./carpeta-certificados/cert-int1.pdf]]~
 
 2. *Integrante 2*
    - *Nombre completo:*
-   - *Correo:*
-   - *Certificado adjunto:*
-     #+begin_src example
-      Siga las instrucciones para insertar la imagen usando YASnippet
-     #+end_src
-3. *Integrante 3*
-   - *Nombre completo:*
    - *Usuario institucional:*
    - *Correo:*
    - *Certificado adjunto:* (sí / no)
      #+begin_src example
       Siga las instrucciones para insertar la imagen usando YASnippet
      #+end_src
+     
+3. *Integrante 3*
+   - *Nombre completo:*
+      Samuel Alexander Churaco Guajan
+   - *Correo:*
+     samuel.churaco@epn.edu.ec
+   - *Certificado adjunto:*
+     
+     #+caption: Certificado de Samuel Churaco
+     #+attr_latex: scale=0.75
+     #+label: fig:certificado-samuel churaco
+    [[file:Fotos/Computer_Hardware_Basics_certificate_samuel-churaco-epn-edu-ec_8687f5d5-b2a7-4a99-ab29-6aae79e2daca.pdf]]
      
 * Parte B. Cuestionario argumentado grupal
 
