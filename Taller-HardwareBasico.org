@@ -73,7 +73,7 @@ archivo usando ~C-c C-l~ o usando ~[[./carpeta-certificados/cert-int1.pdf]]~
    - *Nombre completo:*
      Leonardo Shande Rodriguez Chaci
    - *Correo:*
-     leonardo.rodriguez01@epn.edu.ec
+     leonardo.rodriguez01@epn.edu.ec  
    - *Certificado adjunto:*
 
       #+caption: Certificado de Leonardo Rodriguez
@@ -83,13 +83,16 @@ archivo usando ~C-c C-l~ o usando ~[[./carpeta-certificados/cert-int1.pdf]]~
 
 2. *Integrante 2*
    - *Nombre completo:*
-   - *Usuario institucional:*
+     José Manuel Jácome Navarrete
    - *Correo:*
-   - *Certificado adjunto:* (sí / no)
-     #+begin_src example
-      Siga las instrucciones para insertar la imagen usando YASnippet
-     #+end_src
-     
+     jose.jacome04@epn.edu.ec
+** *Certificado adjunto:*
+
+     #+caption: Certificado de José Jácome
+     #+attr_latex: :width 0.55\textwidth
+     #+latex: \vspace{-0.5cm}  
+     [[[[file:Fotos/Computer-Hardware-Basics-certificate-jose-3fff7a71-0caa-4b4b-8caf-2647ef930f66.pdf.pdf]]]]
+
 3. *Integrante 3*
    - *Nombre completo:*
       Samuel Alexander Churaco Guajan
@@ -300,28 +303,38 @@ d. Por el estándar de codificación de color de los cables SATA
    Liste al menos seis insumos y describa para qué sirve cada
    uno. Revise el siguiente [[https://youtu.be/3ri1BMV7XTM?si=bjYoDUUKuMWwj4Qg][vídeo]].
 
-   | Insumo | Uso principal |
-   |--------+---------------|
-   |        |               |
-   |        |               |
-   |        |               |
-   |        |               |
-   |        |               |
-   |        |               |
+   | Insumo               | Uso principal                                  |
+   |----------------------+------------------------------------------------|
+   | Aire Comprimido      | Remover polvo en ventiladores y puertos.       |
+   | Alcohol isopropílico | Limpiar componentes electrónicos.              |
+   | Brocha antiestática  | Limpiar el polvo de partes delicadas.          |
+   | Pasta térmica        | Mejorar la disipación de calor del procesador. |
+   | Destornillador       | Abrir el equipo correctamente.                 |
+   | Paño de microfibra   | Limpiar pantallas.                             |
 
 ** 3.2 Procedimiento de limpieza — Desktop
-   1.
-   2.
-   3.
-   4.
-   5.
+   1. Apagar el computador, desconectarlo de la corriente y tomar en
+      cuenta las medidas antiestática.
+   2. Abrir el gabinete usando las herramientas necesarias, ver el
+      estado de los componentes y el polvo.
+   3. Limpiar ventiladores, disipadores, fuente de poder y tarjetas
+      con la brocha antiestática y el aire comprimido.
+   4. Limpiar las superficies con paño de microfibra y alcohol
+      isopropílico, evitando usar líquido en los componentes directamente.
+   5. Verificar la correcta conexión de cables y componentes, cerrar
+      el gabinete y verificar que todo funcione correctamente.
 
 ** 3.3 Procedimiento de limpieza — Laptop
-   1.
-   2.
-   3.
-   4.
-   5.
+   1. Retirar todos los tornillos de la carcasa inferior destornillador y
+       remover la tapa haciendo palanca lateralcon la espátula plástica.
+   2. Desconectar el cable de alimentación de la batería al PCB para
+      trabajar de forma segura y evitar cortocircuitos en la placa madre.
+   3. Desmontar el sistema de disipación retirando los tornillos y
+      desconectar los conectores sensibles de los ventiladores.
+   4. Limpiar los residuos de pasta térmica usando papel que no suelte
+      pelusa humedecido con alcohol isopropílico.
+   5. Aplicar thermal putty nuevo en las memorias VRAM/VRM, distribuir una
+      capa delgada y homogénea de pasta térmica.
 
 * Parte D. Aprendizaje obtenido
 
@@ -329,13 +342,19 @@ d. Por el estándar de codificación de color de los cables SATA
    - *¿Qué conocimiento nuevo obtuvo del curso?* [Respuesta]
    - *¿Qué concepto corrigió o clarificó?* [Respuesta]
 
-** Integrante 2 [Nombre]
-   - *¿Qué conocimiento nuevo obtuvo del curso?* [Respuesta]
-   - *¿Qué concepto corrigió o clarificó?* [Respuesta]
+** Integrante 2 [José Jácome]
+   - *¿Qué conocimiento nuevo obtuvo del curso?* Aprendí como hacer un
+     mantenimiento preventivo a mis aparatos tecnológicos, en especial
+     mi laptop, que necesita mantenimiento cada 6 meses.
+   - *¿Qué concepto corrigió o clarificó?* Clarifiqué el concepto de
+     memoria RAM y almacenamiento permanente, porque solía confundir
+     sus funciones.
 
-** Integrante 3 [Nombre]
-   - *¿Qué conocimiento nuevo obtuvo del curso?* [Respuesta]
-   - *¿Qué concepto corrigió o clarificó?* [Respuesta]
+** Integrante 3 [Samuel Churaco]
+   - *¿Qué conocimiento nuevo obtuvo del curso?* En el curso nos enceño
+     no solo computadores si no tambien como fumciona las redes inalambricas
+   - *¿Qué concepto corrigió o clarificó?* Aclaro como colocar los pines
+     en la placa madre 
      
 * Rúbrica de evaluación
 
