@@ -1,8 +1,7 @@
 
 #+TITLE: Taller - Conceptos Básicos de Hardware y Ensamblaje de Computadores
 #+SUBTITLE: ICCD332 Arquitectura de Computadores
-#+AUTHOR: -Leonardo Shande Rodriguez Chaci,Samuel Alexander Churaco Guajan
-          -
+#+AUTHOR: -Leonardo Shande Rodriguez Chaci, Samuel Alexander Churaco Guajan, José Manuel Jácome Navarrete
 #+DATE: [26/05/2026]
 #+OPTIONS: toc:nil num:t
 #+LANGUAGE: es
@@ -25,6 +24,7 @@
 #+latex_header: \setlength\headheight{43.0pt}
 #+LATEX_HEADER: \usepackage{tabularx}
 #+LATEX_HEADER: \usepackage{longtable}
+#+LATEX_HEADER: \usepackage{float}
 
 #+cite_export: biblatex
 #+LATEX_HEADER: \usepackage[backend=biber, style=ieee]{biblatex}
@@ -75,23 +75,15 @@ archivo usando ~C-c C-l~ o usando ~[[./carpeta-certificados/cert-int1.pdf]]~
    - *Correo:*
      leonardo.rodriguez01@epn.edu.ec  
    - *Certificado adjunto:*
-
-      #+caption: Certificado de Leonardo Rodriguez
-      #+attr_latex: :scale=0.75
-      #+label: fig:certificado-leonardo
-      [[[[file:Fotos/Computer_Hardware_Basics_certificate_leonardo-rodriguez01-epn-edu-ec_2dcdb5c5-c58f-474c-bd70-f14693523bb9.pdf]]]]
+      [[file:Fotos/Computer_Hardware_Basics_certificate_leonardo-rodriguez01-epn-edu-ec_2dcdb5c5-c58f-474c-bd70-f14693523bb9.pdf]]
 
 2. *Integrante 2*
    - *Nombre completo:*
      José Manuel Jácome Navarrete
    - *Correo:*
      jose.jacome04@epn.edu.ec
-** *Certificado adjunto:*
-
-     #+caption: Certificado de José Jácome
-     #+attr_latex: :width 0.55\textwidth
-     #+latex: \vspace{-0.5cm}  
-     [[[[file:Fotos/Computer-Hardware-Basics-certificate-jose-3fff7a71-0caa-4b4b-8caf-2647ef930f66.pdf.pdf]]]]
+   *Certificado adjunto:*
+     [[file:Fotos/Computer-Hardware-Basics-certificate-jose-3fff7a71-0caa-4b4b-8caf-2647ef930f66.pdf.pdf]]
 
 3. *Integrante 3*
    - *Nombre completo:*
@@ -99,11 +91,7 @@ archivo usando ~C-c C-l~ o usando ~[[./carpeta-certificados/cert-int1.pdf]]~
    - *Correo:*
      samuel.churaco@epn.edu.ec
    - *Certificado adjunto:*
-     
-     #+caption: Certificado de Samuel Churaco
-     #+attr_latex: scale=0.75
-     #+label: fig:certificado-samuel churaco
-    [[file:Fotos/Computer_Hardware_Basics_certificate_samuel-churaco-epn-edu-ec_8687f5d5-b2a7-4a99-ab29-6aae79e2daca.pdf]]
+     [[file:Fotos/Computer_Hardware_Basics_certificate_samuel-churaco-epn-edu-ec_8687f5d5-b2a7-4a99-ab29-6aae79e2daca.pdf]]
      
 * Parte B. Cuestionario argumentado grupal
 
@@ -132,7 +120,7 @@ d. Para que el disipador quede centrado automáticamente
 
 - /Alternativa escogida:/ [b]
   
-- /Justificación técnica:/ [La alineación del pin 1 es crítica porque
+- /Justificación técnica:/ La alineación del pin 1 es crítica porque
   los sockets LGA contienen pines extremadamente
   delicados en la placa base que hacen contacto con las almohadillas
   de la CPU. Una inserción incorrecta o forzada debido a una mala
@@ -140,12 +128,12 @@ d. Para que el disipador quede centrado automáticamente
   del socket, destruyendo la conectividad eléctrica de la placa o
   cortocircuitando el procesador. Los fabricantes incluyen guías
   físicas y un triángulo indicador en la esquina del chip
-  precisamente para prevenir este daño mecánico.]
+  precisamente para prevenir este daño mecánico.
   
-- /Debate del grupo:/ [No existieron discrepancias fundamentales, ya
+- /Debate del grupo:/ No existieron discrepancias fundamentales, ya
   que todos los integrantes coincidimos en que un error de orientación
   en un socket LGA produce daños físicos directos en el hardware,
-  descartando las opciones de software o velocidad.]
+  descartando las opciones de software o velocidad.
   
 ** Pregunta 2
 Al montar la placa madre en el gabinete, ¿cuál es la función de los separadores (standoffs)?
@@ -160,7 +148,7 @@ d. Facilitar la alineación del panel de E/S trasero
 
 - /Alternativa escogida:/ [b]
   
-- /Justificación técnica:/ [Los separadores o standoffs son pequeñas
+- /Justificación técnica:/ Los separadores o standoffs son pequeñas
   piezas metálicas o de plástico que se atornillan al chasis del
   gabinete antes de colocar la placa madre. Su función principal es
   aislar eléctricamente la parte posterior de la PCB de la
@@ -168,13 +156,13 @@ d. Facilitar la alineación del panel de E/S trasero
   tocara directamente el chasis, se generarían múltiples
   cortocircuitos al encender el equipo, lo que podría quemar
   componentes críticos como el chipset, las fases de poder o el
-  procesador.]
+  procesador.
   
-- /Debate del grupo:/ [Existió un consenso absoluto y unánime en el
+- /Debate del grupo:/ Existió un consenso absoluto y unánime en el
   grupo. No hubo discrepancias, puesto que recordamos que el metal del
   gabinete es un conductor eléctrico y que la separación física es la
   única medida estándar de seguridad para prevenir fallas
-  catastróficas por corto circuito durante el ensamblaje.]
+  catastróficas por corto circuito durante el ensamblaje.
 
 ** Pregunta 3
 Según el manual de ensamblaje de Cisco, ¿cuándo NO es necesario aplicar pasta térmica al instalar el disipador sobre la CPU?
@@ -189,7 +177,7 @@ d. Cuando el gabinete tiene buena ventilación
 
 - /Alternativa escogida:/ [b]
   
-- /Justificación técnica:/ [No es necesario aplicar pasta térmica
+- /Justificación técnica:/ No es necesario aplicar pasta térmica
   manual si el disipador de fábrica ya cuenta con una
   almohadilla térmica o pasta preaplicada en su base de cobre o
   aluminio. Colocar pasta adicional sobre una superficie que ya la
@@ -198,14 +186,14 @@ d. Cuando el gabinete tiene buena ventilación
   transferencia de calor hacia las aletas del disipador. El manual de
   Cisco especifica que solo se debe aplicar pasta térmica manualmente
   tras limpiar por completo cualquier residuo anterior utilizando
-  alcohol isopropílico.]
+  alcohol isopropílico.
   
-- /Debate del grupo:/ [Tuvimos un consenso pleno en el grupo tras
+- /Debate del grupo:/ Tuvimos un consenso pleno en el grupo tras
   recordar las guías de ensamblaje estándar. Coincidimos en que la
   duplicación de compuestos térmicos satura el área de contacto y
   eleva peligrosamente las temperaturas de la CPU, descartando por
   unanimidad las demás opciones relacionadas con el tiempo de uso o la
-  ventilación del gabinete.]
+  ventilación del gabinete.
 
 ** Pregunta 4
 ¿Por qué se recomienda usar pulsera antiestática y alfombrilla antiestática al manipular componentes internos?
@@ -220,7 +208,7 @@ d. Para que los tornillos no se magneticen
 
 - /Alternativa escogida:/ [b]
   
-- /Justificación técnica:/ [El cuerpo humano puede acumular miles de
+- /Justificación técnica:/ El cuerpo humano puede acumular miles de
   voltios de electricidad estática a través de la fricción diaria. Al
   tocar componentes semiconductores extremadamente sensibles, esa
   carga puede liberarse repentinamente en forma de una descarga
@@ -228,13 +216,13 @@ d. Para que los tornillos no se magneticen
   microcircuitos internos o causar daños latentes que degraden el
   hardware con el tiempo. La pulsera y la alfombrilla antiestática
   crean una vía segura y continua a tierra, disipando la carga de
-  forma controlada antes de que pueda saltar al hardware.]
+  forma controlada antes de que pueda saltar al hardware.
   
-- /Debate del grupo:/ [Hubo un consenso rápido y sin discrepancias en
+- /Debate del grupo:/ Hubo un consenso rápido y sin discrepancias en
   el grupo. Todos estuvimos de acuerdo en que la alternativa "a" es
   incorrecta porque estos elementos no protegen contra voltajes altos
   de la línea eléctrica, y las opciones "c" y "d" no tienen fundamento técnico
-  sobre la protección de circuitos.]
+  sobre la protección de circuitos.
   
 ** Pregunta 5
 Si al iniciar la computadora por primera vez un LED del panel frontal no funciona, ¿qué indica el manual de Cisco?
@@ -249,7 +237,7 @@ d. Desconectar y reconectar la fuente de poder
 
 - /Alternativa escogida:/ [c]
   
-- /Justificación técnica:/ [Los diodos emisores de luz del panel
+- /Justificación técnica:/ Los diodos emisores de luz del panel
   frontal funcionan con corriente continua y poseen polaridad, lo que
   significa que tienen un polo positivo y uno negativo. Si el conector
   del panel frontal se conecta al revés en los pines de la placa
@@ -258,14 +246,14 @@ d. Desconectar y reconectar la fuente de poder
   indica que ante este fallo común no se debe asumir un daño de
   fábrica, sino simplemente desconectar el jumper, invertir su
   orientación y volver a conectarlo para corregir
-  la polaridad.]
+  la polaridad.
   
-- /Debate del grupo:/ [Hubo consenso total en el grupo. Al debatir las
+- /Debate del grupo:/ Hubo consenso total en el grupo. Al debatir las
   opciones, descartamos "b" porque el BIOS no controla individualmente
   los LEDs físicos del chasis, y "a" o "d" serían medidas
   desproporcionadas antes de verificar algo tan básico en el
   ensamblaje de hardware como la orientación de los cables de
-  control.]
+  control.
 
 ** Pregunta 6
 ¿Por qué una GPU puede requerir un conector de alimentación PCIe adicional de la fuente de poder?
@@ -280,7 +268,7 @@ d. Por el estándar de codificación de color de los cables SATA
 
 - /Alternativa escogida:/ [b]
   
-- /Justificación técnica:/ [La ranura PCIe x16 de la placa madre está
+- /Justificación técnica:/ La ranura PCIe x16 de la placa madre está
   limitada por estándar a suministrar un máximo de 75W de potencia
   eléctrica. Las tarjetas gráficas de gama media y alta dedicadas al
   procesamiento complejo de gráficos o videojuegos consumen mucha más
@@ -288,14 +276,14 @@ d. Por el estándar de codificación de color de los cables SATA
   suplir este déficit y evitar sobrecargar los circuitos de la placa,
   las fuentes de poder incluyen cables de alimentación dedicados que
   entregan energía directa de las líneas de +12V para garantizar la
-  estabilidad del sistema bajo carga.]
+  estabilidad del sistema bajo carga.
   
-- /Debate del grupo:/ [En el grupo existió consenso absoluto sobre la
+- /Debate del grupo:/ En el grupo existió consenso absoluto sobre la
   opción "b". Al revisar los fundamentos de hardware, descartamos
   inmediatamente la "a" porque el bus PCIe sí maneja el tráfico de
   datos de video hacia el procesador, la "c" porque no está limitado a
   tarjetas de red, y la "d" porque mezcla de forma errónea los
-  estándares de almacenamiento SATA con los de alimentación gráfica.]
+  estándares de almacenamiento SATA con los de alimentación gráfica.
 
 * Parte C. Mantenimiento de computadores
 
@@ -338,9 +326,16 @@ d. Por el estándar de codificación de color de los cables SATA
 
 * Parte D. Aprendizaje obtenido
 
-** Integrante 1 [Nombre]
-   - *¿Qué conocimiento nuevo obtuvo del curso?* [Respuesta]
-   - *¿Qué concepto corrigió o clarificó?* [Respuesta]
+** Integrante 1 [Leonardo Rodriguez]
+   - *¿Qué conocimiento nuevo obtuvo del curso?*
+     Desarrolle nuevos conocimiento en lo que respecta a
+     mantenimiento de computadoras y laptops.
+     
+   - *¿Qué concepto corrigió o clarificó?*
+     Pensé que podía trabajar con dispositivos electrónicos sobre
+     cualquier superficie pero al parecer debía ser mas cuidadoso en
+     ese aspecto. 
+     
 
 ** Integrante 2 [José Jácome]
    - *¿Qué conocimiento nuevo obtuvo del curso?* Aprendí como hacer un
@@ -351,7 +346,7 @@ d. Por el estándar de codificación de color de los cables SATA
      sus funciones.
 
 ** Integrante 3 [Samuel Churaco]
-   - *¿Qué conocimiento nuevo obtuvo del curso?* En el curso nos enceño
+   - *¿Qué conocimiento nuevo obtuvo del curso?* En el curso nos enseño
      no solo computadores si no tambien como fumciona las redes inalambricas
    - *¿Qué concepto corrigió o clarificó?* Aclaro como colocar los pines
      en la placa madre 
@@ -401,19 +396,19 @@ Para insertar una referencia a un recurso bibliográfico
           (t basic))))
 
      #+end_src
-* Verificación de Entregables [0%]:
+* Verificación de Entregables [100%]:
 Ejecute ~C-c C-c~ sobre los ítems de tarea según se hayan cumplido o
 no. Si un ítem no pudo realizarse apunte en la siguiente sección las
 razones al respecto.
-- [ ] Los enlaces a los certificados en el documento ~.org~ funcionan.
-- [ ] Resolución completa del Cuestionario2.
-- [ ] Revisión del vídeo sobre mantenimiento a computador ASUS. 
-- [ ] Tutorial de Comandos Emacs realizado.
-- [ ] Lista de insumos para mantenimiento completa.
-- [ ] Procedimiento de mantenimiento para desktop completo.
-- [ ] Procedimiento de mantenimiento para laptop completo.
-- [ ] Revisión de ortografía con ~ispell-buffer~ en el buffer
-- [ ] Generación de Archivo PDF ~M-x org-latex-export-to-pdf~
-- [ ] Subir al aula virutal archivo ~.org~ y ~.pdf~
+- [X] Los enlaces a los certificados en el documento ~.org~ funcionan.
+- [X] Resolución completa del Cuestionario2.
+- [X] Revisión del vídeo sobre mantenimiento a computador ASUS. 
+- [X] Tutorial de Comandos Emacs realizado.
+- [X] Lista de insumos para mantenimiento completa.
+- [X] Procedimiento de mantenimiento para desktop completo.
+- [X] Procedimiento de mantenimiento para laptop completo.
+- [X] Revisión de ortografía con ~ispell-buffer~ en el buffer
+- [X] Generación de Archivo PDF ~M-x org-latex-export-to-pdf~
+- [X] Subir al aula virutal archivo ~.org~ y ~.pdf~
 
 #+print_bibliography:
