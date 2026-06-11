@@ -190,7 +190,7 @@ C
 
 3. ¿Cuál es el valor del bit de Carry? ¿Qué operación modifica el bit?
    Respuesta:
-   - $Carry = 0
+   - Carry = 0
 
    - Dos operaciones modifican este bit, primero la suma la cual hace
      que el carry tome el valor de 1, luego el LSH con el
