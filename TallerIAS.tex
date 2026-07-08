@@ -1,0 +1,358 @@
+% Created 2026-06-12 Fri 21:40
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\usepackage{fancyhdr}
+\usepackage[top=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{longtable}
+\fancyhead[R]{}
+\setlength\headheight{43.0pt}
+\usepackage{tabularx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{/home/eareal/bibliography/bibliography.bib}
+\author{Leonardo Rodriguez, Henry Luisa, Evan Matango, Jonathan Pincay}
+\date{2026-06-12}
+\title{Taller — Máquina IAS / Von Neumann\\\medskip
+\large ICCD332 Arquitectura de Computadores}
+\hypersetup{
+ pdfauthor={Leonardo Rodriguez, Henry Luisa, Evan Matango, Jonathan Pincay},
+ pdftitle={Taller — Máquina IAS / Von Neumann},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.7.5)}, 
+ pdflang={Spanish}}
+\begin{document}
+
+\maketitle
+\fancyhead[C]{\includegraphics[scale=0.05]{./Imgess/logoEPN.jpg}\\
+ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA DE SISTEMAS\\
+ARQUITECTURA DE COMPUTADORES}
+\thispagestyle{fancy}
+
+\section{Objetivos}
+\label{sec:org8017d80}
+
+\begin{itemize}
+\item Comprender el ciclo de captación, decodificación y ejecución de la
+máquina IAS (arquitectura Von Neumann).
+\item Identificar y aplicar el conjunto de instrucciones IAS para traducir
+código máquina a lenguaje ensamblador y a notación RTL.
+\item Simular mentalmente la ejecución de un programa en la máquina IAS
+para determinar el estado final de los registros.
+\end{itemize}
+
+\section{Instrucciones}
+\label{sec:org802df00}
+
+Complete las solicitudes del taller y suba el archivo \texttt{.org} y \texttt{.pdf}
+al aula virtual. Use las combinaciones de teclado para trabajar en Emacs.
+
+\section{Recursos}
+\label{sec:orgf07ab57}
+
+Para este taller consulte el libro \citetitle{stallings2006esp}
+disponible en \href{https://epnecuador-my.sharepoint.com/:f:/g/personal/lenin\_falconi\_epn\_edu\_ec/EgjH2RoedD5NuswqpOt8ExsB\_DE052v9Rlrg0QpEtbimDg?e=WoqexR}{EPN-SHAREPOINT (Clic aquí)} y use su WSL con Emacs para editar el archivo.
+
+\subsection{Observaciones y Recomendaciones}
+\label{sec:org0778993}
+\begin{itemize}
+\item Tenga en cuenta la ruta a las imágenes y a la bibliografía. Se le
+recomienda que realice una clonación o un fork del repositorio de la
+clase a fin de que no tenga problemas generando el documento.
+\item Para la generación correcta de archivos la configuración básica debe
+estar operativa y funcional (es decir, Emacs, \LaTeX).
+\end{itemize}
+
+\section{Taller: Máquina de Von Neumann}
+\label{sec:org84104a5}
+
+La máquina de Von Neumann realiza operaciones en un ciclo repetitivo de
+\textbf{captación}, \textbf{decodificación} y \textbf{ejecución}. Para esto, el computador
+IAS usa una memoria de 40 bits. Cuando la memoria se usa
+numéricamente, el dato representa un número en complemento a 2; donde
+el bit inicial corresponde al signo. Cuando la memoria se usa para el
+registro de instrucciones, se divide en dos partes de 20 bits cada una. Los 8
+primeros bits de cada parte corresponden al \emph{opcode} y los restantes
+12 bits de cada parte a la \emph{dirección (operando)} desde la que se debe
+leer o a la que se debe escribir.
+
+\subsection{Conjunto de Instrucciones IAS}
+\label{sec:orgc9fd0b9}
+
+Complete la Tabla \ref{tab:tablaISA-IAS}  de instrucciones del computador IAS
+\autocite[p.47]{stallings2006esp} usando la notación RTL\footnote{Register Transfer Language o Lenguaje de Transferencia de Registros.}. Se suministra
+la Tabla en código \LaTeX{} para tal efecto.
+
+Para editar la Tabla \ref{tab:tablaISA-IAS} ubíquese en
+el bloque \texttt{\#+begin\_export latex} y ejecute el comando \texttt{C-c'}. Esto
+dividirá el buffer en dos ventanas. El cursor salta a la nueva ventana
+y le permite editar la tabla. Dentro de la nueva tabla el modo
+predominante cambiará automáticamente a \LaTeX, lo que le permite
+hacer cambios con la asistencia del IDE. Para salir y aceptar los
+cambios ejecute de nuevo \texttt{C-c'}.
+
+\begin{itemize}
+\item \texttt{M} equivale a \emph{Alt}
+\item \texttt{x} es la tecla \emph{x}
+\item \texttt{RET} es presionar \emph{Enter}
+\end{itemize}
+
+Una vez activado el modo \LaTeX{} el siguiente código recibe colores
+sobre las palabras clave.
+
+\begin{table}[htbp]
+  \caption{Instrucciones Máquina IAS}
+  \label{tab:tablaISA-IAS}
+  \centering
+  \begin{tabular}{|cccc|}
+    \hline
+    Opcode   & Opcode Hex &  Simbolo          & RTL \\ \hline
+    % --- BLOQUE: TRANSFERENCIA DE DATOS ---
+    00001010 & 0x0A        &  LOAD MQ          & $[AC]\leftarrow[MQ]$\\
+    00001001 & 0x09        &  LOAD MQ, M(X)    & $[MQ]\leftarrow[X]$\\
+    00100001 & 0x21        &  STOR M(X)        & $[X]\leftarrow[AC]$\\
+    00000001 & 0x01        &  LOAD M(X)        & $[AC]\leftarrow[X]$\\
+    00000010 & 0x02        &  LOAD -M(X)       & $[AC]\leftarrow-[X]$\\
+    00000011 & 0x03        &  LOAD |M(X)|      & $[AC]\leftarrow|[X]|$\\
+    00000100 & 0x04        &  LOAD -|M(X)|     & $[AC]\leftarrow-|[X]|$\\
+    % --- BLOQUE: SALTO CONDICIONAL ---
+    00001111 & 0x0F        &  JUMP +M(X,0:19)  & $if([AC]\ge 0) \rightarrow [PC]\leftarrow X_{izq}$\\
+    00010000 & 0x10        &  JUMP +M(X,20:39) & $if([AC]\ge 0) \rightarrow [PC]\leftarrow X_{der}$\\
+    % --- BLOQUE: ARITMÉTICA ---
+    00000101 & 0x05        &  ADD M(X)         & $[AC]\leftarrow[AC]+[X]$\\
+    00000111 & 0x07        &  ADD |M(X)|       & $[AC]\leftarrow[AC]+|[X]|$\\
+    00000110 & 0x06        &  SUB M(X)         & $[AC]\leftarrow[AC]-[X]$\\
+    00001000 & 0x08        &  SUB |M(X)|       & $[AC]\leftarrow[AC]-|[X]|$\\
+    00001011 & 0x0B        &  MUL M(X)         & $[AC, MQ]\leftarrow[X]\times[MQ]$\\
+    00001100 & 0x0C        &  DIV M(X)         & $[MQ]\leftarrow[AC]\div[X], [AC]\leftarrow[AC]\pmod{[X]}$\\
+    00010100 & 0x14        &  LSH              & $[AC]\leftarrow[AC]\times 2$\\
+    00010101 & 0x15        &  RSH              & $[AC]\leftarrow[AC]\div 2$\\
+    % --- BLOQUE: MODIFICACIÓN DE DIRECCIONES ---
+    00010010 & 0x12        &  STOR M(X,8:19)   & $[X(8:19)]\leftarrow[AC(28:39)]$\\
+    00010011 & 0x13        &  STOR M(X,28:39)  & $[X(28:39)]\leftarrow[AC(28:39)]$\\
+    \hline
+  \end{tabular}
+\end{table}
+
+\newpage
+
+\subsection{Ejercicio}
+\label{sec:orgb98224b}
+
+En la máquina IAS, las instrucciones se dividen en dos segmentos:
+i) izquierdo, desde el bit 0 a 19, y ii) derecho, desde el bit 20 al 39. Primero
+se ejecuta el lado izquierdo y luego el derecho. El
+contador de programa inicia en la posición \([PC] \leftarrow 300\). El conjunto de
+instrucciones del computador o ISA\footnote{Instruction Set Architecture: conjunto de instrucciones que la máquina IAS puede interpretar y ejecutar.} está definido en la Tabla
+\ref{tab:tablaISA-IAS}. A fin de terminar el programa, se agrega la
+instrucción \texttt{0x99} que lleva al computador al estado de HALT. Conteste las
+siguientes preguntas considerando la Tabla \ref{tab:org2f87291} como el
+mapa de memoria de la máquina y obtenga el programa en lenguaje ensamblador y en
+RTL.
+
+\begin{table}[htbp]
+\caption{\label{tab:org2f87291}Mapa de Memoria}
+\centering
+\begin{tabular}{rrrrr}
+\hline
+Dirección & \(Opcode_1\) & \(X_1\) & \(Opcode_2\) & \(X_2\)\\[0pt]
+\hline
+0x300 & 01 & 940 & 06 & 941\\[0pt]
+0x301 & 21 & 940 & 14 & 000\\[0pt]
+0x302 & 21 & 941 & 02 & 940\\[0pt]
+0x303 & 21 & 940 & 99 & 000\\[0pt]
+\ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{}\\[0pt]
+0x940 & 00 & 000 & 00 & 005\\[0pt]
+0x941 & 00 & 000 & 00 & 002\\[0pt]
+\hline
+\end{tabular}
+\end{table}
+
+\subsubsection{Código RTL}
+\label{sec:orgc6e8743}
+Escriba en notación de transferencia de registros el programa que ejecuta el computador IAS.
+
+A continuación se detalla el ciclo completo de captación (Fetch), decodificación y ejecución de la CPU paso a paso:
+
+\begin{verbatim}
+[Dirección 0x300 - Instrucción Izquierda]
+1.  [PC] <- 0x300
+2.  [IR] <- [[PC]]
+3.  [IR] <- [0x300]
+4.  [IR] <- 01 940     ; Decodifica Opcode 01 (LOAD) y dirección 940
+5.  [AC] <- [940]
+6.  [AC] <- 5
+
+[Dirección 0x300 - Instrucción Derecha]
+7.  [IR] <- 06 941     ; Decodifica Opcode 06 (SUB) y dirección 941
+8.  [AC] <- [AC] - [941]
+9.  [AC] <- 5 - 2
+10. [AC] <- 3
+
+------------------------------------------------------------------------
+
+[Dirección 0x301 - Instrucción Izquierda]
+11. [PC] <- 0x301
+12. [IR] <- [[PC]]
+13. [IR] <- [0x301]
+14. [IR] <- 21 940     ; Decodifica Opcode 21 (STOR) y dirección 940
+15. [940] <- [AC]
+16. [940] <- 3         ; Se sobrescribe la localidad 940 con el valor 3
+
+[Dirección 0x301 - Instrucción Derecha]
+17. [IR] <- 14 000     ; Decodifica Opcode 14 (LSH)
+18. [AC] <- [AC] x 2
+19. [AC] <- 3 x 2
+20. [AC] <- 6
+
+------------------------------------------------------------------------
+
+[Dirección 0x302 - Instrucción Izquierda]
+21. [PC] <- 0x302
+22. [IR] <- [[PC]]
+23. [IR] <- [0x302]
+24. [IR] <- 21 941     ; Decodifica Opcode 21 (STOR) y dirección 941
+25. [941] <- [AC]
+26. [941] <- 6         ; Se sobrescribe la localidad 941 con el valor 6
+
+[Dirección 0x302 - Instrucción Derecha]
+27. [IR] <- 02 940     ; Decodifica Opcode 02 (LOAD -M(X)) y dirección 940
+28. [AC] <- -[940]
+29. [AC] <- -3         ; Carga el valor actual de 940 con signo invertido
+
+------------------------------------------------------------------------
+
+[Dirección 0x303 - Instrucción Izquierda]
+30. [PC] <- 0x303
+31. [IR] <- [[PC]]
+32. [IR] <- [0x303]
+33. [IR] <- 21 940     ; Decodifica Opcode 21 (STOR) y dirección 940
+34. [940] <- [AC]
+35. [940] <- -3        ; Se guarda el valor final -3 en la localidad 940
+
+[Dirección 0x303 - Instrucción Derecha]
+36. [IR] <- 99 000     ; Decodifica Opcode 99 (HALT)
+37. [IR] <- HALT       ; La máquina detiene su ejecución de forma definitiva
+\end{verbatim}
+
+\subsubsection{Preguntas}
+\label{sec:org8fb2990}
+
+\begin{enumerate}
+\item ¿Qué resultado se tiene al final en el registro del acumulador?
+
+Respuesta:
+\([AC] \leftarrow -3\)
+
+\item ¿Se sobrescribe algún registro como resultado de la ejecución? Si
+es verdadero, indique qué registro y con qué valor.
+Respuesta:
+\begin{itemize}
+\item \([940] \leftarrow -3\)
+\item \([941] \leftarrow 6\)
+\item \([AC] \leftarrow -3\)
+\end{itemize}
+
+\item ¿Cuál es el valor del bit de Carry? ¿Qué operación modifica el bit?
+Respuesta:
+\begin{itemize}
+\item \(Carry = 0\)
+
+\item Dos operaciones modifican este bit, primero la suma la cual hace
+que el carry tome el valor de 1, luego el LSH con el
+desplazamiento hace que el carry tome el valor de 0.
+\end{itemize}
+\end{enumerate}
+
+\subsubsection{Código RTL}
+\label{sec:orga4903a1}
+
+Escriba en notación de transferencia de registros el programa que
+ejecuta el computador IAS.
+
+\begin{itemize}
+\item La notación de transferencia de registros (RTL) simplificada para la secuencia completa del programa se detalla a continuación, mostrando el flujo síncrono de los datos en cada ciclo de ejecución:
+\end{itemize}
+\begin{enumerate}
+\item Dirección 0x300 (Izquierda): [AC] <- [M(0x940)]
+\item Dirección 0x300 (Derecha):   [AC] <- [AC] - [M(0x941)]
+\item Dirección 0x301 (Izquierda): [M(0x940)] <- [AC]
+\item Dirección 0x301 (Derecha):   [AC] <- [AC] * 2
+\item Dirección 0x302 (Izquierda): [M(0x941)] <- [AC]
+\item Dirección 0x302 (Derecha):   [AC] <- -[M(0x940)]
+\item Dirección 0x303 (Izquierda): [M(0x940)] <- [AC]
+\item Dirección 0x303 (Derecha):   HALT
+\end{enumerate}
+
+
+\subsubsection{Código Assembler}
+\label{sec:org14cb4f6}
+
+Escriba el código Assembler del programa que ejecuta el computador
+IAS.
+
+Código Ensamblador (Assembly)
+A continuación se detalla el programa escrito en lenguaje ensamblador IAS, estructurado por posiciones de memoria y mapeando los segmentos izquierdo y derecho de la palabra de instrucción:
+
+\begin{verbatim}
+; Dirección    Instrucción Izquierda    Instrucción Derecha
+; -----------------------------------------------------------
+  0x300:       LOAD M(940)              SUB M(941)
+  0x301:       STOR M(940)              LSH
+  0x302:       STOR M(941)              LOAD -M(940)
+  0x303:       STOR M(940)              HALT
+\end{verbatim}
+
+\begin{verbatim}
+LOAD M(940)
+
+\end{verbatim}
+
+\section{Equipo de Trabajo}
+\label{sec:org1e13499}
+
+Complete la información de los integrantes del grupo.
+\begin{center}
+\begin{tabular}{lll}
+Nombre & Email & Rol\\[0pt]
+\hline
+Leonardo Rodriguez & leonardo.rodriguez01@epn.edu.ec & Lider de equipo\\[0pt]
+Henry Luisa & henry.luisa@epn.edu.ec & Miembro de equipo\\[0pt]
+Jonathan Pincay & jonathan.pincay01@epn.edu.ec & Miembro de equipo\\[0pt]
+Evan Matango & evan.matango@epn.edu.ec & Miembro de equipo\\[0pt]
+\end{tabular}
+\end{center}
+
+\section{Verificación de Entregables [100\%]}
+\label{sec:orgd956de5}
+
+Ejecute \texttt{C-c C-c} sobre los ítems de tarea según se hayan cumplido o
+no. Si un ítem no pudo realizarse, anote en la sección de problemas
+las razones.
+
+\begin{itemize}
+\item[{$\boxtimes$}] Tabla de instrucciones IAS completada.
+\item[{$\boxtimes$}] Preguntas del ejercicio respondidas.
+\item[{$\boxtimes$}] Código RTL completo.
+\item[{$\boxtimes$}] Código Assembler completo.
+\item[{$\boxtimes$}] Revisión de ortografía con \texttt{ispell-buffer}.
+\item[{$\boxtimes$}] Exportación a PDF con \texttt{M-x org-latex-export-to-pdf}.
+\item[{$\boxtimes$}] Subir al aula virtual archivo \texttt{.org} y \texttt{.pdf}.
+\end{itemize}
+
+\printbibliography
+\end{document}

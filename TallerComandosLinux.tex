@@ -1,0 +1,380 @@
+% Created 2026-06-25 Thu 22:01
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\usepackage{fancyhdr}
+\usepackage[top=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{longtable}
+\fancyhead[R]{}
+\setlength\headheight{43.0pt}
+\author{Leonardo Rodriguez, Evan Matango, Henry Luisa, Jonathan Pincay}
+\date{2026-06-19}
+\title{Taller de Comandos Linux}
+\hypersetup{
+ pdfauthor={Leonardo Rodriguez, Evan Matango, Henry Luisa, Jonathan Pincay},
+ pdftitle={Taller de Comandos Linux},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.7.5)}, 
+ pdflang={Español}}
+\begin{document}
+
+\maketitle
+\fancyhead[C]{\includegraphics[scale=0.05]{~/Arquitectura-/images/logoEPN.jpg}\\
+ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA DE SISTEMAS\\
+ARQUITECTURA DE COMPUTADORES}
+\thispagestyle{fancy}
+
+
+\section{Objetivos}
+\label{sec:org6885808}
+
+\begin{itemize}
+\item Conocer el funcionamiento del terminal de \emph{Linux}
+\item Aprender a manejar comandos del terminal de \emph{Linux}
+\end{itemize}
+
+\section{Instrucciones}
+\label{sec:org43a5d2f}
+Este taller/tutorial de comandos de Linux tiene por objetivo ejercitar
+en la aplicación de comandos estudiados en clase. Para esto siga las
+Instrucciones indicadas en cada uno de los numerales. Ejecute los
+ejercicios llenando los comandos adecuados dentro de los bloques de
+código de Emacs Org. Los resultados de la ejecución se obtienen
+haciendo \texttt{C-c C-c}
+
+Para todos los ejercicios se sugiere usar directamente un
+distro de \emph{Linux} o el \emph{WSL} configurado para la clase de
+\emph{Arquitectura de Computadores}. Ejecute los comandos en la terminal de
+Linux. Copie los comandos usados a este archivo.
+
+Si se ha utilizado IA para consultar temas referentes al desarrollo de
+código en el punto \ref{sec:orge46d9d9}, adjunte el archivo \texttt{.md} con el
+reporte de los diferentes prompts y respuestas dadas por la IA.
+
+\subsection{Ejecución desde Emacs}
+\label{sec:orge0d32ba}
+
+Si desea ejecutar los comandos desde Emacs debe observar que los
+comandos del \texttt{shell} de Linux se ejecutarán desde la ubicación del
+archivo \texttt{.org}. Por tanto, controle la ubicación de \texttt{home} en los
+bloques de código. Para ejecutar los bloques de código ejecute: \texttt{C-c C-c}. 
+
+\section{Comandos de Linux}
+\label{sec:org3d62838}
+Para este taller descargaremos los datos del \emph{Fashion-Mnist}, un
+dataset popular para la prueba de algoritmos de machine learning. Al
+final, el dataset quedará organizado para ser aprovechado para
+entrenar un modelo.
+
+\begin{enumerate}
+\item Utilice \texttt{cd} para localizarse en la posición de home de su usuario y
+verifique ejecutando el comando \texttt{pwd}
+
+\begin{verbatim}
+     cd
+     pwd
+\end{verbatim}
+
+\begin{verbatim}
+/home/eareal
+\end{verbatim}
+
+\item Cree tres directorios denominados FashionData, Train y
+Test. Verifique usando el comando \texttt{ls}
+\begin{verbatim}
+     cd
+     ls 
+\end{verbatim}
+
+\begin{center}
+\begin{tabular}{l}
+\#init.el\#\\[0pt]
+Arquitectura-\\[0pt]
+EPN-Lectures\\[0pt]
+FashionData\\[0pt]
+Jupyter\\[0pt]
+Presentaciones\\[0pt]
+Tareas-personales\\[0pt]
+clima-quito-hoy.csv\\[0pt]
+ejemplo-emacs\\[0pt]
+home\\[0pt]
+imagenes\\[0pt]
+miniforge3\\[0pt]
+\end{tabular}
+\end{center}
+
+\item Investigue sobre el comando \texttt{wget} y utilícelo para descargar en
+\textasciitilde{}/FashionData los datos de train y test del /Fashion-Mnist desde el
+siguiente enlace: \href{https://github.com/zalandoresearch/fashion-mnist}{fashion-mnist}
+\begin{enumerate}
+\item Imágenes de entrenamiento:
+
+\url{http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz}
+\item Etiquetas de entrenamiento:
+
+\url{http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz}
+\item Imágenes de prueba:
+
+\url{http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz}
+\item Etiquetas de prueba:
+
+\url{http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz}
+\end{enumerate}
+\begin{verbatim}
+
+    cd ~/FashionData
+
+    wget http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz
+    wget http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz
+    wget http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz
+    wget http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz
+
+\end{verbatim}
+
+\item Utilice el comando \texttt{mv} de manera recursiva para pasar los datos de
+entrenamiento a la carpeta \textasciitilde{}/Train
+\begin{verbatim}
+
+    mv ~/FashionData/train* ~/Train/
+
+    ls -lh ~/Train
+\end{verbatim}
+
+\item Utilice el comando \texttt{mv} de manera recursiva para pasar los datos de
+prueba a la carpeta \textasciitilde{}/Test
+\begin{verbatim}
+
+   mv ~/Train/t10k* ~/Test/
+
+   ls -lh ~/Test/
+   
+\end{verbatim}
+
+\item Verifique que la carpeta FashionData está vacía
+\begin{verbatim}
+
+    ls -lh ~/FashionData/
+
+\end{verbatim}
+
+\begin{verbatim}
+   total 89M
+   drwxr-xr-x 2 eareal LeonardoRodriguez 4.0K Jun 19 12:52 Test
+   drwxr-xr-x 2 eareal LeonardoRodriguez 4.0K Jun 19 12:52 Train
+   -rw-r--r-- 1 eareal LeonardoRodriguez 4.3M Aug 31  2017 t10k-images-idx3-ubyte.gz
+   -rw-r--r-- 1 eareal LeonardoRodriguez 4.3M Aug 31  2017 t10k-images-idx3-ubyte.gz.1
+   -rw-r--r-- 1 eareal LeonardoRodriguez 4.3M Aug 31  2017 t10k-images-idx3-ubyte.gz.2
+   -rw-r--r-- 1 eareal LeonardoRodriguez 5.1K Aug 31  2017 t10k-labels-idx1-ubyte.gz
+   -rw-r--r-- 1 eareal LeonardoRodriguez 5.1K Aug 31  2017 t10k-labels-idx1-ubyte.gz.1
+   -rw-r--r-- 1 eareal LeonardoRodriguez 5.1K Aug 31  2017 t10k-labels-idx1-ubyte.gz.2
+   -rw-r--r-- 1 eareal LeonardoRodriguez  26M Aug 31  2017 train-images-idx3-ubyte.gz
+   -rw-r--r-- 1 eareal LeonardoRodriguez  26M Aug 31  2017 train-images-idx3-ubyte.gz.1
+   -rw-r--r-- 1 eareal LeonardoRodriguez  26M Aug 31  2017 train-images-idx3-ubyte.gz.2
+   -rw-r--r-- 1 eareal LeonardoRodriguez  29K Aug 31  2017 train-labels-idx1-ubyte.gz
+   -rw-r--r-- 1 eareal LeonardoRodriguez  29K Aug 31  2017 train-labels-idx1-ubyte.gz.1
+   -rw-r--r-- 1 eareal LeonardoRodriguez  29K Aug 31  2017 train-labels-idx1-ubyte.gz.2
+\end{verbatim}
+
+\item Los archivos anteriores están comprimidos. Investigue como
+descomprimir usando el comando \texttt{gunzip}. Si es necesario realice la
+instalación del comando. Descomprima los archivos en sus
+respectivas carpetas. Apunte el comando utilizado para la descompresión.
+\begin{verbatim}
+# Descomprimir los archivos en la carpeta Train
+cd ~/Train
+gzip -d train-images-idx3-ubyte.gz
+gzip -d train-labels-idx1-ubyte.gz
+ls -lh ~/Train
+
+# Descomprimir los archivos en la carpeta Test
+cd ~/Test
+gzip -d t10k-images-idx3-ubyte.gz
+gzip -d t10k-labels-idx1-ubyte.gz
+ls -lh ~/Test
+\end{verbatim}
+
+\item Mueva recursivamente las carpetas \textasciitilde{}/Train y \textasciitilde{}/Test dentro de \textasciitilde{}/FashionData
+\begin{verbatim}
+    mv ~/Test/ ~/FashionData/
+
+    mv ~/Train/ ~/FashionData/
+
+    ls -lh ~/FashionData/
+    
+\end{verbatim}
+
+\begin{center}
+\begin{tabular}{lrllllrrl}
+total & 89M &  &  &  &  &  &  & \\[0pt]
+drwxr-xr-x & 2 & eareal & LeonardoRodriguez & 4.0K & Jun & 19 & 12:52 & Test\\[0pt]
+drwxr-xr-x & 2 & eareal & LeonardoRodriguez & 4.0K & Jun & 19 & 12:52 & Train\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 4.3M & Aug & 31 & 2017 & t10k-images-idx3-ubyte.gz\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 4.3M & Aug & 31 & 2017 & t10k-images-idx3-ubyte.gz.1\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 4.3M & Aug & 31 & 2017 & t10k-images-idx3-ubyte.gz.2\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 5.1K & Aug & 31 & 2017 & t10k-labels-idx1-ubyte.gz\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 5.1K & Aug & 31 & 2017 & t10k-labels-idx1-ubyte.gz.1\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 5.1K & Aug & 31 & 2017 & t10k-labels-idx1-ubyte.gz.2\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 26M & Aug & 31 & 2017 & train-images-idx3-ubyte.gz\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 26M & Aug & 31 & 2017 & train-images-idx3-ubyte.gz.1\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 26M & Aug & 31 & 2017 & train-images-idx3-ubyte.gz.2\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 29K & Aug & 31 & 2017 & train-labels-idx1-ubyte.gz\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 29K & Aug & 31 & 2017 & train-labels-idx1-ubyte.gz.1\\[0pt]
+-rw-r--r-- & 1 & eareal & LeonardoRodriguez & 29K & Aug & 31 & 2017 & train-labels-idx1-ubyte.gz.2\\[0pt]
+\end{tabular}
+\end{center}
+
+\item Verifique la estructura de la carpeta \texttt{/FashionData usando el
+   comando \textasciitilde{}tree}
+\#+begin\textsubscript{src} shell :exports both :results output
+tree --charset=ascii \textasciitilde{}/FashionData
+\end{enumerate}
+dsx   \#+end\textsubscript{src}
+
+\begin{verbatim}
+   /home/eareal/FashionData
+   |-- Test
+   |   |-- t10k-images-idx3-ubyte
+   |   `-- t10k-labels-idx1-ubyte
+   |-- Train
+   |   |-- train-images-idx3-ubyte
+   |   `-- train-labels-idx1-ubyte
+   |-- t10k-images-idx3-ubyte.gz
+   |-- t10k-images-idx3-ubyte.gz.1
+   |-- t10k-images-idx3-ubyte.gz.2
+   |-- t10k-images-idx3-ubyte.gz.3
+   |-- t10k-images-idx3-ubyte.gz.4
+   |-- t10k-images-idx3-ubyte.gz.5
+   |-- t10k-images-idx3-ubyte.gz.6
+   |-- t10k-labels-idx1-ubyte.gz
+   |-- t10k-labels-idx1-ubyte.gz.1
+   |-- t10k-labels-idx1-ubyte.gz.2
+   |-- t10k-labels-idx1-ubyte.gz.3
+   |-- t10k-labels-idx1-ubyte.gz.4
+   |-- t10k-labels-idx1-ubyte.gz.5
+   |-- t10k-labels-idx1-ubyte.gz.6
+   |-- train-images-idx3-ubyte.gz
+   |-- train-images-idx3-ubyte.gz.1
+   |-- train-images-idx3-ubyte.gz.2
+   |-- train-images-idx3-ubyte.gz.3
+   |-- train-images-idx3-ubyte.gz.4
+   |-- train-images-idx3-ubyte.gz.5
+   |-- train-images-idx3-ubyte.gz.6
+   |-- train-labels-idx1-ubyte.gz
+   |-- train-labels-idx1-ubyte.gz.1
+   |-- train-labels-idx1-ubyte.gz.2
+   |-- train-labels-idx1-ubyte.gz.3
+   |-- train-labels-idx1-ubyte.gz.4
+   |-- train-labels-idx1-ubyte.gz.5
+   `-- train-labels-idx1-ubyte.gz.6
+
+   3 directories, 32 files
+\end{verbatim}
+
+
+
+\section{Problema}
+\label{sec:orge46d9d9}
+Se desea realizar un registro climatológico de la ciudad de
+Quito. Para esto, escriba un script de Python/Java que permita obtener datos climatológicos desde el API de
+\href{https://openweathermap.org/current\#one}{openweathermap}. Considere la latitud y la longitud de Quito como
+(-0.2299, -78.5249), respectivamente. Los resultados obtenidos de
+la consulta al API se escriben en un archivo
+\emph{clima-quito-hoy.csv}. Cada ejecución del script debe almacenar
+nuevos datos en el archivo. Investigue sobre \textbf{crontab} y utilícelo
+para obtener datos del API de \emph{openweathermap} cada 5 minutos
+mediante la ejecución de un archivo ejecutable denominado
+\emph{get-weather.sh}. Verifique los resultados. Todas las operaciones
+se realizan en Linux o en el WSL. Las etapas del problema se
+subdividen en:
+
+\begin{enumerate}
+\item Crear su API gratuito en \href{https://openweathermap.org/current\#one}{openweathermap}
+\item Escribir un script en Python/Java que realice la consulta al API y
+escriba los resultados en \emph{clima-quito-hoy.csv}
+
+\begin{verbatim}
+import urllib.request
+import json
+import csv
+import datetime
+import os
+
+# 1. Configuración
+API_KEY = "c8fb29956631fe51156dd54569038b53"
+LAT = "-0.2299"
+LON = "-78.5249"
+URL = f"https://api.openweathermap.org/data/2.5/weather?lat={LAT}&lon={LON}&appid={API_KEY}&units=metric"
+
+# Usamos la carpeta personal para evitar errores de permisos
+CSV_FILE = os.path.expanduser("~/Arquitectura-/clima-quito-hoy.csv")
+
+def obtener_clima():
+    try:
+        # Hacemos la consulta al API
+        respuesta = urllib.request.urlopen(URL)
+        datos = json.loads(respuesta.read().decode('utf-8'))
+        
+        # Extraemos la temperatura y humedad
+        temp = datos['main']['temp']
+        humedad = datos['main']['humidity']
+        fecha_hora = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        
+        # Verificamos si el archivo ya existe para ponerle los encabezados
+        archivo_existe = os.path.isfile(CSV_FILE)
+        
+        # Escribimos en el archivo CSV ('a' es de append, para no borrar lo anterior)
+        with open(CSV_FILE, mode='a', newline='') as file:
+            writer = csv.writer(file)
+            if not archivo_existe:
+                writer.writerow(['Fecha_Hora', 'Temperatura_C', 'Humedad_%'])
+            writer.writerow([fecha_hora, temp, humedad])
+            
+        print(f"Éxito: Datos guardados a las {fecha_hora}")
+        
+    except Exception as e:
+        print(f"Error al conectar con el API: {e}")
+
+obtener_clima()
+\end{verbatim}
+
+\begin{verbatim}
+None
+\end{verbatim}
+
+\item Desarrollar un ejecutable \emph{get-weather.sh} para ejecutar el
+programa Python/Java.
+
+\begin{verbatim}
+
+cat << 'EOF' > ~/Arquitectura-/get-weather.sh
+#!/bin/bash
+python3 ~/Arquitectura-/clima.py
+EOF
+
+chmod +x ~/Arquitectura-/get-weather.sh
+ls -la ~/Arquitectura-/get-weather.sh
+
+\end{verbatim}
+
+\begin{verbatim}
+-rwxr-xr-x 1 eareal LeonardoRodriguez 45 Jun 25 22:01 /home/eareal/Arquitectura-/get-weather.sh
+\end{verbatim}
+
+\item Configurar Crontab para la adquisición de datos. Escriba el comando
+configurado.
+
+*/5 * * * * /home/eareal/Arquitectura-/get-weather.sh
+\end{enumerate}
+\end{document}
