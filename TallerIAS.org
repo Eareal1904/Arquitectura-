@@ -136,6 +136,32 @@ instrucción ~0x99~ que lleva al computador al estado de HALT. Conteste las
 siguientes preguntas considerando la Tabla [[tab:memoria-compu]] como el
 mapa de memoria de la máquina y obtenga el programa en lenguaje ensamblador y en
 RTL.
+<<<<<<< HEAD
+=======
+En la máquina IAS, las instrucciones se dividen en dos segmentos: i)
+izquierdo, desde el bit 0 a 19, y ii) derecho, desde el bit 20
+al 39. Primero se ejecuta el lado izquierdo y luego el derecho. El
+contador de programa inicia en la posición
+[
+P
+C
+]
+←
+300
+. El conjunto de instrucciones del computador o ISA[fn:2] está
+definido en la Tabla \ref{tab:tablaISA-IAS}. A fin de terminar el
+programa, se agrega la instrucción 0x99 que lleva al computador al
+estado de HALT. Conteste las siguientes preguntas considerando la
+Tabla tab:memoria-compu como el mapa de memoria de la máquina y
+obtenga el programa en lenguaje ensamblador y en RTL.En la máquina
+IAS, las instrucciones se dividen en dos segmentos: i) izquierdo,
+desde el bit 0 a 19, y ii) derecho, desde el bit 20 al 39. Primero se
+ejecuta el lado izquierdo y luego el derecho. El contador de programa
+inicia en la posición
+[
+P
+C
+>>>>>>> 26875116780ec82dc3ec686f01164cc4bf7af71e
 
 #+caption: Mapa de Memoria
 #+name: tab:memoria-compu
@@ -167,9 +193,6 @@ RTL.
 
 3. ¿Cuál es el valor del bit de Carry? ¿Qué operación modifica el bit?
    Respuesta:
-   - $Carry = ???$
-
-   - 
 
 *** Código RTL
 
