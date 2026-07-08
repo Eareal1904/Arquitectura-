@@ -1,4 +1,4 @@
-% Created 2026-07-07 Tue 22:52
+% Created 2026-07-07 Tue 23:05
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -25,7 +25,7 @@
 
 \usepackage{dirtree}
 \author{Leonardo Rodriguez}
-\date{2025-01-19}
+\date{2026-07-07}
 \title{Taller Script Python}
 \hypersetup{
  pdfauthor={Leonardo Rodriguez},
@@ -44,13 +44,13 @@ ARQUITECTURA DE COMPUTADORES}
 
 
 \section{Objetivos}
-\label{sec:orgac38234}
+\label{sec:org1bcbd4f}
 \begin{itemize}
 \item Desarrollar un script de Python con paradigma estructurado
 \end{itemize}
 
 \section{Problema}
-\label{sec:org664e1c1}
+\label{sec:org5905109}
 Usted es el científico de datos para un sistema de lanzamiento de
 cohetes. Para esto, se le solicita que determine gráficamente el
 alcance del cohete según al menos tres ángulos de entrada, un tiempo
@@ -61,22 +61,22 @@ gráficamente, mediante la resolución de ecuaciones diferenciales
 ordinarias. Los parámetros como Velocidad inicial \texttt{V}, coeficiente de
 resistencia \texttt{B}, tiempo máximo \texttt{tmax} y ángulos de lanzamiento se
 ingresan desde la línea de comando. Siga las instrucciones
-proporcionadas en  la Sección \ref{sec:org88369fc} para
+proporcionadas en  la Sección \ref{sec:orgf654ee1} para
 completar el taller.
 
 \section{Instrucciones}
-\label{sec:org88369fc}
+\label{sec:orgf654ee1}
 
 \begin{enumerate}
 \item Obtener las expresiones matemáticas para las ecuaciones
-diferenciales ordinarias. Vea la Sección \ref{sec:org47f59aa}
+diferenciales ordinarias. Vea la Sección \ref{sec:org4114670}
 \item Investigar cómo funciona la librería \texttt{solve\_ivp} del paquete
 \texttt{scipy.integrate}
 \item Investigar cómo funciona la librearía \texttt{argparse} para controlar el
 ingreso de valores y opciones desde la línea de comandos.
 \item Cree una carpeta con los archivos del proyecto denominada \texttt{cohete}.
 \item Dentro de la carpeta cree un archivo \texttt{main.py} con el código
-proporcionado en la Sección \ref{sec:org7267ac6}
+proporcionado en la Sección \ref{sec:org5d2a18f}
 \item Reorganizar el código proporcionado de ejemplo para conformar un
 proyecto de código estructurado. Las funciones estarán dentro de
 una carpeta \texttt{utils} en el archivo \texttt{projectile\_functions.py}. El
@@ -106,7 +106,7 @@ librería \texttt{argparse}
  .3 projectile\_functions.py. 
  }
 \section{Entregables del taller}
-\label{sec:org722ac67}
+\label{sec:orgc86f392}
 \begin{enumerate}
 \item Archivo .zip con el archivo \texttt{main.py} y la librería desarrollada
 \texttt{projectile\_functions.py} y el gráfico obtenido de una carrera.
@@ -115,11 +115,11 @@ descripción de lo que hacen las librerías revisadas en este taller.
 \item Una vez redactado el punto anterior suba el archivo .ORG y el .PDF
 \end{enumerate}
 \section{Recursos}
-\label{sec:org6b4a8e4}
+\label{sec:org499ffab}
 Puede consultar más información en el siguiente \href{https://www.youtube.com/watch?v=b9S\_L1AaJNw}{vídeo} y en \href{https://github.com/lukepolson/youtube\_channel/blob/main/Python\%20Metaphysics\%20Series/vid22.ipynb}{GitHub}
 
 \subsection{Desarrollo Matemático}
-\label{sec:org47f59aa}
+\label{sec:org4114670}
 
 
 La fuerza de resistencia del viento se puede considerar que es
@@ -196,7 +196,7 @@ ecuaciones de primer orden ODE siguiente:
 
 
 \subsection{Código Inicial Python}
-\label{sec:org7267ac6}
+\label{sec:org5d2a18f}
 
 
 \begin{verbatim}
@@ -255,9 +255,9 @@ plt.show()
 
 
 \section{Descripción librerías usadas}
-\label{sec:orge3c9397}
+\label{sec:org17c8fe7}
 \subsection{SOLVE\textsubscript{IVP}}
-\label{sec:orga92ac7a}
+\label{sec:org2e2c5b6}
 Es una función que pertenece al paquete \texttt{scipy.integrate}. Se utiliza
 para resolver sistemas de ecuaciones diferenciales ordinarias (ODEs)
 con condiciones iniciales dados un intervalo de tiempo. En este
@@ -265,7 +265,7 @@ taller, es el motor que resuelve numéricamente las ecuaciones de
 movimiento del cohete combinando la gravedad y la fuerza de arrastre
 del viento.
 \subsection{ARGPARSE}
-\label{sec:orgc015ecc}
+\label{sec:orga48e1da}
 Es una librería estándar de Python que se utiliza para diseñar
 interfaces de línea de comandos de forma profesional. Permite que el
 programa reciba parámetros externos directamente desde la terminal
@@ -273,7 +273,7 @@ programa reciba parámetros externos directamente desde la terminal
 tiempo máximo) sin necesidad de modificar el código fuente cada vez
 que se quiere hacer una nueva simulación.
 \subsection{NUMPY}
-\label{sec:org30a442f}
+\label{sec:org4577363}
 Es la librería fundamental para la computación científica en
 Python. Proporciona soporte para vectores y matrices
 multidimensionales, junto con una colección de funciones matemáticas
