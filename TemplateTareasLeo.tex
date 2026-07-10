@@ -1,0 +1,92 @@
+% Created 2026-07-09 Thu 20:12
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\usepackage{fancyhdr}
+\usepackage[top=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{longtable}
+\usepackage{tabularx}
+\fancyhead[R]{}
+\setlength\headheight{43.0pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, ]{babel}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{/home/eareal/Arquitectura-/bibliography.bib}
+\author{Leonardo Rodriguez}
+\date{2026-07-09}
+\title{Notas de Cornell: Soporte de SO, Planificación y Memoria Virtual\\\medskip
+\large Arquitectura de Computadores}
+\hypersetup{
+ pdfauthor={Leonardo Rodriguez},
+ pdftitle={Notas de Cornell: Soporte de SO, Planificación y Memoria Virtual},
+ pdfkeywords={SO, Planificación, Memoria Virtual},
+ pdfsubject={Notas de estudio},
+ pdfcreator={Emacs 27.1 (Org mode 9.7.5)}, 
+ pdflang={Español}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\fancyhead[C]{\includegraphics[scale=0.05]{images/logoEPN.jpg}\\
+ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA EN SISTEMAS\\
+ARQUITECTURA DE COMPUTADORES}
+\thispagestyle{fancy}
+
+\section{Objetivos de Aprendizaje}
+\label{sec:org768c3d0}
+
+\begin{itemize}
+\item Comprender las funciones principales de un Sistema Operativo como
+gestor de recursos.
+\item Diferenciar la planificación a largo, mediano y corto plazo.
+\item Entender el concepto de Memoria Virtual y la división en páginas y
+marcos.
+\end{itemize}
+
+\section{Notas de Cornell}
+\label{sec:org5750ce7}
+
+\begin{longtable}{|p{4.5cm}|p{10.5cm}|}
+\textbf{Ideas Clave / Preguntas} & \textbf{Apuntes de Clase}\\[0pt]
+\hline
+\endfirsthead
+\multicolumn{2}{l}{Continued from previous page} \\[0pt]
+\hline
+
+\textbf{Ideas Clave / Preguntas} & \textbf{Apuntes de Clase} \\[0pt]
+
+\hline
+\endhead
+\hline\multicolumn{2}{r}{Continued on next page} \\
+\endfoot
+\endlastfoot
+\hline
+\textbf{Rol del SO} & Intermediario entre el hardware y los programas. Gestiona CPU, memoria y dispositivos I/O.\\[0pt]
+\textbf{Planificación a Largo} & Decide qué procesos entran a la memoria principal. Define el grado de multiprogramación.\\[0pt]
+\textbf{Planificación a Mediano} & Encargado del "swapping". Mueve procesos inactivos al disco para liberar RAM.\\[0pt]
+\textbf{Planificación a Corto} & El "Dispatcher". Decide qué proceso listo usa la CPU en este milisegundo.\\[0pt]
+\textbf{Memoria Virtual} & Abstracción que permite ejecutar programas más grandes que la RAM física usando el disco secundario.\\[0pt]
+\textbf{Paginación} & Técnica que divide la memoria física en \textbf{marcos} y los procesos en \textbf{páginas} del mismo tamaño.\\[0pt]
+\end{longtable}
+
+\section{Resumen}
+\label{sec:orgb4f4bbf}
+El SO administra los recursos del computador. Usa la planificación en
+tres niveles para optimizar el uso de la CPU y emplea la memoria
+virtual con paginación para cargar eficientemente los procesos en la
+RAM, dividiéndolos en fragmentos estándar sin necesidad de que el
+programa entero esté en memoria al mismo tiempo.
+\end{document}

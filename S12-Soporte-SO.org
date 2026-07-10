@@ -10,8 +10,8 @@
 
 #+title: S12 — Soporte del SO: Memoria Virtual, Máquinas Virtuales y WSL
 #+date: 
-#+author: Lenin G. Falconí
-#+email: lenin.falconi@epn.edu.ec
+#+author: Leonardo Rodriguez, Evan Matango, Henry Luisa, Jonathan Pincay
+#+email: leonardo.rodriguez01@epn.edu.ec
 #+language: es
 #+select_tags: export
 #+exclude_tags: noexport
@@ -25,58 +25,54 @@
 #+LATEX_HEADER: \usepackage[backend=biber,citestyle=apa, style=apa]{biblatex}
 #+LATEX_HEADER: \titlegraphic{\includegraphics[height=2cm]{images/logoEpn.jpg}}
 
-* Indicaciones
-** Indicaciones
-:PROPERTIES:
-:BEAMER_opt: allowframebreaks
-:END:
-- Recuerde que si ~options: H:2~, entonces:
-  - ~*~ Declara el nombre de la Sección
-  - ~**~ Declara el nombre de la diapositiva
-- Puede alterar la estructura de la diapositiva si lo considera necesario
-- Para este tema consulte las siguientes fuentes:
-  - \textcite{stallings2022computer}, 11ava edición, 2022, English,
-    capítulo 8: Operating System Support, páginas 279 a 314.
-  - \textcite{stallings2006esp}, 7ma edición, 2006, Español,
-    capítulo 8: Soporte del Sistema Operativo.
-- El grupo G9 expone este tema.
-- El grupo expone el tema y sube la presentación (~.ORG~ y ~.PDF~ para Beamer, o ~.ORG~ y ~.HTML~ para reveal.js)
-- El grupo sube las ayudas memoria/notas del tema usando la plantilla [[file:FormatoTareas/TemplateNotasClase.org]] (~.ORG~ y ~.PDF~)
-** Diseño de las Diapositivas
-- Para diseñar sus diapositivas puede consultar cualquiera de las
-  presentaciones ~.ORG~ desarrolladas por el profesor así como al
-  archivo [[https://github.com/LeninGF/EPN-Lectures/blob/main/iccd332ArqComp-2024-B/Tutoriales/Beamer-Emacs/tutorialBeamer.org][tutorialBeamer.org]] en el repositorio de la clase.
-- Recuerde que los archivos ~.ORG~ son archivos de texto así que los
-  puede copiar y sustituir por su propio texto.
-** Sobre este Documento
-- Este documento tiene la propuesta de temas a tratar y desarrollar
-  por los estudiantes.
-- Se ha de utilizar como base la bibliografía recomendada, pero puede
-  consultar bibliografía adicional.
 * Soporte del Sistema Operativo (Sección)
 
 ** Objetivos del SO (G9, 11, 279)
-- El sistema operativo (SO) es un programa que controla la ejecución de aplicaciones y actúa como interfaz entre el usuario y el hardware[cite: 3117].
-- *Comodidad:* Su primer objetivo es hacer que el computador sea más fácil y cómodo de usar para el usuario final[cite: 3119].
-- *Eficiencia:* Su segundo objetivo es administrar los recursos del sistema de forma eficiente para maximizar su aprovechamiento[cite: 3120].
-- Actúa como un mecanismo de control inusual: es un programa que cede el control del procesador a otras aplicaciones y luego lo recupera para seguir gestionando el sistema[cite: 3173, 3176, 3177].
+- El sistema operativo (SO) es un programa que controla la ejecución
+  de aplicaciones y actúa como interfaz entre el usuario y el
+  hardware.
+- *Comodidad:* Su primer objetivo es hacer que el computador sea más
+  fácil y cómodo de usar para el usuario final.
+- *Eficiencia:* Su segundo objetivo es administrar los recursos del
+  sistema de forma eficiente para maximizar su aprovechamiento.
+- Actúa como un mecanismo de control inusual: es un programa que cede
+  el control del procesador a otras aplicaciones y luego lo recupera
+  para seguir gestionando el sistema.
 
 ** Funciones del SO relacionadas con memoria (G9, 11, 279)
-- En sistemas multiprogramados, la porción de memoria destinada al usuario debe subdividirse dinámicamente para alojar múltiples procesos[cite: 3703, 3704].
-- La asignación de la memoria principal está controlada conjuntamente por el sistema operativo y el hardware del procesador[cite: 3183].
-- *Intercambio (Swapping):* Para evitar que el procesador quede inactivo, el SO mueve temporalmente al disco los procesos que están en espera, liberando espacio en memoria principal para nuevos trabajos[cite: 3724].
-- *Paginación:* El SO divide la memoria en marcos de tamaño fijo y los procesos en páginas, reduciendo el desperdicio de espacio y facilitando la gestión[cite: 3871, 3872].
+- Existe la  mono pogramacion que se basan en la ejecucion de
+  un solo proceso hasta que este termine de ejecutarse. 
+- La multiprogramacion en cambio trabaja con multiples procesos
+  consecutivos asignandoles un espacio de memoria y tiempo especificos
+  para terminar de ejecutarse.  
+- *Intercambio (Swapping):* Para evitar que el procesador quede
+  inactivo, el SO mueve temporalmente al disco los procesos que están
+  en espera, liberando espacio en memoria principal para nuevos
+  trabajos.
+** Estados de un Proceso (Planificación)
+#+attr_latex: :width 0.85\textwidth :center t
+[[file:images/Procesos.png]]
 * Planificación y Memoria Virtual (Sección)
 
 ** Planificación de la memoria (G9, 11, 280)
-- La gestión de memoria divide dinámicamente la memoria principal para acomodar múltiples procesos y evitar que el procesador quede inactivo[cite: 652, 654].
-- *Particionamiento:* Puede ser fijo (tamaños predefinidos) o dinámico (asignación exacta requerida). Ambos métodos generan espacios desperdiciados o fragmentación con el tiempo[cite: 697, 726, 799].
-- El intercambio (swapping) mueve procesos temporalmente al disco, pero requiere una gestión inteligente ya que es una operación de E/S relativamente lenta[cite: 673, 677].
+- *Particionamiento:* Puede ser fijo (tamaños predefinidos) o dinámico
+  (asignación exacta requerida). Ambos métodos generan espacios
+  desperdiciados o fragmentación con el tiempo.
+- *Paginación:* El SO divide la memoria en marcos de tamaño fijo y los
+  procesos en páginas.
+- *Segmentacion:* El SO divide la memoria en partes de tamaño variable
+  y tambien los procesos en segmentos con diferentes tipos de
+  funciones como las principales y las secundarias.
 
 ** Principios de Memoria Virtual (G9, 11, 282)
-- Permite ejecutar un proceso sin cargar todas sus instrucciones y datos en la memoria principal de manera simultánea[cite: 934].
-- *Paginación por demanda:* Las páginas se traen a la memoria solo cuando se solicitan explícitamente, aprovechando el principio de localidad[cite: 935, 938].
-- El programador percibe un espacio de memoria enorme (memoria virtual en disco) sin preocuparse por los límites de la memoria real (RAM)[cite: 957, 959].
+- Permite ejecutar un proceso sin cargar todas sus instrucciones y
+  datos en la memoria principal de manera simultánea.
+- *Paginación por demanda:* Las páginas se traen a la memoria solo
+  cuando se solicitan explícitamente, aprovechando el principio de
+  localidad.
+- El programador percibe un espacio de memoria enorme (memoria virtual
+  en disco) sin preocuparse por los límites de la memoria real
+  (RAM).
 
 ** Paginación (G9, 11, 283)
 *** Texto                                           :BMCOL:
@@ -86,7 +82,7 @@
 - La memoria física se divide en trozos fijos llamados *marcos* (frames).
 - Los procesos se dividen en *páginas* del mismo tamaño.
 - La tabla de páginas mapea cada página virtual a su marco físico.
-- Minimiza el desperdicio de memoria (fragmentación interna).
+- Minimiza el desperdicio de memoria.
 
 *** Imagen                                          :BMCOL:
 :PROPERTIES:
@@ -112,20 +108,36 @@
 #+attr_latex: :width \textwidth
 [[file:images/traduccion_direcciones.png]]
 ** TLB (Translation Lookaside Buffer) (G9, 11, 287)
-- Toda referencia a memoria virtual implicaría dos accesos (uno a la tabla de páginas y otro al dato), reduciendo el rendimiento a la mitad[cite: 1015, 1016].
-- El TLB soluciona esto actuando como una caché especial de alta velocidad que almacena las entradas de la tabla de páginas usadas más recientemente[cite: 1017, 1018].
-- Si hay un acierto en el TLB, la dirección física se genera de inmediato sin necesidad de consultar la tabla de páginas alojada en la memoria RAM[cite: 1050, 1051].
+- Toda referencia a memoria virtual implicaría dos accesos (uno a la
+  tabla de páginas y otro al dato), reduciendo el rendimiento a la
+  mitad.
+- El TLB soluciona esto actuando como una caché especial de alta
+  velocidad que almacena las entradas de la tabla de páginas usadas
+  más recientemente.
+- Si hay un acierto en el TLB, la dirección física se genera de
+  inmediato sin necesidad de consultar la tabla de páginas alojada en
+  la memoria RAM.
 
 ** Page Faults y reemplazo de páginas (G9, 11, 290)
-- Si el procesador intenta acceder a una página que actualmente no se encuentra en la memoria principal, se produce un *fallo de página* (page fault)[cite: 941].
-- El sistema operativo interviene, trae la página solicitada desde el almacenamiento masivo (disco) y actualiza la tabla de páginas[cite: 942].
-- *Reemplazo:* Si la memoria está llena, el SO debe predecir y sacar la página con menor probabilidad de uso futuro, evitando que el procesador pase todo su tiempo intercambiando páginas (hiperpaginación)[cite: 947, 948, 950].
+- Si el procesador intenta acceder a una página que actualmente no se
+  encuentra en la memoria principal, se produce un *fallo de página*.
+- El sistema operativo interviene, trae la página solicitada desde el
+  almacenamiento masivo (disco) y actualiza la tabla de páginas.
+- *Reemplazo:* Si la memoria está llena, el SO debe predecir y sacar
+  la página con menor probabilidad de uso futuro, evitando que el
+  procesador pase todo su tiempo intercambiando páginas
+  (hiperpaginación).
 * Máquinas Virtuales (Sección)
 
 ** Concepto de Máquina Virtual (G9, 11, 292)
-- Una máquina virtual (VM) abstrae el hardware físico de un computador para que múltiples sistemas operativos puedan compartir los mismos recursos de forma simultánea.
-- *Host OS:* Es el sistema operativo físico subyacente que controla el hardware real.
-- *Guest OS:* Es el sistema operativo virtualizado que se ejecuta dentro de la máquina virtual creyendo que tiene acceso exclusivo al hardware.
+- Una máquina virtual (VM) abstrae el hardware físico de un computador
+  para que múltiples sistemas operativos puedan compartir los mismos
+  recursos de forma simultánea.
+- *Host OS:* Es el sistema operativo físico subyacente que controla el
+  hardware real.
+- *Guest OS:* Es el sistema operativo virtualizado que se ejecuta
+  dentro de la máquina virtual creyendo que tiene acceso exclusivo al
+  hardware.
 
 ** Hipervisores: Tipo 1 y Tipo 2 (G9, 11, 295)
 *** Texto                                           :BMCOL:
@@ -143,9 +155,14 @@
 #+attr_latex: :width \textwidth
 [[file:images/hipervisores.png]]
 ** Virtualización de memoria (G9, 11, 298)
-- Añade un nivel extra de complejidad en la traducción: el Guest OS traduce direcciones virtuales a "direcciones físicas virtuales".
-- El hipervisor debe atrapar estas peticiones y traducir las direcciones físicas virtuales a las verdaderas direcciones físicas reales de la máquina anfitriona.
-- Se utilizan técnicas de hardware integradas en la CPU (como Shadow Page Tables o soporte Intel EPT / AMD-V) para acelerar drásticamente este doble mapeo.
+- Añade un nivel extra de complejidad en la traducción: el Guest OS
+  traduce direcciones virtuales a "direcciones físicas virtuales".
+- El hipervisor debe atrapar estas peticiones y traducir las
+  direcciones físicas virtuales a las verdaderas direcciones físicas
+  reales de la máquina anfitriona.
+- Se utilizan técnicas de hardware integradas en la CPU (como Shadow
+  Page Tables o soporte Intel EPT / AMD-V) para acelerar drásticamente
+  este doble mapeo.
 * WSL como caso de estudio (Sección)
 
 ** Windows Subsystem for Linux (WSL) (G9, 11, 301)
@@ -174,8 +191,12 @@
 - El acceso y la transferencia de archivos cruzada entre ambos sistemas operativos se realiza mediante el protocolo de red 9P.
 
 ** WSL y memoria virtual (G9, 11, 307)
-- A diferencia de las VMs de Tipo 2 tradicionales que reservan y bloquean un fragmento estático de RAM, la VM de WSL2 asigna y libera memoria dinámicamente según la demanda.
-- Si Linux libera memoria de su caché interna, WSL2 se encarga de devolver esa memoria RAM física al Host (Windows) para que otras aplicaciones de escritorio puedan utilizarla.
+- A diferencia de las VMs de Tipo 2 tradicionales que reservan y
+  bloquean un fragmento estático de RAM, la VM de WSL2 asigna y libera
+  memoria dinámicamente según la demanda.
+- Si Linux libera memoria de su caché interna, WSL2 se encarga de
+  devolver esa memoria RAM física al Host (Windows) para que otras
+  aplicaciones de escritorio puedan utilizarla.
 * Referencias
 ** Bibliografía
 :PROPERTIES:
@@ -183,3 +204,21 @@
 :END:
 
 #+print_bibliography:
+
+* Indicaciones
+** Indicaciones
+:PROPERTIES:
+:BEAMER_opt: allowframebreaks
+:END:
+- Recuerde que si ~options: H:2~, entonces:
+  - ~*~ Declara el nombre de la Sección
+  - ~**~ Declara el nombre de la diapositiva
+- Puede alterar la estructura de la diapositiva si lo considera necesario
+- Para este tema consulte las siguientes fuentes:
+  - \textcite{stallings2022computer}, 11ava edición, 2022, English,
+    capítulo 8: Operating System Support, páginas 279 a 314.
+  - \textcite{stallings2006esp}, 7ma edición, 2006, Español,
+    capítulo 8: Soporte del Sistema Operativo.
+- El grupo G9 expone este tema.
+- El grupo expone el tema y sube la presentación (~.ORG~ y ~.PDF~ para Beamer, o ~.ORG~ y ~.HTML~ para reveal.js)
+- El grupo sube las ayudas memoria/notas del tema usando la plantilla [[file:FormatoTareas/TemplateNotasClase.org]] (~.ORG~ y ~.PDF~)

@@ -1,0 +1,89 @@
+% Created 2026-07-09 Thu 20:17
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\usepackage{fancyhdr}
+\usepackage[top=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{longtable}
+\usepackage{tabularx}
+\fancyhead[R]{}
+\setlength\headheight{43.0pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, ]{babel}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{/home/eareal/Arquitectura-/bibliography.bib}
+\author{Henry Luisa}
+\date{2026-07-09}
+\title{Notas de Cornell: Máquinas Virtuales\\\medskip
+\large Arquitectura de Computadores}
+\hypersetup{
+ pdfauthor={Henry Luisa},
+ pdftitle={Notas de Cornell: Máquinas Virtuales},
+ pdfkeywords={Virtual Machines, Hypervisor, VMM, Tipo 1, Tipo 2},
+ pdfsubject={Virtualización e Hipervisores},
+ pdfcreator={Emacs 27.1 (Org mode 9.7.5)}, 
+ pdflang={Español}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\fancyhead[C]{\includegraphics[scale=0.05]{images/logoEPN.jpg}\\
+ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA EN SISTEMAS\\
+ARQUITECTURA DE COMPUTADORES}
+\thispagestyle{fancy}
+
+\section{Objetivos de Aprendizaje}
+\label{sec:org475ae5f}
+
+\begin{itemize}
+\item Definir el concepto de Máquina Virtual (VM) y el rol del Hipervisor.
+\item Diferenciar arquitecturas de virtualización Tipo 1 y Tipo 2.
+\item Conocer los beneficios de la virtualización de hardware.
+\end{itemize}
+
+\section{Notas de Cornell}
+\label{sec:orgdd090dd}
+
+\begin{longtable}{|p{4.5cm}|p{10.5cm}|}
+\textbf{Ideas Clave / Preguntas} & \textbf{Apuntes de Clase}\\[0pt]
+\hline
+\endfirsthead
+\multicolumn{2}{l}{Continued from previous page} \\[0pt]
+\hline
+
+\textbf{Ideas Clave / Preguntas} & \textbf{Apuntes de Clase} \\[0pt]
+
+\hline
+\endhead
+\hline\multicolumn{2}{r}{Continued on next page} \\
+\endfoot
+\endlastfoot
+\hline
+\textbf{Máquina Virtual (VM)} & Entorno de software aislado que emula un sistema físico completo con su propio Sistema Operativo (Guest OS).\\[0pt]
+\textbf{Hipervisor (VMM)} & Monitor de Máquinas Virtuales. Capa de software que abstrae, divide y asigna el hardware real a las VM.\\[0pt]
+\textbf{Tipo 1 (Bare Metal)} & El hipervisor se instala directamente sobre el hardware físico, sin SO intermediario. Muy rápido y eficiente.\\[0pt]
+\textbf{Tipo 2 (Hosted)} & El hipervisor se instala como un programa más sobre un Sistema Operativo anfitrión (Host OS). Genera mayor latencia.\\[0pt]
+\textbf{Beneficios} & Aislamiento de fallos, seguridad, portabilidad de entornos y consolidación de servidores físicos.\\[0pt]
+\end{longtable}
+
+\section{Resumen}
+\label{sec:orgb8e9c84}
+Las Máquinas Virtuales permiten abstraer el hardware de una
+computadora gracias al Hipervisor (VMM). Los de Tipo 1 operan directo
+en el hardware ofreciendo máximo rendimiento para servidores, mientras
+que los de Tipo 2 corren sobre un SO anfitrión, siendo ideales para
+entornos de desarrollo y pruebas de escritorio.
+\end{document}

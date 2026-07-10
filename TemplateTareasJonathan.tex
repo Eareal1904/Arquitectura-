@@ -1,0 +1,92 @@
+% Created 2026-07-09 Thu 20:18
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\usepackage{fancyhdr}
+\usepackage[top=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{longtable}
+\usepackage{tabularx}
+\fancyhead[R]{}
+\setlength\headheight{43.0pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, ]{babel}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{/home/eareal/Arquitectura-/bibliography.bib}
+\author{Jonathan Pincay}
+\date{2026-07-09}
+\title{Notas de Cornell: WSL como Caso de Estudio\\\medskip
+\large Arquitectura de Computadores}
+\hypersetup{
+ pdfauthor={Jonathan Pincay},
+ pdftitle={Notas de Cornell: WSL como Caso de Estudio},
+ pdfkeywords={WSL, Syscalls, Capa de Traducción, Hyper-V, Kernel Linux},
+ pdfsubject={Arquitectura WSL 1 vs WSL 2},
+ pdfcreator={Emacs 27.1 (Org mode 9.7.5)}, 
+ pdflang={Español}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\fancyhead[C]{\includegraphics[scale=0.05]{images/logoEPN.jpg}\\
+ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA EN SISTEMAS\\
+ARQUITECTURA DE COMPUTADORES}
+\thispagestyle{fancy}
+
+\section{Objetivos de Aprendizaje}
+\label{sec:orgf029f11}
+
+\begin{itemize}
+\item Analizar la arquitectura original de WSL 1 mediante traducción de
+llamadas.
+\item Entender el cambio de paradigma en WSL 2 hacia la virtualización
+ligera con un kernel nativo.
+\end{itemize}
+
+\section{Notas de Cornell}
+\label{sec:org4d9f9a0}
+
+\begin{longtable}{|p{4.5cm}|p{10.5cm}|}
+\textbf{Ideas Clave / Preguntas} & \textbf{Apuntes de Clase}\\[0pt]
+\hline
+\endfirsthead
+\multicolumn{2}{l}{Continued from previous page} \\[0pt]
+\hline
+
+\textbf{Ideas Clave / Preguntas} & \textbf{Apuntes de Clase} \\[0pt]
+
+\hline
+\endhead
+\hline\multicolumn{2}{r}{Continued on next page} \\
+\endfoot
+\endlastfoot
+\hline
+\textbf{¿Qué es WSL?} & Subsistema de Windows para Linux. Permite ejecutar herramientas de Linux de forma nativa en Windows.\\[0pt]
+\textbf{Arquitectura WSL 1} & Utiliza una \textbf{Capa de Traducción}. No tiene un kernel de Linux real instalado.\\[0pt]
+\textbf{Problema de WSL 1} & Intercepta las llamadas al sistema (syscalls) de Linux y las traduce al Kernel de Windows. Esto genera cuellos de botella y lentitud en lectura/escritura de disco.\\[0pt]
+\textbf{Arquitectura WSL 2} & Abandona la traducción. Utiliza una \textbf{Máquina Virtual Ligera} (Utility VM) basada en Hyper-V.\\[0pt]
+\textbf{Kernel Nativo} & WSL 2 corre un Kernel de Linux real, completo y optimizado directamente en la VM, eliminando la necesidad de traducir llamadas.\\[0pt]
+\textbf{Beneficios de WSL 2} & Compatibilidad total con aplicaciones complejas (como Docker) y un rendimiento de sistema de archivos inmensamente superior.\\[0pt]
+\end{longtable}
+
+\section{Resumen}
+\label{sec:orgc1f966c}
+WSL ilustra la evolución del soporte inter-sistemas. WSL 1 intentó
+ejecutar binarios de Linux interceptando y emulando sus llamadas de
+sistema, lo que penalizaba el rendimiento. WSL 2 resolvió este
+problema de arquitectura al integrar un hipervisor ligero que corre un
+kernel real de Linux, ofreciendo ejecución nativa, máxima velocidad de
+disco y 100\% de compatibilidad.
+\end{document}

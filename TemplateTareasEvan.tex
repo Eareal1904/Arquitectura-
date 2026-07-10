@@ -1,0 +1,92 @@
+% Created 2026-07-09 Thu 20:15
+% Intended LaTeX compiler: pdflatex
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+
+\usepackage{fancyhdr}
+\usepackage[top=25mm, left=25mm, right=25mm]{geometry}
+\usepackage{longtable}
+\usepackage{tabularx}
+\fancyhead[R]{}
+\setlength\headheight{43.0pt}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish, ]{babel}
+\usepackage[backend=biber]{biblatex}
+\addbibresource{/home/eareal/Arquitectura-/bibliography.bib}
+\author{Evan Matango}
+\date{2026-07-09}
+\title{Notas de Cornell: Traducción de Direcciones\\\medskip
+\large Arquitectura de Computadores}
+\hypersetup{
+ pdfauthor={Evan Matango},
+ pdftitle={Notas de Cornell: Traducción de Direcciones},
+ pdfkeywords={MMU, Paginación, Dirección Lógica, Dirección Física},
+ pdfsubject={Traducción lógica a física},
+ pdfcreator={Emacs 27.1 (Org mode 9.7.5)}, 
+ pdflang={Español}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\fancyhead[C]{\includegraphics[scale=0.05]{images/logoEPN.jpg}\\
+ESCUELA POLITÉCNICA NACIONAL\\FACULTAD DE INGENIERÍA EN SISTEMAS\\
+ARQUITECTURA DE COMPUTADORES}
+\thispagestyle{fancy}
+
+\section{Objetivos de Aprendizaje}
+\label{sec:orgb900abc}
+
+\begin{itemize}
+\item Entender cómo una dirección virtual se convierte en una dirección
+física en RAM.
+\item Identificar la estructura de una dirección paginada (página +
+desplazamiento).
+\item Comprender el uso de la Tabla de Páginas.
+\end{itemize}
+
+\section{Notas de Cornell}
+\label{sec:orgaa1021d}
+
+\begin{longtable}{|p{4.5cm}|p{10.5cm}|}
+\textbf{Ideas Clave / Preguntas} & \textbf{Apuntes de Clase}\\[0pt]
+\hline
+\endfirsthead
+\multicolumn{2}{l}{Continued from previous page} \\[0pt]
+\hline
+
+\textbf{Ideas Clave / Preguntas} & \textbf{Apuntes de Clase} \\[0pt]
+
+\hline
+\endhead
+\hline\multicolumn{2}{r}{Continued on next page} \\
+\endfoot
+\endlastfoot
+\hline
+\textbf{Dirección Lógica} & Generada por la CPU. Se divide en Número de Página (\(p\)) y Desplazamiento (\(d\)).\\[0pt]
+\textbf{Número de Página (\(p\))} & Sirve como índice para buscar en la Tabla de Páginas.\\[0pt]
+\textbf{Desplazamiento (\(d\))} & Ubicación exacta del byte dentro de la página. \textbf{No se altera} al traducir a dirección física.\\[0pt]
+\textbf{Tabla de Páginas} & Estructura que indica en qué Marco Físico (\(f\)) está guardada cada Página Virtual (\(p\)).\\[0pt]
+\textbf{Dirección Física} & Se forma combinando el Marco Físico (\(f\)) extraído de la tabla con el Desplazamiento original (\(d\)).\\[0pt]
+\textbf{MMU} & Unidad de Gestión de Memoria. Es el hardware de la CPU que hace esta traducción en tiempo real.\\[0pt]
+\end{longtable}
+
+\section{Resumen}
+\label{sec:orga5c7eda}
+La traducción de direcciones es un proceso de hardware gestionado por
+la MMU. La dirección virtual se parte en dos: el número de página
+busca el marco en la tabla de páginas, y el desplazamiento se mantiene
+igual. Al concatenar el marco con el desplazamiento, se obtiene la
+dirección física exacta en la memoria RAM.
+\end{document}
