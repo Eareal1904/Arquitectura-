@@ -129,40 +129,120 @@
   (hiperpaginación).
 * Máquinas Virtuales (Sección)
 
-** Concepto de Máquina Virtual (G9, 11, 292)
-- Una máquina virtual (VM) abstrae el hardware físico de un computador
-  para que múltiples sistemas operativos puedan compartir los mismos
-  recursos de forma simultánea.
-- *Host OS:* Es el sistema operativo físico subyacente que controla el
-  hardware real.
-- *Guest OS:* Es el sistema operativo virtualizado que se ejecuta
-  dentro de la máquina virtual creyendo que tiene acceso exclusivo al
-  hardware.
+** ¿Qué es una Máquina Virtual? (G9, 11, 292)
+
+- Una Máquina Virtual (VM) es un software que simula un computador
+  completo.
+- Permite ejecutar varios sistemas operativos sobre un mismo hardware físico.
+- Cada sistema operativo invitado cree que posee CPU, memoria y disco propios.
+- El aislamiento permite que cada VM funcione independientemente de las demás.
+
+** ¿Por qué utilizar Máquinas Virtuales?
+
+- Ejecutar varios sistemas operativos simultáneamente.
+- Aprovechar mejor el hardware disponible.
+- Probar software sin afectar el sistema principal.
+- Crear laboratorios y entornos de desarrollo.
+- Ejecutar aplicaciones antiguas o incompatibles.
+
+** Host OS y Guest OS (G9, 11, 292)
+
+*** Host OS
+:BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+
+- Sistema operativo instalado físicamente.
+- Administra el hardware real.
+- Controla CPU, memoria, disco y dispositivos.
+
+*** Guest OS
+:BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+
+- Sistema operativo que se ejecuta dentro de una VM.
+- Cree tener acceso exclusivo al hardware.
+- Comparte recursos mediante el hipervisor.
+
+** Hipervisor: ¿Qué hace?
+- Es el software encargado de crear y administrar máquinas virtuales.
+- Distribuye CPU, memoria, almacenamiento y red.
+- Aísla las máquinas virtuales entre sí.
+- Permite ejecutar múltiples Guest OS simultáneamente.
 
 ** Hipervisores: Tipo 1 y Tipo 2 (G9, 11, 295)
-*** Texto                                           :BMCOL:
-:PROPERTIES:
-:BEAMER_col: 0.4
-:END:
-- *Tipo 1 (Bare Metal):* Se ejecuta directo en el hardware (ej. ESXi). Máximo rendimiento.
-- *Tipo 2 (Hosted):* Es una aplicación sobre el SO anfitrión (ej. VirtualBox).
-- El hipervisor multiplexa CPU, memoria y E/S.
 
-*** Imagen                                          :BMCOL:
+***Texto
+:BMCOL:
 :PROPERTIES:
-:BEAMER_col: 0.6
+:BEAMER_col: 0.45
 :END:
+
+- *Tipo 1 (Bare Metal):*
+- Se instala directamente sobre el hardware.
+- Mayor rendimiento.
+- Uso común en centros de datos.
+
+- *Tipo 2 (Hosted):*
+- Funciona como una aplicación sobre un sistema operativo.
+- Fácil de instalar.
+- Ideal para estudiantes y pruebas.
+
+***Imagen
+:BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.55
+:END:
+
 #+attr_latex: :width \textwidth
-[[file:images/hipervisores.png]]
-** Virtualización de memoria (G9, 11, 298)
-- Añade un nivel extra de complejidad en la traducción: el Guest OS
-  traduce direcciones virtuales a "direcciones físicas virtuales".
-- El hipervisor debe atrapar estas peticiones y traducir las
-  direcciones físicas virtuales a las verdaderas direcciones físicas
-  reales de la máquina anfitriona.
-- Se utilizan técnicas de hardware integradas en la CPU (como Shadow
-  Page Tables o soporte Intel EPT / AMD-V) para acelerar drásticamente
-  este doble mapeo.
+file:images/hipervisores.png
+
+** Comparación entre Tipo 1 y Tipo 2
+| Tipo 1                 | Tipo 2                         |
+|------------------------+--------------------------------|
+| Directo sobre hardware | Sobre un SO anfitrión          |
+| Máximo rendimiento     | Rendimiento ligeramente menor  |
+| Empresas y servidores  | Uso personal y educativo       |
+| ESXi, Hyper-V          | VirtualBox, VMware Workstation |
+
+** Virtualización de Memoria (G9, 11, 298)
+
+- El Guest OS utiliza direcciones virtuales.
+- Estas se convierten en direcciones físicas virtuales.
+- El hipervisor las traduce a direcciones físicas reales.
+- Este proceso permite compartir la memoria de forma segura.
+
+** Aceleración por Hardware
+
+- La traducción de memoria puede ser costosa.
+- Los procesadores modernos incorporan soporte para
+virtualización.
+- Intel utiliza Extended Page Tables (EPT).
+- AMD incorpora tecnologías equivalentes mediante AMD-V.
+- Estas tecnologías reducen la sobrecarga y mejoran el
+rendimiento.
+
+** WSL y su relación con las Máquinas Virtuales
+
+- WSL permite ejecutar Linux dentro de Windows.
+- WSL 1 no utiliza una máquina virtual.
+- WSL 2 ejecuta un kernel real de Linux mediante
+una VM ligera.
+- Utiliza Hyper-V como tecnología de
+                          virtualización.
+** WSL vs VirtualBox
+
+| VirtualBox                  | WSL 2                    |
+|-----------------------------+--------------------------|
+| VM completa                 | VM ligera                |
+| Configuración manual        | Configuración automática |
+| Mayor consumo de recursos   | Menor consumo            |
+| Puede ejecutar distintos SO | Diseñado para Linux      |
+| Uso general                 | Desarrollo de software   |
+
 * WSL como caso de estudio (Sección)
 
 ** Windows Subsystem for Linux (WSL) (G9, 11, 301)
