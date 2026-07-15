@@ -1,69 +1,135 @@
-#+title: Multiplicación IEEE 754
-#+language: es
+#+title: Multiplicación IEEE 754 (Precisión Simple 32 bits)
+#+options: toc:nil
 
-* Multiplicación IEEE 754 (Grupo 9)
-Como parte de los requisitos de la asignatura de Arquitectura de
-Computadores, a continuación se detalla el procedimiento para realizar
-la multiplicación de dos números de punto flotante de 32 bits bajo el
-estándar IEEE 754.
+Ingresa dos números decimales. El sistema realizará la multiplicación y te mostrará el resultado convertido al estándar IEEE 754, detallando el procedimiento algorítmico paso a paso.
 
-** Algoritmo Matemático
-El estándar divide los 32 bits en tres secciones: 1 bit de signo, 8
-bits de exponente y 23 bits de mantisa. La multiplicación de dos
-operandos $X$ e $Y$ requiere procesar cada sección de forma
-independiente:
+#+begin_export html
+<style>
+  .ieee-box { max-width: 800px; margin: 20px auto; padding: 25px; border: 2px solid #2c3e50; border-radius: 10px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f9fbfd; }
+  .form-group { margin-bottom: 15px; }
+  .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #34495e; }
+  .form-group input { width: 100%; padding: 10px; font-size: 16px; border: 1px solid #bdc3c7; border-radius: 5px; box-sizing: border-box; }
+  .btn-calcular { width: 100%; padding: 12px; font-size: 16px; font-weight: bold; background-color: #2980b9; color: white; border: none; border-radius: 5px; cursor: pointer; transition: 0.3s; margin-top: 10px;}
+  .btn-calcular:hover { background-color: #1a5276; }
+  .resultado-container { margin-top: 25px; padding: 15px; background-color: #ffffff; border-left: 5px solid #27ae60; display: none; box-shadow: 0px 4px 6px rgba(0,0,0,0.1); }
+  .binario { font-family: 'Courier New', Courier, monospace; font-size: 18px; letter-spacing: 2px; word-break: break-all; text-align: center; margin: 15px 0; padding: 10px; background: #ecf0f1; border-radius: 5px; }
+  .signo { color: #c0392b; font-weight: bold; }
+  .exponente { color: #27ae60; font-weight: bold; }
+  .mantisa { color: #2980b9; font-weight: bold; }
+  .paso-a-paso { background-color: #f4f6f7; padding: 15px; border-radius: 5px; margin-top: 15px; font-size: 14px; color: #34495e; }
+  .paso-a-paso h4 { margin-top: 0; color: #2c3e50; }
+  .paso-a-paso pre { font-family: 'Courier New', Courier, monospace; white-space: pre-wrap; font-size: 13px; }
+  .leyenda { text-align: center; font-size: 14px; color: #7f8c8d; }
+</style>
 
-1. **Cálculo del Signo ($S$):** Se obtiene mediante la compuerta
-   lógica XOR aplicada a los bits de signo de los operandos.  $$S =
-   S_x \oplus S_y$$
+<div class="ieee-box">
+  <div class="form-group">
+    <label for="n1">Multiplicando (Número 1):</label>
+    <input type="number" id="n1" step="any" placeholder="Ejemplo: -4.5">
+  </div>
+  <div class="form-group">
+    <label for="n2">Multiplicador (Número 2):</label>
+    <input type="number" id="n2" step="any" placeholder="Ejemplo: 2.25">
+  </div>
+  <button class="btn-calcular" onclick="procesarMultiplicacion()">Calcular y Mostrar Procedimiento</button>
 
-2. **Cálculo del Exponente ($E$):** Se suman los exponentes de ambos
-   operandos y se resta el sesgo (bias). Para precisión simple, el
-   sesgo es $127$.  $$E = E_x + E_y - 127$$
+  <div id="panel-resultado" class="resultado-container">
+    <h3 style="margin-top:0; color: #2c3e50;">Resultados del Cálculo</h3>
+    <p><strong>Operación:</strong> <span id="out-op"></span></p>
+    <p><strong>Resultado Decimal:</strong> <span id="out-dec" style="font-weight:bold; font-size: 18px;"></span></p>
+    
+    <div id="out-pasos" class="paso-a-paso">
+        </div>
 
-3. **Cálculo de la Mantisa ($M$):** Se multiplican las mantisas
-   asumiendo el bit implícito de normalización (el $1.$ a la izquierda
-   de la coma binaria).  $$M = (1 + M_x) \times (1 + M_y)$$
+    <p style="margin-top: 15px; margin-bottom: 5px;"><strong>Representación Final IEEE 754 (32 bits):</strong></p>
+    <div class="binario">
+      <span id="out-signo" class="signo" title="Signo (1 bit)"></span> 
+      <span id="out-exp" class="exponente" title="Exponente (8 bits)"></span> 
+      <span id="out-mantisa" class="mantisa" title="Mantisa (23 bits)"></span>
+    </div>
+    <div class="leyenda">
+      <span class="signo">■ Signo (1 bit)</span> &nbsp;|&nbsp; 
+      <span class="exponente">■ Exponente (8 bits)</span> &nbsp;|&nbsp; 
+      <span class="mantisa">■ Mantisa (23 bits)</span>
+    </div>
+  </div>
+</div>
 
-Si el resultado de la multiplicación de las mantisas genera un acarreo
-(es decir, el valor es mayor o igual a 2), se debe normalizar
-desplazando la coma binaria a la izquierda y sumando $1$ al exponente
-$E$.
+<script>
+  // Extraemos la conversión exacta a 32 bits de la memoria de JS
+  function floatToIEEE754(numero) {
+    let buffer = new ArrayBuffer(4);
+    let vistaFloat = new Float32Array(buffer);
+    let vistaInt = new Uint32Array(buffer);
+    
+    vistaFloat[0] = numero;
+    let bits = vistaInt[0].toString(2).padStart(32, '0');
+    
+    return {
+      signo: bits[0],
+      exponente: bits.substring(1, 9),
+      mantisa: bits.substring(9, 32)
+    };
+  }
 
-** Demostración en Código
-El siguiente bloque de Python permite visualizar la estructura binaria
-de dos números de prueba para iniciar el proceso de multiplicación:
+  // Generamos una explicación simplificada del proceso para el HTML
+  function generarExplicacion(num1, num2, resultado, conversion) {
+      let signoFinal = (num1 * num2 < 0) ? "1 (Negativo)" : "0 (Positivo)";
+      let expEntero = parseInt(conversion.exponente, 2);
+      let expReal = expEntero - 127;
 
-#+begin_src python :results output :exports both :session
-import struct
+      let explicacion = `
+<h4>Procedimiento Matemático:</h4>
+<pre>
+1. Análisis de Signos:
+   Signo = Signo(N1) XOR Signo(N2)
+   El resultado es ${signoFinal}. Por lo tanto, el bit de signo es: ${conversion.signo}.
 
-def obtener_bits(numero):
-    bits = struct.unpack('>I', struct.pack('>f', numero))[0]
-    binario = f"{bits:032b}"
-    return binario[0], binario[1:9], binario[9:], binario
+2. Exponente (Basado en el resultado de ${resultado}):
+   Exponente Real = ${expReal}
+   Exponente Sesgado (Suma de 127) = ${expReal} + 127 = ${expEntero}
+   Convertido a Binario (8 bits) = ${conversion.exponente}
 
-X = 5.5
-Y = -2.0
+3. Mantisa (Fracción normalizada):
+   Se obtiene al quitar el '1.' implícito de la notación científica binaria.
+   Rellenando con ceros hasta 23 bits: ${conversion.mantisa}
 
-s_x, exp_x, man_x, bin_x = obtener_bits(X)
-s_y, exp_y, man_y, bin_y = obtener_bits(Y)
+4. Ensamblaje IEEE 754:
+   [Signo] [Exponente] [Mantisa]
+</pre>`;
+      return explicacion;
+  }
 
-print(f"Operando X ({X}): {bin_x}")
-print(f"Operando Y ({Y}): {bin_y}")
-print("-" * 40)
+  function procesarMultiplicacion() {
+    let val1 = parseFloat(document.getElementById('n1').value);
+    let val2 = parseFloat(document.getElementById('n2').value);
+    
+    if (isNaN(val1) || isNaN(val2)) {
+      alert("Por favor, ingresa dos números válidos.");
+      return;
+    }
 
-signo_final = int(s_x) ^ int(s_y)
-print(f"Signo resultante (XOR): {signo_final}")
+    let resultado = val1 * val2;
+    let conversion = floatToIEEE754(resultado);
 
-exp_decimal_x = int(exp_x, 2)
-exp_decimal_y = int(exp_y, 2)
-exp_final = exp_decimal_x + exp_decimal_y - 127
-print(f"Exponente resultante (con sesgo): {exp_final} -> Binario: {exp_final:08b}")
-#+end_src
+    document.getElementById('out-op').innerText = `${val1} × ${val2}`;
+    document.getElementById('out-dec').innerText = resultado;
+    
+    // Inyectamos el paso a paso
+    document.getElementById('out-pasos').innerHTML = generarExplicacion(val1, val2, resultado, conversion);
 
-#+RESULTS:
-: Operando X (5.5): 01000000101100000000000000000000
-: Operando Y (-2.0): 11000000000000000000000000000000
-: ----------------------------------------
-: Signo resultante (XOR): 1
-: Exponente resultante (con sesgo): 130 -> Binario: 10000010
+    // Inyectamos los colores finales
+    document.getElementById('out-signo').innerText = conversion.signo;
+    document.getElementById('out-exp').innerText = conversion.exponente;
+    document.getElementById('out-mantisa').innerText = conversion.mantisa;
+    
+    document.getElementById('panel-resultado').style.display = 'block';
+  }
+</script>
+#+end_export
+
+* Navegación del Proyecto
+Para continuar explorando el proyecto, utilice los siguientes enlaces:
+
+- [[file:index.org][<- Anterior: Página Principal (Datos Climatológicos)]]
+- [[file:page3-dashboard.org][Siguiente -> : Dashboard de Robos de Vehículos (INEC)]]

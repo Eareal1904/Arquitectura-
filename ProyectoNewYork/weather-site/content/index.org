@@ -21,7 +21,7 @@ las destrezas obtenidas durante el transcurso de la asignatura de
 2. Conocimientos de Emacs/Jupyter
 3. Configuración de Entorno para Data Science con Mamba/Anaconda
 4. Literate Programming
- 
+   
 ** Estructura del proyecto
 Se recomienda que el proyecto se cree en el /home/ del sistema
 operativo i.e. /home/<user>/. Allí se creará la carpeta /CityWeather/
@@ -31,7 +31,7 @@ pwd
 #+end_src
 
 #+RESULTS:
-: /home/QuitoWeather
+: /home/eareal/Arquitectura-/ProyectoNewYork
 
 El proyecto ha de tener los siguientes archivos y
 subdirectorios. Adaptar los nombres de los archivos según las ciudades
@@ -45,29 +45,39 @@ tree
 #+RESULTS:
 #+begin_example
 .
-├── #index.org#
 ├── CityTemperatureAnalysis.ipynb
 ├── clima-newyork-hoy.csv
 ├── get-weather.sh
-├── get-weather.sh~
-├── index.org
 ├── index.org:Zone.Identifier
-├── index.org~
 ├── main.py
-├── main.py~
 ├── output.log
+├── robos-carros-inec.csv
 └── weather-site
     ├── build-site.el
     ├── build.sh
     ├── content
+    │   ├── #index.org#
     │   ├── images
+    │   │   ├── humidity.png
+    │   │   ├── robos_canton.png
+    │   │   ├── robos_mensuales.png
+    │   │   ├── robos_provincia.png
+    │   │   └── temperature.png
     │   ├── index.org
-    │   └── page2-js.org
+    │   ├── page2-js.org
+    │   └── page3-dashboard.org
     └── public
         ├── images
-        └── index.h
+        │   ├── humidity.png
+        │   ├── robos_canton.png
+        │   ├── robos_mensuales.png
+        │   ├── robos_provincia.png
+        │   └── temperature.png
+        ├── index.html
+        ├── page2-js.html
+        └── page3-dashboard.html
 
-6 directories, 16 files
+6 directories, 26 files
 #+end_example
 
 Puede usar Emacs para la creación de la estructura de su proyecto
@@ -117,17 +127,17 @@ WSL. Las etapas del problema se subdividen en:
        #+end_src
 
        #+RESULTS:
-       | #!/usr/bin/bash |                                            |          |    |         |         |          |         |          |         |      |       |         |    |    |           |
-       |                 |                                            |          |    |         |         |          |         |          |         |      |       |         |    |    |           |
-       | #               | 1                                          | Navegar  | a  | la      | carpeta | de       | tu      | proyecto | (CAMBIA | ESTA | RUTA) |         |    |    |           |
-       | cd              | /home/eareal/Arquitectura-/ProyectoNewYork |          |    |         |         |          |         |          |         |      |       |         |    |    |           |
-       |                 |                                            |          |    |         |         |          |         |          |         |      |       |         |    |    |           |
-       | #               | 2                                          | Activar  | el | entorno | de      | Anaconda | (Ajusta | el       | nombre  | de   | tu    | entorno | si | es | distinto) |
-       | source          | ~/miniforge3/etc/profile.d/conda.sh        |          |    |         |         |          |         |          |         |      |       |         |    |    |           |
-       | conda           | activate                                   | iccd332  |    |         |         |          |         |          |         |      |       |         |    |    |           |
-       |                 |                                            |          |    |         |         |          |         |          |         |      |       |         |    |    |           |
-       | #               | 3                                          | Ejecutar | el | script  | de      | Python   |         |          |         |      |       |         |    |    |           |
-       | python          | main.py                                    |          |    |         |         |          |         |          |         |      |       |         |    |    |           |
+       | #!/usr/bin/bash |                                            |          |    |         |         |          |    |          |   |   |   |   |   |   |   |
+       |                 |                                            |          |    |         |         |          |    |          |   |   |   |   |   |   |   |
+       | #               | 1                                          | Navegar  | a  | la      | carpeta | de       | tu | proyecto |   |   |   |   |   |   |   |
+       | cd              | /home/eareal/Arquitectura-/ProyectoNewYork |          |    |         |         |          |    |          |   |   |   |   |   |   |   |
+       |                 |                                            |          |    |         |         |          |    |          |   |   |   |   |   |   |   |
+       | #               | 2                                          | Activar  | el | entorno | de      | Anaconda |    |          |   |   |   |   |   |   |   |
+       | source          | ~/miniforge3/etc/profile.d/conda.sh        |          |    |         |         |          |    |          |   |   |   |   |   |   |   |
+       | conda           | activate                                   | iccd332  |    |         |         |          |    |          |   |   |   |   |   |   |   |
+       |                 |                                            |          |    |         |         |          |    |          |   |   |   |   |   |   |   |
+       | #               | 3                                          | Ejecutar | el | script  | de      | Python   |    |          |   |   |   |   |   |   |   |
+       | python          | main.py                                    |          |    |         |         |          |    |          |   |   |   |   |   |   |   |
 
     4. Configurar Crontab para la adquisición de datos. Escriba el
        comando configurado. Respalde la ejecución de crontab en un
@@ -193,7 +203,7 @@ if respuesta.status_code == 200:
 #+end_src
 
 #+RESULTS:
-: Temp: 32.2°C, Humedad: 51%, Clima: Clouds
+: Temp: 30.02°C, Humedad: 65%, Clima: Clouds
 
 
 Guardar el archivo csv
@@ -274,24 +284,43 @@ pueden utilizar para presentar los resultados gráficos. En ambos
 casos, para que funcione los siguientes bloques de código, es
 necesario que realice la instalación de los paquetes usando ~mamba
 install <nombre-paquete>~
-** Muestra Aleatoria de datos
-Presentar una muestra de 10 valores aleatorios de los datos obtenidos.
-#+caption: Lectura de archivo csv
-#+begin_src python :session :results output exports both
-import os
-import pandas as pd
-# lectura del archivo csv obtenido para New York
-df = pd.read_csv('/home/eareal/Arquitectura-/ProyectoNewYork/clima-newyork-hoy.csv')
-# se imprime la estructura del dataframe en forma de filas x columnas
-print(df.shape)
+
+Guardar el archivo csv
+#+begin_src python :session :results output :exports both
+import csv
+from datetime import datetime
+
+# Obtenemos lluvia y nieve (si no hay, ponemos 0)
+lluvia_1h = datos.get("rain", {}).get("1h", 0)
+nieve_1h = datos.get("snow", {}).get("1h", 0)
+fecha_hora = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+linea = [fecha_hora, temperatura, humedad, presion, clima_principal, lluvia_1h, nieve_1h]
+
+# AQUÍ ESTÁ LA RUTA RELATIVA UNIVERSAL
+with open('../../clima-newyork-hoy.csv', mode='a', newline='') as archivo:
+    writer = csv.writer(archivo)
+    writer.writerow(linea)
+
+print("Datos de New York guardados exitosamente.")
 #+end_src
 
 #+RESULTS:
-: (37, 7)
 
+** Muestra Aleatoria de datos
+Presentar una muestra de 10 valores aleatorios de los datos obtenidos.
 
-#+caption: Despliegue de datos aleatorios
-#+begin_src python :session :exports both :results value table :return table
+#+begin_src python :session :results output :exports results
+import os
+import pandas as pd
+# lectura del archivo csv obtenido para New York
+df = pd.read_csv('../../clima-newyork-hoy.csv')
+#+end_src
+
+#+RESULTS:
+
+#+caption: Tabla 1: Muestra aleatoria de 10 registros climáticos en New York.
+#+begin_src python :session :exports results :results value table :return table
 table1 = df.sample(10)
 table = [list(table1)]+[None]+table1.values.tolist()
 #+end_src
@@ -299,28 +328,26 @@ table = [list(table1)]+[None]+table1.values.tolist()
 #+RESULTS:
 | fecha_hora          | temperatura | humedad | presion | clima_principal | lluvia_1h | nieve_1h |
 |---------------------+-------------+---------+---------+-----------------+-----------+----------|
-| 2026-07-14 14:00:04 |       33.59 |      48 |    1015 | Clear           |         0 |        0 |
-| 2026-07-14 12:00:03 |       31.96 |      50 |    1017 | Clouds          |         0 |        0 |
-| 2026-07-14 12:30:03 |        31.9 |      51 |    1017 | Clouds          |         0 |        0 |
-| 2026-07-14 17:30:08 |       33.23 |      50 |    1012 | Clouds          |         0 |        0 |
-| 2026-07-14 13:00:04 |       32.91 |      49 |    1016 | Clouds          |         0 |        0 |
-| 2026-07-14 13:15:03 |       33.06 |      48 |    1016 | Clouds          |         0 |        0 |
-| 2026-07-14 18:45:02 |        32.2 |      51 |    1012 | Clouds          |         0 |        0 |
-| 2026-07-14 10:15:04 |        29.6 |      55 |    1018 | Clouds          |         0 |        0 |
 | 2026-07-14 00:43:02 |       23.55 |      67 |    1019 | Clouds          |         0 |        0 |
-| 2026-07-14 18:36:18 |        32.2 |      51 |    1012 | Clouds          |         0 |        0 |
+| 2026-07-14 19:30:02 |       31.46 |      53 |    1012 | Clouds          |         0 |        0 |
+| 2026-07-14 18:00:06 |       32.68 |      52 |    1012 | Clouds          |         0 |        0 |
+| 2026-07-15 13:00:06 |       35.55 |      46 |    1009 | Clouds          |         0 |        0 |
+| 2026-07-14 18:45:02 |        32.2 |      51 |    1012 | Clouds          |         0 |        0 |
+| 2026-07-14 19:15:02 |       31.59 |      52 |    1012 | Clouds          |         0 |        0 |
+| 2026-07-15 11:45:07 |       35.24 |      44 |    1010 | Clouds          |         0 |        0 |
+| 2026-07-15 00:15:02 |       28.25 |      67 |    1012 | Clouds          |         0 |        0 |
+| 2026-07-14 18:30:03 |       32.38 |      51 |    1012 | Clouds          |         0 |        0 |
+| 2026-07-14 21:15:01 |       30.12 |      58 |    1012 | Clouds          |         0 |        0 |
 
+*Descripción:* Esta tabla presenta una extracción aleatoria de 10 registros meteorológicos obtenidos mediante la API de OpenWeatherMap. Cada fila representa una captura de datos en un instante específico, evidenciando variables clave como la temperatura, humedad, presión atmosférica y el estado general del clima.
 ** Gráfica Temperatura vs Tiempo
 Realizar una gráfica de la Temperatura en el tiempo.
 
-#+begin_src python :results output :exports both :session
+#+begin_src python :results output :exports results :session
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import pandas as pd
 import os
-
-# TRUCO: Forzamos la creación de la carpeta "images" en donde sea que estemos
-os.makedirs('./images', exist_ok=True)
 
 # Aseguramos que la columna de fecha sea reconocida correctamente
 df['fecha_hora'] = pd.to_datetime(df['fecha_hora'])
@@ -338,21 +365,20 @@ fig.tight_layout()
 
 # Guardar imagen
 plt.savefig('./images/temperature.png')
-print("¡ÉXITO! Gráfica de temperatura generada.")
 #+end_src
 
-#+caption: Gráfica Temperatura vs Tiempo
 #+RESULTS:
-: ¡ÉXITO! Gráfica de temperatura generada.
+
+#+caption: Figura 1: Evolución de la temperatura en New York.
+[[file:./images/temperature.png]]
+
+*Descripción:* Esta gráfica de líneas ilustra la variación térmica en la ciudad de New York. El eje vertical muestra la temperatura en grados Celsius y el eje horizontal representa la línea temporal de la recolección de datos, permitiendo identificar fácilmente los picos máximos y mínimos del clima actual.
 ** Realice una gráfica de Humedad con respecto al tiempo
 
-#+begin_src python :results output :exports both :session
+#+begin_src python :results output :exports results :session
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import pandas as pd
-
-# Aseguramos que la columna de fecha sea reconocida correctamente
-df['fecha_hora'] = pd.to_datetime(df['fecha_hora'])
 
 # Define el tamaño de la figura de salida
 fig = plt.figure(figsize=(8,6))
@@ -367,18 +393,19 @@ fig.tight_layout()
 
 # Guardar imagen
 plt.savefig('./images/humidity.png')
-print("Gráfica de humedad generada")
 #+end_src
 
 #+RESULTS:
-: Gráfica de humedad generada
 
-#+caption: Gráfica Humedad vs Tiempo
-#+RESULTS:
+#+caption: Figura 2: Variación de la Humedad relativa en New York.
+[[file:./images/humidity.png]]
 
-* Siguiente Sección
-Para revisar la demostración matemática y el algoritmo de la asignatura de Arquitectura de Computadores, por favor diríjase a la siguiente página:
-[[file:page2-js.org][Ver sección de Multiplicación IEEE 754]]
+*Descripción:* Esta visualización refleja el comportamiento de la humedad en el ambiente a lo largo del periodo analizado. Los datos porcentuales nos ayudan a comprender los niveles de saturación del aire y cómo estos fluctúan en intervalos cortos de 15 minutos.
+* Navegación del Proyecto
+Para revisar las otras secciones del proyecto, por favor diríjase a los siguientes enlaces:
+
+- [[file:page2-js.org][Página 2: Calculadora de Multiplicación IEEE 754]]
+- [[file:page3-dashboard.org][Página 3: Dashboard de Robos de Vehículos (INEC)]]
 * Referencias
 - [[https://emacs.stackexchange.com/questions/28715/get-pandas-data-frame-as-a-table-in-org-babel][presentar dataframe como tabla en emacs org]]
 - [[https://orgmode.org/worg/org-contrib/babel/languages/ob-doc-python.html][Python Source Code Blocks in Org Mode]]

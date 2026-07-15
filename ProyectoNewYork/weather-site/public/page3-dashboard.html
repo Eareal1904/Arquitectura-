@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<head>
+<!-- 2026-07-15 Wed 17:39 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Dashboard de Robo de Vehículos</title>
+<meta name="author" content="DESKTOP-JKLETKU" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Dashboard de Robo de Vehículos</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>&Iacute;ndice</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgee06907">1. Análisis de Robo de Vehículos en Ecuador</a>
+<ul>
+<li><a href="#org9badfca">1.1. Carga de Datos</a></li>
+<li><a href="#orgb80b0ad">1.2. Top 10 Provincias con Mayor Índice de Robos</a></li>
+<li><a href="#org8b58b95">1.3. Tendencia Temporal (Último Año Registrado)</a></li>
+<li><a href="#org9d81473">1.4. Análisis Crítico por Cantón</a></li>
+<li><a href="#org48c6f57">1.5. Publicación de Recursos Visuales</a></li>
+</ul>
+</li>
+<li><a href="#org6dd1d21">2. Navegación del Proyecto</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgee06907" class="outline-2">
+<h2 id="orgee06907"><span class="section-number-2">1.</span> Análisis de Robo de Vehículos en Ecuador</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+En esta sección se presenta un análisis exploratorio de los datos proporcionados por el INEC sobre el robo de vehículos a nivel nacional, aplicando herramientas de Data Science con Python.
+</p>
+</div>
+
+<div id="outline-container-org9badfca" class="outline-3">
+<h3 id="org9badfca"><span class="section-number-3">1.1.</span> Carga de Datos</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+A continuación, importamos el dataset limpio y verificamos su estructura general:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">import</span> pandas <span style="font-weight: bold;">as</span> pd
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Cargamos el archivo CSV (aseg&#250;rate de que el nombre coincida)</span>
+<span style="font-weight: bold; font-style: italic;">ruta_archivo</span> = <span style="font-style: italic;">'../../robos-carros-inec.csv'</span>
+<span style="font-weight: bold; font-style: italic;">df_robos</span> = pd.read_csv(ruta_archivo, sep=<span style="font-style: italic;">';'</span>)
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">Imprimimos la cantidad de filas y columnas</span>
+<span style="font-weight: bold;">print</span>(f<span style="font-style: italic;">"Estructura del dataset (Filas, Columnas): </span>{df_robos.shape}<span style="font-style: italic;">"</span>)
+</pre>
+</div>
+
+<pre class="example">
+Estructura del dataset (Filas, Columnas): (222, 149)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb80b0ad" class="outline-3">
+<h3 id="orgb80b0ad"><span class="section-number-3">1.2.</span> Top 10 Provincias con Mayor Índice de Robos</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Para entender la distribución espacial del delito, agrupamos los datos por provincia y sumamos la cantidad de robos reportados en todos los meses del año.
+</p>
+
+
+<div id="org1b6ae81" class="figure">
+<p><img src="./images/robos_provincia.png" alt="robos_provincia.png" />
+</p>
+<p><span class="figure-number">Figura 1: </span>Figura 1: Top 10 Provincias con mayor incidencia de robos vehiculares.</p>
+</div>
+
+<p>
+<b>Descripción:</b> Esta gráfica de barras clasifica las 10 provincias del Ecuador con mayor cantidad de vehículos robados. Permite identificar rápidamente las zonas geográficas que concentran el mayor riesgo, siendo un análisis fundamental para focalizar estrategias de seguridad a nivel nacional.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org8b58b95" class="outline-3">
+<h3 id="org8b58b95"><span class="section-number-3">1.3.</span> Tendencia Temporal (Último Año Registrado)</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Este análisis se centra en la tendencia mensual de los últimos 12 meses registrados para observar el comportamiento delictivo más reciente.
+</p>
+
+
+<div id="orgcd5eb7f" class="figure">
+<p><img src="./images/robos_mensuales.png" alt="robos_mensuales.png" />
+</p>
+<p><span class="figure-number">Figura 2: </span>Figura 2: Evolución mensual de robos a nivel nacional (Últimos 12 meses).</p>
+</div>
+
+<p>
+<b>Descripción:</b> El gráfico de líneas ilustra la fluctuación temporal de los robos de vehículos mes a mes. Las etiquetas de datos sobre cada punto facilitan la detección de picos inusuales o reducciones sostenidas producto de factores estacionales.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9d81473" class="outline-3">
+<h3 id="org9d81473"><span class="section-number-3">1.4.</span> Análisis Crítico por Cantón</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+A nivel provincial, el delito suele concentrarse en los centros urbanos poblados. A continuación, se desglosa el total de robos en los cantones de la provincia más afectada.
+</p>
+
+
+<div id="org20512a6" class="figure">
+<p><img src="./images/robos_canton.png" alt="robos_canton.png" />
+</p>
+<p><span class="figure-number">Figura 3: </span>Figura 3: Cantones más vulnerables dentro de la provincia crítica.</p>
+</div>
+
+<p>
+<b>Descripción:</b> Al enfocar el análisis en la provincia con el mayor índice de criminalidad vehicular, esta visualización revela en qué cantones específicos se centraliza el delito, evidenciando los núcleos urbanos con mayor incidencia delictiva.
+</p>
+</div>
+</div>
+<div id="outline-container-org48c6f57" class="outline-3">
+<h3 id="org48c6f57"><span class="section-number-3">1.5.</span> Publicación de Recursos Visuales</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Para que las gráficas se muestren en la web, copiamos las imágenes generadas a la carpeta pública.
+</p>
+
+<pre class="example">
+'./images/humidity.png' -&gt; '../public/images/humidity.png'
+'./images/robos_canton.png' -&gt; '../public/images/robos_canton.png'
+'./images/robos_mensuales.png' -&gt; '../public/images/robos_mensuales.png'
+'./images/robos_provincia.png' -&gt; '../public/images/robos_provincia.png'
+'./images/temperature.png' -&gt; '../public/images/temperature.png'
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6dd1d21" class="outline-2">
+<h2 id="org6dd1d21"><span class="section-number-2">2.</span> Navegación del Proyecto</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Para continuar navegando por el proyecto, utilice los siguientes enlaces:
+</p>
+<ul class="org-ul">
+<li><a href="page2-js.html">&lt;- Anterior: Calculadora de Multiplicación IEEE 754</a></li>
+<li><a href="index.html">Volver al Inicio: Proyecto Clima API -&gt;</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Autor: DESKTOP-JKLETKU</p>
+<p class="date">Created: 2026-07-15 Wed 17:39</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
