@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2026-07-15 Wed 17:39 -->
+<!-- 2026-07-15 Wed 17:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Dashboard de Robo de Vehículos</title>
@@ -201,30 +201,30 @@
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgee06907">1. Análisis de Robo de Vehículos en Ecuador</a>
+<li><a href="#orgbb3f86c">1. Análisis de Robo de Vehículos en Ecuador</a>
 <ul>
-<li><a href="#org9badfca">1.1. Carga de Datos</a></li>
-<li><a href="#orgb80b0ad">1.2. Top 10 Provincias con Mayor Índice de Robos</a></li>
-<li><a href="#org8b58b95">1.3. Tendencia Temporal (Último Año Registrado)</a></li>
-<li><a href="#org9d81473">1.4. Análisis Crítico por Cantón</a></li>
-<li><a href="#org48c6f57">1.5. Publicación de Recursos Visuales</a></li>
+<li><a href="#orgab30bb3">1.1. Carga de Datos</a></li>
+<li><a href="#org08bc4ae">1.2. Top 10 Provincias con Mayor Índice de Robos</a></li>
+<li><a href="#orge9f28fd">1.3. Tendencia Temporal (Último Año Registrado)</a></li>
+<li><a href="#orgd9e2804">1.4. Análisis Crítico por Cantón</a></li>
+<li><a href="#org2038e79">1.5. Publicación de Recursos Visuales</a></li>
 </ul>
 </li>
-<li><a href="#org6dd1d21">2. Navegación del Proyecto</a></li>
+<li><a href="#org569d9ab">2. Navegación del Proyecto</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgee06907" class="outline-2">
-<h2 id="orgee06907"><span class="section-number-2">1.</span> Análisis de Robo de Vehículos en Ecuador</h2>
+<div id="outline-container-orgbb3f86c" class="outline-2">
+<h2 id="orgbb3f86c"><span class="section-number-2">1.</span> Análisis de Robo de Vehículos en Ecuador</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 En esta sección se presenta un análisis exploratorio de los datos proporcionados por el INEC sobre el robo de vehículos a nivel nacional, aplicando herramientas de Data Science con Python.
 </p>
 </div>
 
-<div id="outline-container-org9badfca" class="outline-3">
-<h3 id="org9badfca"><span class="section-number-3">1.1.</span> Carga de Datos</h3>
+<div id="outline-container-orgab30bb3" class="outline-3">
+<h3 id="orgab30bb3"><span class="section-number-3">1.1.</span> Carga de Datos</h3>
 <div class="outline-text-3" id="text-1-1">
 <p>
 A continuación, importamos el dataset limpio y verificamos su estructura general:
@@ -248,15 +248,15 @@ Estructura del dataset (Filas, Columnas): (222, 149)
 </div>
 </div>
 
-<div id="outline-container-orgb80b0ad" class="outline-3">
-<h3 id="orgb80b0ad"><span class="section-number-3">1.2.</span> Top 10 Provincias con Mayor Índice de Robos</h3>
+<div id="outline-container-org08bc4ae" class="outline-3">
+<h3 id="org08bc4ae"><span class="section-number-3">1.2.</span> Top 10 Provincias con Mayor Índice de Robos</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Para entender la distribución espacial del delito, agrupamos los datos por provincia y sumamos la cantidad de robos reportados en todos los meses del año.
 </p>
 
 
-<div id="org1b6ae81" class="figure">
+<div id="orgd4e8515" class="figure">
 <p><img src="./images/robos_provincia.png" alt="robos_provincia.png" />
 </p>
 <p><span class="figure-number">Figura 1: </span>Figura 1: Top 10 Provincias con mayor incidencia de robos vehiculares.</p>
@@ -268,15 +268,15 @@ Para entender la distribución espacial del delito, agrupamos los datos por prov
 </div>
 </div>
 
-<div id="outline-container-org8b58b95" class="outline-3">
-<h3 id="org8b58b95"><span class="section-number-3">1.3.</span> Tendencia Temporal (Último Año Registrado)</h3>
+<div id="outline-container-orge9f28fd" class="outline-3">
+<h3 id="orge9f28fd"><span class="section-number-3">1.3.</span> Tendencia Temporal (Último Año Registrado)</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Este análisis se centra en la tendencia mensual de los últimos 12 meses registrados para observar el comportamiento delictivo más reciente.
 </p>
 
 
-<div id="orgcd5eb7f" class="figure">
+<div id="org778f7eb" class="figure">
 <p><img src="./images/robos_mensuales.png" alt="robos_mensuales.png" />
 </p>
 <p><span class="figure-number">Figura 2: </span>Figura 2: Evolución mensual de robos a nivel nacional (Últimos 12 meses).</p>
@@ -288,15 +288,15 @@ Este análisis se centra en la tendencia mensual de los últimos 12 meses regist
 </div>
 </div>
 
-<div id="outline-container-org9d81473" class="outline-3">
-<h3 id="org9d81473"><span class="section-number-3">1.4.</span> Análisis Crítico por Cantón</h3>
+<div id="outline-container-orgd9e2804" class="outline-3">
+<h3 id="orgd9e2804"><span class="section-number-3">1.4.</span> Análisis Crítico por Cantón</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 A nivel provincial, el delito suele concentrarse en los centros urbanos poblados. A continuación, se desglosa el total de robos en los cantones de la provincia más afectada.
 </p>
 
 
-<div id="org20512a6" class="figure">
+<div id="orgfaec9b0" class="figure">
 <p><img src="./images/robos_canton.png" alt="robos_canton.png" />
 </p>
 <p><span class="figure-number">Figura 3: </span>Figura 3: Cantones más vulnerables dentro de la provincia crítica.</p>
@@ -307,8 +307,8 @@ A nivel provincial, el delito suele concentrarse en los centros urbanos poblados
 </p>
 </div>
 </div>
-<div id="outline-container-org48c6f57" class="outline-3">
-<h3 id="org48c6f57"><span class="section-number-3">1.5.</span> Publicación de Recursos Visuales</h3>
+<div id="outline-container-org2038e79" class="outline-3">
+<h3 id="org2038e79"><span class="section-number-3">1.5.</span> Publicación de Recursos Visuales</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 Para que las gráficas se muestren en la web, copiamos las imágenes generadas a la carpeta pública.
@@ -325,8 +325,8 @@ Para que las gráficas se muestren en la web, copiamos las imágenes generadas a
 </div>
 </div>
 
-<div id="outline-container-org6dd1d21" class="outline-2">
-<h2 id="org6dd1d21"><span class="section-number-2">2.</span> Navegación del Proyecto</h2>
+<div id="outline-container-org569d9ab" class="outline-2">
+<h2 id="org569d9ab"><span class="section-number-2">2.</span> Navegación del Proyecto</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Para continuar navegando por el proyecto, utilice los siguientes enlaces:
@@ -340,7 +340,7 @@ Para continuar navegando por el proyecto, utilice los siguientes enlaces:
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: DESKTOP-JKLETKU</p>
-<p class="date">Created: 2026-07-15 Wed 17:39</p>
+<p class="date">Created: 2026-07-15 Wed 17:42</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
