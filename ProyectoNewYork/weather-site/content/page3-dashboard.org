@@ -1,0 +1,164 @@
+#+title: Dashboard de Robo de Vehículos
+#+language: es
+
+* Análisis de Robo de Vehículos en Ecuador
+En esta sección se presenta un análisis exploratorio de los datos proporcionados por el INEC sobre el robo de vehículos a nivel nacional, aplicando herramientas de Data Science con Python.
+
+** Carga de Datos
+A continuación, importamos el dataset limpio y verificamos su estructura general:
+
+#+begin_src python :session :results output :exports both
+import pandas as pd
+
+# Cargamos el archivo CSV (asegúrate de que el nombre coincida)
+ruta_archivo = '/home/eareal/Arquitectura-/ProyectoNewYork/robos-carros-inec.csv'
+df_robos = pd.read_csv(ruta_archivo, sep=';')
+
+# Imprimimos la cantidad de filas y columnas
+print(f"Estructura del dataset (Filas, Columnas): {df_robos.shape}")
+print("-" * 50)
+
+# Mostramos un vistazo rápido de las primeras 5 filas (solo algunas columnas para probar)
+print(df_robos.iloc[:, 0:4].head())
+#+end_src
+
+#+RESULTS:
+: Estructura del dataset (Filas, Columnas): (222, 149)
+: --------------------------------------------------
+:   Provincia de ocurrencia  Código cantón_DPA Cantón de ocurrencia  ene-14
+: 0                   Azuay              101.0               Cuenca      17
+: 1                   Azuay              102.0                Giron       0
+: 2                   Azuay              103.0             Gualaceo       0
+: 3                   Azuay              104.0                Nabon       0
+: 4                   Azuay              105.0                Paute       0
+
+** Top 10 Provincias con Mayor Índice de Robos
+Para entender la distribución espacial del delito, agrupamos los datos por provincia y sumamos la cantidad de robos reportados en todos los meses del año. A continuación, visualizamos las 10 provincias más afectadas.
+#+begin_src python :session :results output :exports both
+import matplotlib.pyplot as plt
+import os
+
+os.makedirs('./images', exist_ok=True)
+
+# 1. LIMPIEZA CLAVE: Borramos cualquier fila que diga "Total" para que no arruine los datos
+columna_provincia = df_robos.columns[0]
+df_robos = df_robos[~df_robos[columna_provincia].astype(str).str.contains('Total', case=False, na=False)]
+
+# Ahora sí, continuamos normal
+columnas_meses = df_robos.columns[3:]
+df_robos['Total_Anual'] = df_robos[columnas_meses].sum(axis=1)
+
+robos_por_provincia = df_robos.groupby(columna_provincia)['Total_Anual'].sum()
+top_10_provincias = robos_por_provincia.sort_values(ascending=False).head(10)
+
+# 2. Generación de la gráfica
+fig = plt.figure(figsize=(10, 6))
+top_10_provincias.plot(kind='bar', color='tab:red', edgecolor='black')
+
+plt.title('Top 10 Provincias con Mayor Robo de Vehículos', fontsize=14, fontweight='bold')
+plt.xlabel('Provincia', fontsize=12)
+plt.ylabel('Total de Vehículos Robados', fontsize=12)
+plt.xticks(rotation=45, ha='right')
+plt.grid(axis='y', linestyle='--', alpha=0.7)
+fig.tight_layout()
+
+plt.savefig('./images/robos_provincia.png')
+print("Gráfica de provincias corregida y generada.")
+#+end_src
+
+#+RESULTS:
+: Gráfica de provincias corregida y generada.
+
+** Tendencia Temporal (Último Año Registrado)
+Debido a la gran magnitud de datos históricos provistos por el INEC, este análisis se centra en la tendencia mensual del último año (últimos 12 meses registrados) para observar el comportamiento delictivo más reciente y mantener la legibilidad de la visualización.
+#+begin_src python :session :results output :exports both
+import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
+
+# CORRECCIÓN DEFINITIVA: Excluimos 'Total_Anual' a la fuerza antes de contar los 12 meses
+columnas_limpias = [col for col in df_robos.columns[3:] if col != 'Total_Anual']
+columnas_ultimo_anio = columnas_limpias[-12:]
+
+# Sumamos los totales nacionales de esas 12 columnas exactas
+total_mensual = df_robos[columnas_ultimo_anio].sum()
+
+# Generación de la gráfica de línea
+fig, ax = plt.subplots(figsize=(12, 6))
+ax.plot(total_mensual.index, total_mensual.values, marker='o', color='tab:red', linestyle='-', linewidth=2.5)
+
+# Zoom dinámico para el eje Y
+min_val = total_mensual.min()
+max_val = total_mensual.max()
+rango = max_val - min_val
+
+ax.set_ylim(min_val - (rango * 0.15), max_val + (rango * 0.15))
+ax.get_yaxis().set_major_formatter(ticker.FuncFormatter(lambda x, p: format(int(x), ',')))
+
+# Etiquetas con los valores exactos sobre cada punto
+for i, txt in enumerate(total_mensual.values):
+    ax.annotate(f"{int(txt):,}", 
+                (total_mensual.index[i], total_mensual.values[i]),
+                textcoords="offset points", 
+                xytext=(0, 10), 
+                ha='center', 
+                fontsize=9, 
+                fontweight='bold',
+                color='black')
+
+plt.title('Tendencia Mensual de Robos (Últimos 12 Meses)', fontsize=14, fontweight='bold')
+plt.xlabel('Mes', fontsize=12)
+plt.ylabel('Cantidad de Robos', fontsize=12)
+
+plt.xticks(rotation=45)
+plt.grid(True, linestyle='--', alpha=0.5)
+fig.tight_layout()
+
+# Guardar la imagen
+plt.savefig('./images/robos_mensuales.png')
+print("Gráfica generada: Total_Anual eliminado exitosamente.")
+#+end_src
+
+#+RESULTS:
+: Gráfica generada: Total_Anual eliminado exitosamente.
+
+** Análisis Crítico por Cantón
+A nivel provincial, el delito suele concentrarse en los centros urbanos más poblados. A continuación, se desglosa el total de robos de los cantones de la provincia más afectada.
+#+begin_src python :session :results output :exports both
+# Encontramos la provincia real con más robos
+provincia_critica = top_10_provincias.index[0]
+
+df_critica = df_robos[df_robos[columna_provincia] == provincia_critica]
+columna_canton = df_robos.columns[2]
+
+# Agrupamos por cantón
+robos_por_canton = df_critica.groupby(columna_canton)['Total_Anual'].sum().sort_values(ascending=False).head(10)
+
+fig = plt.figure(figsize=(10, 6))
+robos_por_canton.plot(kind='barh', color='tab:orange', edgecolor='black')
+
+plt.title(f'Top Cantones con Mayor Robo en {provincia_critica}', fontsize=14, fontweight='bold')
+plt.xlabel('Total de Vehículos Robados', fontsize=12)
+plt.ylabel('Cantón', fontsize=12)
+plt.grid(axis='x', linestyle='--', alpha=0.7)
+fig.tight_layout()
+
+plt.savefig('./images/robos_canton.png')
+print(f"Gráfica de cantones para {provincia_critica} generada.")
+#+end_src
+
+#+RESULTS:
+: Gráfica de cantones para Guayas generada.
+
+** Publicación de Recursos Visuales
+Al igual que en las etapas anteriores, se copian las visualizaciones generadas del dashboard al directorio público para su despliegue en la web.
+
+#+begin_src shell :results output :exports both
+cp -rfv ./images/* /home/eareal/Arquitectura-/ProyectoNewYork/weather-site/public/images
+#+end_src
+
+#+RESULTS:
+: './images/humidity.png' -> '/home/eareal/Arquitectura-/ProyectoNewYork/weather-site/public/images/humidity.png'
+: './images/robos_canton.png' -> '/home/eareal/Arquitectura-/ProyectoNewYork/weather-site/public/images/robos_canton.png'
+: './images/robos_mensuales.png' -> '/home/eareal/Arquitectura-/ProyectoNewYork/weather-site/public/images/robos_mensuales.png'
+: './images/robos_provincia.png' -> '/home/eareal/Arquitectura-/ProyectoNewYork/weather-site/public/images/robos_provincia.png'
+: './images/temperature.png' -> '/home/eareal/Arquitectura-/ProyectoNewYork/weather-site/public/images/temperature.png'

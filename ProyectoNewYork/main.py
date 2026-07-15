@@ -1,0 +1,56 @@
+import requests
+import os
+import csv
+from datetime import datetime
+
+# Coordenadas de New York
+NY_LAT = 40.7128
+NY_LONGITUDE = -74.0060
+API_KEY = "c8fb29956631fe51156dd54569038b53" 
+
+# Ruta absoluta a tu nueva carpeta
+# OJO: Cambia "tu_usuario" por tu nombre de usuario real
+BASE_DIR = "/home/eareal/Arquitectura-/ProyectoNewYork"
+FILE_NAME = os.path.join(BASE_DIR, "clima-newyork-hoy.csv")
+
+def get_weather(lat, lon, api):
+    url = f"http://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={api}&units=metric"
+    response = requests.get(url)
+    return response.json()
+
+def process(json_data):
+    normalized_dict = {
+        "fecha_hora": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "temperatura": json_data["main"]["temp"],
+        "humedad": json_data["main"]["humidity"],
+        "presion": json_data["main"]["pressure"],
+        "clima_principal": json_data["weather"][0]["main"]
+    }
+    
+    # Validamos lluvia y nieve
+    normalized_dict["lluvia_1h"] = json_data.get("rain", {}).get("1h", 0)
+    normalized_dict["nieve_1h"] = json_data.get("snow", {}).get("1h", 0)
+    
+    return normalized_dict
+
+def write2csv(normalized_dict, csv_filename):
+    file_exists = os.path.isfile(csv_filename)
+    with open(csv_filename, mode='a', newline='') as file:
+        writer = csv.DictWriter(file, fieldnames=normalized_dict.keys())
+        if not file_exists:
+            writer.writeheader()
+        writer.writerow(normalized_dict)
+
+def main():
+    print("===== Bienvenido a New York-Clima =====")
+    ny_weather = get_weather(lat=NY_LAT, lon=NY_LONGITUDE, api=API_KEY)
+    
+    if ny_weather.get('cod') == 200:
+        datos_procesados = process(ny_weather)
+        write2csv(datos_procesados, FILE_NAME)
+        print(f"Éxito: Datos guardados a las {datos_procesados['fecha_hora']}")
+    else:
+        print("Error: Ciudad no disponible o API KEY no válida")
+
+if __name__ == '__main__':
+    main()

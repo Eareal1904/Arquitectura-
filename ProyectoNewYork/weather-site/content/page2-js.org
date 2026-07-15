@@ -1,0 +1,69 @@
+#+title: Multiplicación IEEE 754
+#+language: es
+
+* Multiplicación IEEE 754 (Grupo 9)
+Como parte de los requisitos de la asignatura de Arquitectura de
+Computadores, a continuación se detalla el procedimiento para realizar
+la multiplicación de dos números de punto flotante de 32 bits bajo el
+estándar IEEE 754.
+
+** Algoritmo Matemático
+El estándar divide los 32 bits en tres secciones: 1 bit de signo, 8
+bits de exponente y 23 bits de mantisa. La multiplicación de dos
+operandos $X$ e $Y$ requiere procesar cada sección de forma
+independiente:
+
+1. **Cálculo del Signo ($S$):** Se obtiene mediante la compuerta
+   lógica XOR aplicada a los bits de signo de los operandos.  $$S =
+   S_x \oplus S_y$$
+
+2. **Cálculo del Exponente ($E$):** Se suman los exponentes de ambos
+   operandos y se resta el sesgo (bias). Para precisión simple, el
+   sesgo es $127$.  $$E = E_x + E_y - 127$$
+
+3. **Cálculo de la Mantisa ($M$):** Se multiplican las mantisas
+   asumiendo el bit implícito de normalización (el $1.$ a la izquierda
+   de la coma binaria).  $$M = (1 + M_x) \times (1 + M_y)$$
+
+Si el resultado de la multiplicación de las mantisas genera un acarreo
+(es decir, el valor es mayor o igual a 2), se debe normalizar
+desplazando la coma binaria a la izquierda y sumando $1$ al exponente
+$E$.
+
+** Demostración en Código
+El siguiente bloque de Python permite visualizar la estructura binaria
+de dos números de prueba para iniciar el proceso de multiplicación:
+
+#+begin_src python :results output :exports both :session
+import struct
+
+def obtener_bits(numero):
+    bits = struct.unpack('>I', struct.pack('>f', numero))[0]
+    binario = f"{bits:032b}"
+    return binario[0], binario[1:9], binario[9:], binario
+
+X = 5.5
+Y = -2.0
+
+s_x, exp_x, man_x, bin_x = obtener_bits(X)
+s_y, exp_y, man_y, bin_y = obtener_bits(Y)
+
+print(f"Operando X ({X}): {bin_x}")
+print(f"Operando Y ({Y}): {bin_y}")
+print("-" * 40)
+
+signo_final = int(s_x) ^ int(s_y)
+print(f"Signo resultante (XOR): {signo_final}")
+
+exp_decimal_x = int(exp_x, 2)
+exp_decimal_y = int(exp_y, 2)
+exp_final = exp_decimal_x + exp_decimal_y - 127
+print(f"Exponente resultante (con sesgo): {exp_final} -> Binario: {exp_final:08b}")
+#+end_src
+
+#+RESULTS:
+: Operando X (5.5): 01000000101100000000000000000000
+: Operando Y (-2.0): 11000000000000000000000000000000
+: ----------------------------------------
+: Signo resultante (XOR): 1
+: Exponente resultante (con sesgo): 130 -> Binario: 10000010
