@@ -10,7 +10,7 @@
 
 #+title: S12 — Soporte del SO: Memoria Virtual, Máquinas Virtuales y WSL
 #+date: 
-#+author: Leonardo Rodriguez, Evan Matango, Henry Luisa, Jonathan Pincay
+#+author: Grupo 9
 #+email: leonardo.rodriguez01@epn.edu.ec
 #+language: es
 #+select_tags: export
@@ -147,20 +147,18 @@
 
 ** Host OS y Guest OS (G9, 11, 292)
 
-*** Host OS
-:BMCOL:
+*** Host OS                                                           :BMCOL:
 :PROPERTIES:
-:BEAMER_col: 0.5
+:BEAMER_env: block
 :END:
 
 - Sistema operativo instalado físicamente.
 - Administra el hardware real.
 - Controla CPU, memoria, disco y dispositivos.
 
-*** Guest OS
-:BMCOL:
+*** Guest OS                                                          :BMCOL:
 :PROPERTIES:
-:BEAMER_col: 0.5
+:BEAMER_env: block
 :END:
 
 - Sistema operativo que se ejecuta dentro de una VM.
@@ -175,8 +173,7 @@
 
 ** Hipervisores: Tipo 1 y Tipo 2 (G9, 11, 295)
 
-***Texto
-:BMCOL:
+*** Texto                                                             :BMCOL:
 :PROPERTIES:
 :BEAMER_col: 0.45
 :END:
@@ -191,8 +188,7 @@
 - Fácil de instalar.
 - Ideal para estudiantes y pruebas.
 
-***Imagen
-:BMCOL:
+*** Imagen                                                            :BMCOL:
 :PROPERTIES:
 :BEAMER_col: 0.55
 :END:
@@ -218,30 +214,17 @@ file:images/hipervisores.png
 ** Aceleración por Hardware
 
 - La traducción de memoria puede ser costosa.
-- Los procesadores modernos incorporan soporte para
-virtualización.
+- Los procesadores modernos incorporan soporte para virtualización.
 - Intel utiliza Extended Page Tables (EPT).
 - AMD incorpora tecnologías equivalentes mediante AMD-V.
-- Estas tecnologías reducen la sobrecarga y mejoran el
-rendimiento.
+- Estas tecnologías reducen la sobrecarga y mejoran el rendimiento.
 
 ** WSL y su relación con las Máquinas Virtuales
 
 - WSL permite ejecutar Linux dentro de Windows.
 - WSL 1 no utiliza una máquina virtual.
-- WSL 2 ejecuta un kernel real de Linux mediante
-una VM ligera.
-- Utiliza Hyper-V como tecnología de
-                          virtualización.
-** WSL vs VirtualBox
-
-| VirtualBox                  | WSL 2                    |
-|-----------------------------+--------------------------|
-| VM completa                 | VM ligera                |
-| Configuración manual        | Configuración automática |
-| Mayor consumo de recursos   | Menor consumo            |
-| Puede ejecutar distintos SO | Diseñado para Linux      |
-| Uso general                 | Desarrollo de software   |
+- WSL 2 ejecuta un kernel real de Linux mediante una VM ligera.
+- Utiliza Hyper-V como tecnología de virtualización.
 
 * WSL como caso de estudio (Sección)
 
