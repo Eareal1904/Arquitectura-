@@ -1,4 +1,4 @@
-% Created 2026-07-09 Thu 22:56
+% Created 2026-07-14 Tue 21:59
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -43,9 +43,9 @@
 
 
 \section{Soporte del Sistema Operativo (Sección)}
-\label{sec:orgb4b9a69}
+\label{sec:org22763a4}
 
-\begin{frame}[label={sec:org2ebd472}]{Objetivos del SO (G9, 11, 279)}
+\begin{frame}[label={sec:orgcff286b}]{Objetivos del SO (G9, 11, 279)}
 \begin{itemize}
 \item El sistema operativo (SO) es un programa que controla la ejecución
 de aplicaciones y actúa como interfaz entre el usuario y el
@@ -60,7 +60,7 @@ para seguir gestionando el sistema.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgc5213d3}]{Funciones del SO relacionadas con memoria (G9, 11, 279)}
+\begin{frame}[label={sec:org85c7a91}]{Funciones del SO relacionadas con memoria (G9, 11, 279)}
 \begin{itemize}
 \item Existe la  mono pogramacion que se basan en la ejecucion de
 un solo proceso hasta que este termine de ejecutarse.
@@ -73,15 +73,15 @@ en espera, liberando espacio en memoria principal para nuevos
 trabajos.
 \end{itemize}
 \end{frame}
-\begin{frame}[label={sec:org41d3f0a}]{Estados de un Proceso (Planificación)}
+\begin{frame}[label={sec:org2040585}]{Estados de un Proceso (Planificación)}
 \begin{center}
 \includegraphics[width=0.85\textwidth]{images/Procesos.png}
 \end{center}
 \end{frame}
 \section{Planificación y Memoria Virtual (Sección)}
-\label{sec:org2b437dd}
+\label{sec:orgdc9e131}
 
-\begin{frame}[label={sec:org85f46e5}]{Planificación de la memoria (G9, 11, 280)}
+\begin{frame}[label={sec:orgfffcf79}]{Planificación de la memoria (G9, 11, 280)}
 \begin{itemize}
 \item \alert{Particionamiento:} Puede ser fijo (tamaños predefinidos) o dinámico
 (asignación exacta requerida). Ambos métodos generan espacios
@@ -94,7 +94,7 @@ funciones como las principales y las secundarias.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org252f7d0}]{Principios de Memoria Virtual (G9, 11, 282)}
+\begin{frame}[label={sec:orgb5d4f43}]{Principios de Memoria Virtual (G9, 11, 282)}
 \begin{itemize}
 \item Permite ejecutar un proceso sin cargar todas sus instrucciones y
 datos en la memoria principal de manera simultánea.
@@ -107,7 +107,7 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgddaddab}]{Paginación (G9, 11, 283)}
+\begin{frame}[label={sec:orgdbb5966}]{Paginación (G9, 11, 283)}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -126,9 +126,9 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{columns}
 \end{frame}
 \section{Traducción de Direcciones (Sección)}
-\label{sec:org34a640a}
+\label{sec:orgef0cb99}
 
-\begin{frame}[label={sec:org243184f}]{Traducción de direcciones virtuales a físicas (G9, 11, 285)}
+\begin{frame}[label={sec:org6df63a5}]{Traducción de direcciones virtuales a físicas (G9, 11, 285)}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -145,7 +145,7 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:org8c3a379}]{TLB (Translation Lookaside Buffer) (G9, 11, 287)}
+\begin{frame}[label={sec:org1108f7e}]{TLB (Translation Lookaside Buffer) (G9, 11, 287)}
 \begin{itemize}
 \item Toda referencia a memoria virtual implicaría dos accesos (uno a la
 tabla de páginas y otro al dato), reduciendo el rendimiento a la
@@ -159,7 +159,7 @@ la memoria RAM.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org17166fd}]{Page Faults y reemplazo de páginas (G9, 11, 290)}
+\begin{frame}[label={sec:orgf752d87}]{Page Faults y reemplazo de páginas (G9, 11, 290)}
 \begin{itemize}
 \item Si el procesador intenta acceder a una página que actualmente no se
 encuentra en la memoria principal, se produce un \alert{fallo de página}.
@@ -172,54 +172,153 @@ procesador pase todo su tiempo intercambiando páginas
 \end{itemize}
 \end{frame}
 \section{Máquinas Virtuales (Sección)}
-\label{sec:org973cf68}
+\label{sec:org70d00aa}
 
-\begin{frame}[label={sec:org838dfb6}]{Concepto de Máquina Virtual (G9, 11, 292)}
+\begin{frame}[label={sec:orge685cb3}]{¿Qué es una Máquina Virtual? (G9, 11, 292)}
 \begin{itemize}
-\item Una máquina virtual (VM) abstrae el hardware físico de un computador
-para que múltiples sistemas operativos puedan compartir los mismos
-recursos de forma simultánea.
-\item \alert{Host OS:} Es el sistema operativo físico subyacente que controla el
-hardware real.
-\item \alert{Guest OS:} Es el sistema operativo virtualizado que se ejecuta
-dentro de la máquina virtual creyendo que tiene acceso exclusivo al
-hardware.
+\item Una Máquina Virtual (VM) es un software que simula un computador
+completo.
+\item Permite ejecutar varios sistemas operativos sobre un mismo hardware físico.
+\item Cada sistema operativo invitado cree que posee CPU, memoria y disco propios.
+\item El aislamiento permite que cada VM funcione independientemente de las demás.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgd984d66}]{Hipervisores: Tipo 1 y Tipo 2 (G9, 11, 295)}
-\begin{columns}
-\begin{column}{0.4\columnwidth}
+\begin{frame}[label={sec:orgf70cce9}]{¿Por qué utilizar Máquinas Virtuales?}
 \begin{itemize}
-\item \alert{Tipo 1 (Bare Metal):} Se ejecuta directo en el hardware (ej. ESXi). Máximo rendimiento.
-\item \alert{Tipo 2 (Hosted):} Es una aplicación sobre el SO anfitrión (ej. VirtualBox).
-\item El hipervisor multiplexa CPU, memoria y E/S.
+\item Ejecutar varios sistemas operativos simultáneamente.
+\item Aprovechar mejor el hardware disponible.
+\item Probar software sin afectar el sistema principal.
+\item Crear laboratorios y entornos de desarrollo.
+\item Ejecutar aplicaciones antiguas o incompatibles.
 \end{itemize}
-\end{column}
+\end{frame}
 
-\begin{column}{0.6\columnwidth}
+\begin{frame}[label={sec:org5a6a4a6}]{Host OS y Guest OS (G9, 11, 292)}
+\begin{block}{Host OS}
+:PROPERTIES:
+:BEAMER\textsubscript{col}: 0.5
+
+\begin{itemize}
+\item Sistema operativo instalado físicamente.
+\item Administra el hardware real.
+\item Controla CPU, memoria, disco y dispositivos.
+\end{itemize}
+\end{block}
+
+\begin{block}{Guest OS}
+:PROPERTIES:
+:BEAMER\textsubscript{col}: 0.5
+
+\begin{itemize}
+\item Sistema operativo que se ejecuta dentro de una VM.
+\item Cree tener acceso exclusivo al hardware.
+\item Comparte recursos mediante el hipervisor.
+\end{itemize}
+\end{block}
+\end{frame}
+
+\begin{frame}[label={sec:orgba8add5}]{Hipervisor: ¿Qué hace?}
+\begin{itemize}
+\item Es el software encargado de crear y administrar máquinas virtuales.
+\item Distribuye CPU, memoria, almacenamiento y red.
+\item Aísla las máquinas virtuales entre sí.
+\item Permite ejecutar múltiples Guest OS simultáneamente.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgd26163d}]{Hipervisores: Tipo 1 y Tipo 2 (G9, 11, 295)}
+***Texto
+:PROPERTIES:
+:BEAMER\textsubscript{col}: 0.45
+
+\begin{itemize}
+\item \alert{Tipo 1 (Bare Metal):}
+\item Se instala directamente sobre el hardware.
+\item Mayor rendimiento.
+\item Uso común en centros de datos.
+
+\item \alert{Tipo 2 (Hosted):}
+\item Funciona como una aplicación sobre un sistema operativo.
+\item Fácil de instalar.
+\item Ideal para estudiantes y pruebas.
+\end{itemize}
+
+***Imagen
+:PROPERTIES:
+:BEAMER\textsubscript{col}: 0.55
+
 \begin{center}
 \includegraphics[width=\textwidth]{images/hipervisores.png}
 \end{center}
-\end{column}
-\end{columns}
 \end{frame}
-\begin{frame}[label={sec:org2686011}]{Virtualización de memoria (G9, 11, 298)}
+
+\begin{frame}[label={sec:orgc1e50ce}]{Comparación entre Tipo 1 y Tipo 2}
+\begin{center}
+\begin{tabular}{ll}
+Tipo 1 & Tipo 2\\[0pt]
+\hline
+Directo sobre hardware & Sobre un SO anfitrión\\[0pt]
+Máximo rendimiento & Rendimiento ligeramente menor\\[0pt]
+Empresas y servidores & Uso personal y educativo\\[0pt]
+ESXi, Hyper-V & VirtualBox, VMware Workstation\\[0pt]
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}[label={sec:org78125f1}]{Virtualización de Memoria (G9, 11, 298)}
 \begin{itemize}
-\item Añade un nivel extra de complejidad en la traducción: el Guest OS
-traduce direcciones virtuales a "direcciones físicas virtuales".
-\item El hipervisor debe atrapar estas peticiones y traducir las
-direcciones físicas virtuales a las verdaderas direcciones físicas
-reales de la máquina anfitriona.
-\item Se utilizan técnicas de hardware integradas en la CPU (como Shadow
-Page Tables o soporte Intel EPT / AMD-V) para acelerar drásticamente
-este doble mapeo.
+\item El Guest OS utiliza direcciones virtuales.
+\item Estas se convierten en direcciones físicas virtuales.
+\item El hipervisor las traduce a direcciones físicas reales.
+\item Este proceso permite compartir la memoria de forma segura.
 \end{itemize}
 \end{frame}
-\section{WSL como caso de estudio (Sección)}
-\label{sec:orgfc13bf6}
 
-\begin{frame}[label={sec:org98619b9}]{Windows Subsystem for Linux (WSL) (G9, 11, 301)}
+\begin{frame}[label={sec:org5f8e2ef}]{Aceleración por Hardware}
+\begin{itemize}
+\item La traducción de memoria puede ser costosa.
+\item Los procesadores modernos incorporan soporte para
+\end{itemize}
+virtualización.
+\begin{itemize}
+\item Intel utiliza Extended Page Tables (EPT).
+\item AMD incorpora tecnologías equivalentes mediante AMD-V.
+\item Estas tecnologías reducen la sobrecarga y mejoran el
+\end{itemize}
+rendimiento.
+\end{frame}
+
+\begin{frame}[label={sec:orga9209ff}]{WSL y su relación con las Máquinas Virtuales}
+\begin{itemize}
+\item WSL permite ejecutar Linux dentro de Windows.
+\item WSL 1 no utiliza una máquina virtual.
+\item WSL 2 ejecuta un kernel real de Linux mediante
+\end{itemize}
+una VM ligera.
+\begin{itemize}
+\item Utiliza Hyper-V como tecnología de
+virtualización.
+\end{itemize}
+\end{frame}
+\begin{frame}[label={sec:org409c960}]{WSL vs VirtualBox}
+\begin{center}
+\begin{tabular}{ll}
+VirtualBox & WSL 2\\[0pt]
+\hline
+VM completa & VM ligera\\[0pt]
+Configuración manual & Configuración automática\\[0pt]
+Mayor consumo de recursos & Menor consumo\\[0pt]
+Puede ejecutar distintos SO & Diseñado para Linux\\[0pt]
+Uso general & Desarrollo de software\\[0pt]
+\end{tabular}
+\end{center}
+\end{frame}
+
+\section{WSL como caso de estudio (Sección)}
+\label{sec:orgc804c49}
+
+\begin{frame}[label={sec:orgaac9b63}]{Windows Subsystem for Linux (WSL) (G9, 11, 301)}
 \begin{itemize}
 \item WSL es una característica de Windows que permite a los desarrolladores ejecutar un entorno GNU/Linux (herramientas CLI, utilidades y aplicaciones) de forma nativa.
 \item Evita el sobrecoste de recursos y los tiempos de arranque lentos asociados a una máquina virtual tradicional completa.
@@ -227,7 +326,7 @@ este doble mapeo.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgd26eafb}]{WSL1 vs WSL2: arquitectura (G9, 11, 303)}
+\begin{frame}[label={sec:org779ea5d}]{WSL1 vs WSL2: arquitectura (G9, 11, 303)}
 \begin{columns}
 \begin{column}{0.4\columnwidth}
 \begin{itemize}
@@ -244,7 +343,7 @@ este doble mapeo.
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:org58f3c32},fragile]{Integración con el sistema de archivos Windows (G9, 11, 305)}
+\begin{frame}[label={sec:org0ad34d8},fragile]{Integración con el sistema de archivos Windows (G9, 11, 305)}
  \begin{itemize}
 \item WSL permite acceder a los discos de Windows (C:, D:) desde Linux montándolos automáticamente en el directorio \texttt{/mnt/}.
 \item WSL2 utiliza un disco duro virtual (VHD) con formato nativo \texttt{ext4} para el sistema de archivos raíz de Linux.
@@ -252,7 +351,7 @@ este doble mapeo.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgc6a4aaf}]{WSL y memoria virtual (G9, 11, 307)}
+\begin{frame}[label={sec:orge5d2d1e}]{WSL y memoria virtual (G9, 11, 307)}
 \begin{itemize}
 \item A diferencia de las VMs de Tipo 2 tradicionales que reservan y
 bloquean un fragmento estático de RAM, la VM de WSL2 asigna y libera
@@ -263,13 +362,13 @@ aplicaciones de escritorio puedan utilizarla.
 \end{itemize}
 \end{frame}
 \section{Referencias}
-\label{sec:orgd7f9340}
+\label{sec:org11e13e1}
 \begin{frame}[allowframebreaks]{Bibliografía}
 \printbibliography
 \end{frame}
 
 \section{Indicaciones}
-\label{sec:org9d45242}
+\label{sec:org8c932e5}
 \begin{frame}[fragile,allowframebreaks]{Indicaciones}
  \begin{itemize}
 \item Recuerde que si \texttt{options: H:2}, entonces:
