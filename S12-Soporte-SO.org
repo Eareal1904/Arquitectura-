@@ -9,7 +9,7 @@
 #+beamer_header:
 
 #+title: S12 — Soporte del SO: Memoria Virtual, Máquinas Virtuales y WSL
-#+date: 
+#+date: 2026-07-15
 #+author: Grupo 9
 #+email: leonardo.rodriguez01@epn.edu.ec
 #+language: es

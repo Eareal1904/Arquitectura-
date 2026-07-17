@@ -22,7 +22,7 @@ def process(json_data):
     normalized_dict = {
         "fecha_hora": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "temperatura": json_data["main"]["temp"],
-        "humedad": json_data["main"]["humidity"],
+       "humedad": json_data["main"]["humidity"],
         "presion": json_data["main"]["pressure"],
         "clima_principal": json_data["weather"][0]["main"]
     }
