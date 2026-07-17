@@ -97,36 +97,72 @@
 :PROPERTIES:
 :BEAMER_col: 0.5
 :END:
-- Direcciones lógicas: Número de página + desplazamiento.
-- Direcciones físicas: Marco de página + desplazamiento.
-- La CPU usa la tabla de páginas del proceso actual para hacer la traducción en tiempo real.
+- La dirección lógica (virtual) consta de un número de página y un desplazamiento[cite: 1, 2].
+- La dirección física real consta de un número de marco y un desplazamiento[cite: 1, 2].
+- El procesador utiliza la tabla de páginas para producir la dirección física a partir de la lógica[cite: 1, 2].
 
 *** Imagen                                          :BMCOL:
 :PROPERTIES:
 :BEAMER_col: 0.5
 :END:
 #+attr_latex: :width \textwidth
-[[file:images/traduccion_direcciones.png]]
+[[file:images/Figura_8_16.png]]
+
+** El Principio de Localidad
+- Durante la ejecución, los programas confinan su actividad a una pequeña sección del programa o de los datos.
+- Este comportamiento fundamental se conoce como el principio de localidad.
+- Permite cargar solo unas pocas páginas en lugar del proceso entero, haciendo un uso más eficiente de la memoria principal.
+
 ** TLB (Translation Lookaside Buffer) (G9, 11, 287)
-- Toda referencia a memoria virtual implicaría dos accesos (uno a la
-  tabla de páginas y otro al dato), reduciendo el rendimiento a la
-  mitad.
-- El TLB soluciona esto actuando como una caché especial de alta
-  velocidad que almacena las entradas de la tabla de páginas usadas
-  más recientemente.
-- Si hay un acierto en el TLB, la dirección física se genera de
-  inmediato sin necesidad de consultar la tabla de páginas alojada en
-  la memoria RAM.
+- Un esquema de memoria virtual directo duplica el tiempo de acceso a memoria, requiriendo un acceso a la tabla y otro al dato.
+- Para superarlo, se usa un caché especial llamado buffer de traducción anticipada o TLB.
+- El TLB almacena las entradas de la tabla de páginas usadas más recientemente.
+- Debido al principio de localidad, la mayoría de las referencias a memoria encontrarán su traducción rápidamente en el TLB.
+
+** Tabla de Páginas Invertida
+*** Texto                                                           :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+- Es una alternativa para sistemas con enormes espacios de direcciones virtuales.
+- Utiliza una función de dispersión (hash) basada en el número de página virtual.
+- Existe un único elemento en la tabla por cada marco de memoria física real, ahorrando espacio independientemente de los procesos.
+
+*** Imagen                                                          :BMCOL:
+:PROPERTIES:
+:BEAMER_col: 0.5
+:END:
+#+attr_latex: :width \textwidth
+[[file:images/traduccion_direcciones.png]]
 
 ** Page Faults y reemplazo de páginas (G9, 11, 290)
-- Si el procesador intenta acceder a una página que actualmente no se
-  encuentra en la memoria principal, se produce un *fallo de página*.
-- El sistema operativo interviene, trae la página solicitada desde el
-  almacenamiento masivo (disco) y actualiza la tabla de páginas.
-- *Reemplazo:* Si la memoria está llena, el SO debe predecir y sacar
-  la página con menor probabilidad de uso futuro, evitando que el
-  procesador pase todo su tiempo intercambiando páginas
-  (hiperpaginación).
+- Con la paginación por demanda, cada página se trae a memoria solo cuando se necesita.
+- Si el procesador hace referencia a una página que no está en memoria principal, se produce un fallo de página (page fault).
+- El SO indica al procesador que lea la página del disco y actualiza la tabla de páginas.
+
+** Algoritmos de Reemplazo e Hiperpaginación
+- Al traer una página nueva a una memoria llena, el SO debe reemplazar (sacar) otra página.
+- Si se expulsa una página que se utilizará casi inmediatamente, el sistema gastará su tiempo intercambiando páginas en lugar de ejecutar código.
+- Esta condición crítica se conoce como hiperpaginación o thrashing.
+- Se busca evitar esto con algoritmos predictivos como el de "menos recientemente usada" (LRU).
+
+** Segmentación de Memoria
+- A diferencia de la paginación, la segmentación divide la memoria en espacios dinámicos y de tamaño variable.
+- Este esquema suele ser visible para el programador.
+- Simplifica el manejo de estructuras de datos crecientes, facilita la compartición de código y permite asignar privilegios de acceso.
+
+** Segmentación + Paginación (Caso x86/Pentium)
+- Procesadores como el Intel x86 combinan las ventajas de ambos métodos.
+- El mecanismo de segmentación mapea una dirección virtual a una dirección lineal.
+- Posteriormente, el mecanismo de paginación traduce esa dirección lineal a una dirección física real.
+- El SO gestiona la asignación física de esas páginas en marcos de memoria.
+
+** Protección de Memoria y Niveles de Privilegio
+- El hardware asocia niveles de privilegio y atributos de acceso a cada segmento o página.
+- Existen 4 niveles de privilegio, desde el más protegido (Nivel 0) para control de memoria, hasta el menos protegido (Nivel 3) para aplicaciones.
+- Los atributos especifican permisos como solo lectura o lectura/escritura.
+- Si un programa intenta un acceso no autorizado, el hardware detecta el error y transfiere el control al sistema operativo.
+
 * Máquinas Virtuales (Sección)
 
 ** ¿Qué es una Máquina Virtual? (G9, 11, 292)
