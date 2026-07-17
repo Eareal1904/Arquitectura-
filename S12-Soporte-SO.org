@@ -111,11 +111,6 @@
 #+attr_latex: :width \textwidth
 [[file:images/Figura_8_16.png]]
 
-** El Principio de Localidad
-- Durante la ejecución, los programas confinan su actividad a una pequeña sección del programa o de los datos.
-- Este comportamiento fundamental se conoce como el principio de localidad.
-- Permite cargar solo unas pocas páginas en lugar del proceso entero, haciendo un uso más eficiente de la memoria principal.
-
 ** TLB (Translation Lookaside Buffer) (G9, 11, 287)
 - Un esquema de memoria virtual directo duplica el tiempo de acceso a memoria, requiriendo un acceso a la tabla y otro al dato.
 - Para superarlo, se usa un caché especial llamado buffer de traducción anticipada o TLB.
