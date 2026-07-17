@@ -1,4 +1,4 @@
-% Created 2026-07-17 Fri 00:52
+% Created 2026-07-17 Fri 01:11
 % Intended LaTeX compiler: pdflatex
 \documentclass[presentation]{beamer}
 \usepackage[utf8]{inputenc}
@@ -43,9 +43,9 @@
 
 
 \section{Soporte del Sistema Operativo (Sección)}
-\label{sec:orga5ee69c}
+\label{sec:org3bf3d78}
 
-\begin{frame}[label={sec:orgb52f15c}]{Objetivos del SO (G9, 11, 279)}
+\begin{frame}[label={sec:org5896784}]{Objetivos del SO (G9, 11, 279)}
 \begin{itemize}
 \item El sistema operativo (SO) es un programa que controla la ejecución
 de aplicaciones y actúa como interfaz entre el usuario y el
@@ -60,7 +60,7 @@ para seguir gestionando el sistema.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgfd5e56f}]{Funciones del SO relacionadas con memoria (G9, 11, 279)}
+\begin{frame}[label={sec:org11e3935}]{Funciones del SO relacionadas con memoria (G9, 11, 279)}
 \begin{itemize}
 \item Existe la  mono pogramacion que se basan en la ejecucion de
 un solo proceso hasta que este termine de ejecutarse.
@@ -73,15 +73,15 @@ en espera, liberando espacio en memoria principal para nuevos
 trabajos.
 \end{itemize}
 \end{frame}
-\begin{frame}[label={sec:org8837a6a}]{Estados de un Proceso (Planificación)}
+\begin{frame}[label={sec:orgf55fa89}]{Estados de un Proceso (Planificación)}
 \begin{center}
 \includegraphics[width=0.85\textwidth]{images/Procesos.png}
 \end{center}
 \end{frame}
 \section{Planificación y Memoria Virtual (Sección)}
-\label{sec:org04a9d0a}
+\label{sec:org429ac58}
 
-\begin{frame}[label={sec:orgbb98d3d}]{Planificación de la memoria (G9, 11, 280)}
+\begin{frame}[label={sec:org5764b37}]{Planificación de la memoria (G9, 11, 280)}
 \begin{itemize}
 \item \alert{Particionamiento:} Puede ser fijo (tamaños predefinidos) o dinámico
 (asignación exacta requerida). Ambos métodos generan espacios
@@ -94,7 +94,7 @@ funciones como las principales y las secundarias.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org1771747}]{Principios de Memoria Virtual (G9, 11, 282)}
+\begin{frame}[label={sec:orgb3ccbf0}]{Principios de Memoria Virtual (G9, 11, 282)}
 \begin{itemize}
 \item Permite ejecutar un proceso sin cargar todas sus instrucciones y
 datos en la memoria principal de manera simultánea.
@@ -107,7 +107,7 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgcf91c9d}]{Paginación (G9, 11, 283)}
+\begin{frame}[label={sec:org5103c8f}]{Paginación (G9, 11, 283)}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -125,15 +125,15 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:orgf4927a2}]{Esquema Detallado Paginacion:}
+\begin{frame}[label={sec:org4d8bb30}]{Esquema Detallado Paginacion:}
 \begin{center}
 \includegraphics[width=0.65\textwidth]{images/Figura_8_15.png}
 \end{center}
 \end{frame}
 \section{Traducción de Direcciones (Sección)}
-\label{sec:org686790b}
+\label{sec:orgbbdffbd}
 
-\begin{frame}[label={sec:org114ee0e}]{Traducción de direcciones virtuales a físicas (G9, 11, 285)}
+\begin{frame}[label={sec:org98a426e}]{Traducción de direcciones virtuales a físicas (G9, 11, 285)}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -151,16 +151,7 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org8548db2}]{TLB (Translation Lookaside Buffer) (G9, 11, 287)}
-\begin{itemize}
-\item Un esquema de memoria virtual directo duplica el tiempo de acceso a memoria, requiriendo un acceso a la tabla y otro al dato.
-\item Para superarlo, se usa un caché especial llamado buffer de traducción anticipada o TLB.
-\item El TLB almacena las entradas de la tabla de páginas usadas más recientemente.
-\item Debido al principio de localidad, la mayoría de las referencias a memoria encontrarán su traducción rápidamente en el TLB.
-\end{itemize}
-\end{frame}
-
-\begin{frame}[label={sec:org7830d85}]{Tabla de Páginas Invertida}
+\begin{frame}[label={sec:orgaab0e52}]{Tabla de Páginas Invertida}
 \begin{columns}
 \begin{column}{0.5\columnwidth}
 \begin{itemize}
@@ -178,7 +169,16 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org396ab80}]{Page Faults y reemplazo de páginas (G9, 11, 290)}
+\begin{frame}[label={sec:org2f18572}]{TLB (Translation Lookaside Buffer) (G9, 11, 287)}
+\begin{itemize}
+\item Un esquema de memoria virtual directo duplica el tiempo de acceso a memoria, requiriendo un acceso a la tabla y otro al dato.
+\item Para superarlo, se usa un caché especial llamado buffer de traducción anticipada o TLB.
+\item El TLB almacena las entradas de la tabla de páginas usadas más recientemente.
+\item Debido al principio de localidad, la mayoría de las referencias a memoria encontrarán su traducción rápidamente en el TLB.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[label={sec:orgba3662c}]{Page Faults y reemplazo de páginas (G9, 11, 290)}
 \begin{itemize}
 \item Con la paginación por demanda, cada página se trae a memoria solo cuando se necesita.
 \item Si el procesador hace referencia a una página que no está en memoria principal, se produce un fallo de página (page fault).
@@ -186,7 +186,7 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org56b7576}]{Algoritmos de Reemplazo e Hiperpaginación}
+\begin{frame}[label={sec:org9577498}]{Algoritmos de Reemplazo e Hiperpaginación}
 \begin{itemize}
 \item Al traer una página nueva a una memoria llena, el SO debe reemplazar (sacar) otra página.
 \item Si se expulsa una página que se utilizará casi inmediatamente, el sistema gastará su tiempo intercambiando páginas en lugar de ejecutar código.
@@ -195,7 +195,7 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org6102542}]{Ventajas de la Segmentación}
+\begin{frame}[label={sec:orgbafa972}]{Ventajas de la Segmentación}
 \begin{itemize}
 \item Como ya mencionamos, divide la memoria en espacios dinámicos, pero su gran diferencia es que este esquema suele ser visible para el programador.
 \item Simplifica el manejo de estructuras de datos que crecen o se encogen dinámicamente.
@@ -204,7 +204,7 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org35493f7}]{Segmentación + Paginación (Caso x86/Pentium)}
+\begin{frame}[label={sec:org1ba3376}]{Segmentación + Paginación (Caso x86/Pentium)}
 \begin{itemize}
 \item Procesadores como el Intel x86 combinan las ventajas de ambos métodos.
 \item El mecanismo de segmentación mapea una dirección virtual a una dirección lineal.
@@ -213,7 +213,7 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org0bdca0d}]{Protección de Memoria y Niveles de Privilegio}
+\begin{frame}[label={sec:org672e264}]{Protección de Memoria y Niveles de Privilegio}
 \begin{itemize}
 \item El hardware asocia niveles de privilegio y atributos de acceso a cada segmento o página.
 \item Existen 4 niveles de privilegio, desde el más protegido (Nivel 0) para control de memoria, hasta el menos protegido (Nivel 3) para aplicaciones.
@@ -223,9 +223,9 @@ en disco) sin preocuparse por los límites de la memoria real
 \end{frame}
 
 \section{Máquinas Virtuales (Sección)}
-\label{sec:orgab19156}
+\label{sec:org74515da}
 
-\begin{frame}[label={sec:orgd99f87f}]{¿Qué es una Máquina Virtual? (G9, 11, 292)}
+\begin{frame}[label={sec:org07adf39}]{¿Qué es una Máquina Virtual? (G9, 11, 292)}
 \begin{itemize}
 \item Una Máquina Virtual (VM) es un software que simula un computador
 completo.
@@ -235,7 +235,7 @@ completo.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org013ff46}]{¿Por qué utilizar Máquinas Virtuales?}
+\begin{frame}[label={sec:org650677e}]{¿Por qué utilizar Máquinas Virtuales?}
 \begin{itemize}
 \item Ejecutar varios sistemas operativos simultáneamente.
 \item Aprovechar mejor el hardware disponible.
@@ -245,7 +245,7 @@ completo.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org6a338b2}]{Host OS y Guest OS (G9, 11, 292)}
+\begin{frame}[label={sec:org6d6bc77}]{Host OS y Guest OS (G9, 11, 292)}
 \begin{block}{Host OS}
 \begin{itemize}
 \item Sistema operativo instalado físicamente.
@@ -263,7 +263,7 @@ completo.
 \end{block}
 \end{frame}
 
-\begin{frame}[label={sec:orgb8b496c}]{Hipervisor: ¿Qué hace?}
+\begin{frame}[label={sec:orgb5ef921}]{Hipervisor: ¿Qué hace?}
 \begin{itemize}
 \item Es el software encargado de crear y administrar máquinas virtuales.
 \item Distribuye CPU, memoria, almacenamiento y red.
@@ -272,7 +272,7 @@ completo.
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgddfa73d}]{Hipervisores: Tipo 1 y Tipo 2 (G9, 11, 295)}
+\begin{frame}[label={sec:org5494461}]{Hipervisores: Tipo 1 y Tipo 2 (G9, 11, 295)}
 \begin{columns}
 \begin{column}{0.45\columnwidth}
 \begin{itemize}
@@ -296,7 +296,7 @@ completo.
 \end{columns}
 \end{frame}
 
-\begin{frame}[label={sec:org964dab2}]{Comparación entre Tipo 1 y Tipo 2}
+\begin{frame}[label={sec:org169841a}]{Comparación entre Tipo 1 y Tipo 2}
 \begin{center}
 \begin{tabular}{ll}
 Tipo 1 & Tipo 2\\[0pt]
@@ -309,7 +309,7 @@ ESXi, Hyper-V & VirtualBox, VMware Workstation\\[0pt]
 \end{center}
 \end{frame}
 
-\begin{frame}[label={sec:org39586c0}]{Virtualización de Memoria (G9, 11, 298)}
+\begin{frame}[label={sec:orgce8ebcb}]{Virtualización de Memoria (G9, 11, 298)}
 \begin{itemize}
 \item El Guest OS utiliza direcciones virtuales.
 \item Estas se convierten en direcciones físicas virtuales.
@@ -318,7 +318,7 @@ ESXi, Hyper-V & VirtualBox, VMware Workstation\\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orgf3c22f2}]{Aceleración por Hardware}
+\begin{frame}[label={sec:org5834e42}]{Aceleración por Hardware}
 \begin{itemize}
 \item La traducción de memoria puede ser costosa.
 \item Los procesadores modernos incorporan soporte para virtualización.
@@ -328,7 +328,7 @@ ESXi, Hyper-V & VirtualBox, VMware Workstation\\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:orga792dd8}]{WSL y su relación con las Máquinas Virtuales}
+\begin{frame}[label={sec:org2c69990}]{WSL y su relación con las Máquinas Virtuales}
 \begin{itemize}
 \item WSL permite ejecutar Linux dentro de Windows.
 \item WSL 1 no utiliza una máquina virtual.
@@ -338,9 +338,9 @@ ESXi, Hyper-V & VirtualBox, VMware Workstation\\[0pt]
 \end{frame}
 
 \section{WSL como caso de estudio (Sección)}
-\label{sec:orgad8c813}
+\label{sec:org2d98ee8}
 
-\begin{frame}[label={sec:org495001f}]{Windows Subsystem for Linux (WSL) (G9, 11, 301)}
+\begin{frame}[label={sec:org7b181e5}]{Windows Subsystem for Linux (WSL) (G9, 11, 301)}
 \begin{itemize}
 \item WSL es una característica de Windows que permite a los desarrolladores ejecutar un entorno GNU/Linux (herramientas CLI, utilidades y aplicaciones) de forma nativa.
 \item Evita el sobrecoste de recursos y los tiempos de arranque lentos asociados a una máquina virtual tradicional completa.
@@ -348,7 +348,7 @@ ESXi, Hyper-V & VirtualBox, VMware Workstation\\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org3f4f064}]{WSL1 vs WSL2: arquitectura (G9, 11, 303)}
+\begin{frame}[label={sec:orgf890489}]{WSL1 vs WSL2: arquitectura (G9, 11, 303)}
 \begin{columns}
 \begin{column}{0.4\columnwidth}
 \begin{itemize}
@@ -365,7 +365,7 @@ ESXi, Hyper-V & VirtualBox, VMware Workstation\\[0pt]
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:orgafc2160},fragile]{Integración con el sistema de archivos Windows (G9, 11, 305)}
+\begin{frame}[label={sec:org7bf2349},fragile]{Integración con el sistema de archivos Windows (G9, 11, 305)}
  \begin{itemize}
 \item WSL permite acceder a los discos de Windows (C:, D:) desde Linux montándolos automáticamente en el directorio \texttt{/mnt/}.
 \item WSL2 utiliza un disco duro virtual (VHD) con formato nativo \texttt{ext4} para el sistema de archivos raíz de Linux.
@@ -373,7 +373,7 @@ ESXi, Hyper-V & VirtualBox, VMware Workstation\\[0pt]
 \end{itemize}
 \end{frame}
 
-\begin{frame}[label={sec:org6cb0ed9}]{WSL y memoria virtual (G9, 11, 307)}
+\begin{frame}[label={sec:org7576f45}]{WSL y memoria virtual (G9, 11, 307)}
 \begin{itemize}
 \item A diferencia de las VMs de Tipo 2 tradicionales que reservan y
 bloquean un fragmento estático de RAM, la VM de WSL2 asigna y libera
@@ -384,13 +384,13 @@ aplicaciones de escritorio puedan utilizarla.
 \end{itemize}
 \end{frame}
 \section{Referencias}
-\label{sec:org24ec2b0}
+\label{sec:org8a90a9c}
 \begin{frame}[allowframebreaks]{Bibliografía}
 \printbibliography
 \end{frame}
 
 \section{Indicaciones}
-\label{sec:org116e6d8}
+\label{sec:orgbe3ab90}
 \begin{frame}[fragile,allowframebreaks]{Indicaciones}
  \begin{itemize}
 \item Recuerde que si \texttt{options: H:2}, entonces:

@@ -111,12 +111,6 @@
 #+attr_latex: :width \textwidth
 [[file:images/Figura_8_16.png]]
 
-** TLB (Translation Lookaside Buffer) (G9, 11, 287)
-- Un esquema de memoria virtual directo duplica el tiempo de acceso a memoria, requiriendo un acceso a la tabla y otro al dato.
-- Para superarlo, se usa un caché especial llamado buffer de traducción anticipada o TLB.
-- El TLB almacena las entradas de la tabla de páginas usadas más recientemente.
-- Debido al principio de localidad, la mayoría de las referencias a memoria encontrarán su traducción rápidamente en el TLB.
-
 ** Tabla de Páginas Invertida
 *** Texto                                                           :BMCOL:
 :PROPERTIES:
@@ -132,6 +126,12 @@
 :END:
 #+attr_latex: :width \textwidth
 [[file:images/traduccion_direcciones.png]]
+
+** TLB (Translation Lookaside Buffer) (G9, 11, 287)
+- Un esquema de memoria virtual directo duplica el tiempo de acceso a memoria, requiriendo un acceso a la tabla y otro al dato.
+- Para superarlo, se usa un caché especial llamado buffer de traducción anticipada o TLB.
+- El TLB almacena las entradas de la tabla de páginas usadas más recientemente.
+- Debido al principio de localidad, la mayoría de las referencias a memoria encontrarán su traducción rápidamente en el TLB.
 
 ** Page Faults y reemplazo de páginas (G9, 11, 290)
 - Con la paginación por demanda, cada página se trae a memoria solo cuando se necesita.
