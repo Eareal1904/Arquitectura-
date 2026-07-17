@@ -202,3 +202,5 @@ Traceback (most recent call last):
 FileNotFoundError: [Errno 2] No such file or directory: '/home/eareal/Arquitectura-/ProyectoNewYork/clima-newyork-hoy.csv'
 ===== Bienvenido a New York-Clima =====
 Éxito: Datos guardados a las 2026-07-16 23:15:03
+===== Bienvenido a New York-Clima =====
+Éxito: Datos guardados a las 2026-07-16 23:30:04

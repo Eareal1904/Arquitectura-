@@ -90,6 +90,9 @@
 :END:
 #+attr_latex: :width 0.9\textwidth
 [[file:images/figura_8_14.png]]
+** Esquema Detallado Paginacion:
+#+attr_latex: :width 0.65\textwidth :center t
+[[file:images/Figura_8_14.png]]
 * Traducción de Direcciones (Sección)
 
 ** Traducción de direcciones virtuales a físicas (G9, 11, 285)
