@@ -146,10 +146,11 @@
 - Esta condición crítica se conoce como hiperpaginación o thrashing.
 - Se busca evitar esto con algoritmos predictivos como el de "menos recientemente usada" (LRU).
 
-** Segmentación de Memoria
-- A diferencia de la paginación, la segmentación divide la memoria en espacios dinámicos y de tamaño variable.
-- Este esquema suele ser visible para el programador.
-- Simplifica el manejo de estructuras de datos crecientes, facilita la compartición de código y permite asignar privilegios de acceso.
+** Ventajas de la Segmentación
+- Como ya mencionamos, divide la memoria en espacios dinámicos, pero su gran diferencia es que este esquema suele ser visible para el programador.
+- Simplifica el manejo de estructuras de datos que crecen o se encogen dinámicamente.
+- Facilita la compartición de código y utilidades entre diferentes procesos de forma segura.
+- Permite asignar de manera más natural los privilegios y atributos de protección a cada bloque de memoria.
 
 ** Segmentación + Paginación (Caso x86/Pentium)
 - Procesadores como el Intel x86 combinan las ventajas de ambos métodos.
