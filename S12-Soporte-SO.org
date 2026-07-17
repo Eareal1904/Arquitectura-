@@ -97,9 +97,9 @@
 :PROPERTIES:
 :BEAMER_col: 0.5
 :END:
-- La dirección lógica (virtual) consta de un número de página y un desplazamiento[cite: 1, 2].
-- La dirección física real consta de un número de marco y un desplazamiento[cite: 1, 2].
-- El procesador utiliza la tabla de páginas para producir la dirección física a partir de la lógica[cite: 1, 2].
+- La dirección lógica (virtual) consta de un número de página y un desplazamiento.
+- La dirección física real consta de un número de marco y un desplazamiento.
+- El procesador utiliza la tabla de páginas para producir la dirección física a partir de la lógica.
 
 *** Imagen                                          :BMCOL:
 :PROPERTIES:
