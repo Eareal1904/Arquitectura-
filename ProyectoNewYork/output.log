@@ -122,51 +122,83 @@
 Éxito: Datos guardados a las 2026-07-15 17:15:04
 ===== Bienvenido a New York-Clima =====
 Éxito: Datos guardados a las 2026-07-15 17:30:03
+/home/evanmh-epn/Arquitectura-/ProyectoNewYork/get-weather.sh: line 5: x: command not found
 ===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 17:45:02
+Traceback (most recent call last):
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 56, in <module>
+    main()
+    ~~~~^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 50, in main
+    write2csv(datos_procesados, FILE_NAME)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 38, in write2csv
+    with open(csv_filename, mode='a', newline='') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/eareal/Arquitectura-/ProyectoNewYork/clima-newyork-hoy.csv'
+/home/evanmh-epn/Arquitectura-/ProyectoNewYork/get-weather.sh: line 5: x: command not found
 ===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 18:00:03
+Traceback (most recent call last):
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 56, in <module>
+    main()
+    ~~~~^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 50, in main
+    write2csv(datos_procesados, FILE_NAME)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 38, in write2csv
+    with open(csv_filename, mode='a', newline='') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/eareal/Arquitectura-/ProyectoNewYork/clima-newyork-hoy.csv'
+/home/evanmh-epn/Arquitectura-/ProyectoNewYork/get-weather.sh: line 5: x: command not found
 ===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 18:15:02
+Traceback (most recent call last):
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 56, in <module>
+    main()
+    ~~~~^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 50, in main
+    write2csv(datos_procesados, FILE_NAME)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 38, in write2csv
+    with open(csv_filename, mode='a', newline='') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/eareal/Arquitectura-/ProyectoNewYork/clima-newyork-hoy.csv'
+/home/evanmh-epn/Arquitectura-/ProyectoNewYork/get-weather.sh: line 5: x: command not found
 ===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 18:30:02
+Traceback (most recent call last):
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 56, in <module>
+    main()
+    ~~~~^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 50, in main
+    write2csv(datos_procesados, FILE_NAME)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 38, in write2csv
+    with open(csv_filename, mode='a', newline='') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/eareal/Arquitectura-/ProyectoNewYork/clima-newyork-hoy.csv'
+/home/evanmh-epn/Arquitectura-/ProyectoNewYork/get-weather.sh: line 5: x: command not found
 ===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 18:45:05
+Traceback (most recent call last):
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 56, in <module>
+    main()
+    ~~~~^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 50, in main
+    write2csv(datos_procesados, FILE_NAME)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 38, in write2csv
+    with open(csv_filename, mode='a', newline='') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/eareal/Arquitectura-/ProyectoNewYork/clima-newyork-hoy.csv'
+/home/evanmh-epn/Arquitectura-/ProyectoNewYork/get-weather.sh: line 5: x: command not found
 ===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 19:00:01
+Traceback (most recent call last):
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 56, in <module>
+    main()
+    ~~~~^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 50, in main
+    write2csv(datos_procesados, FILE_NAME)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/evanmh-epn/Arquitectura-/ProyectoNewYork/main.py", line 38, in write2csv
+    with open(csv_filename, mode='a', newline='') as file:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/eareal/Arquitectura-/ProyectoNewYork/clima-newyork-hoy.csv'
 ===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 19:15:03
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 19:30:02
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 19:45:02
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 20:00:03
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 20:15:03
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 20:30:01
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 20:45:04
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 21:00:01
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 21:15:03
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 21:30:02
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 21:45:01
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 22:00:06
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-15 22:15:02
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-16 07:15:03
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-16 07:30:02
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-16 07:45:03
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-16 08:00:03
-===== Bienvenido a New York-Clima =====
-Éxito: Datos guardados a las 2026-07-16 08:45:02
+Éxito: Datos guardados a las 2026-07-16 23:15:03
